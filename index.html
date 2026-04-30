@@ -326,15 +326,6 @@
       margin-bottom: 10px;
     }
 
-    .tour-option ul {
-      padding-left: 20px;
-      margin-top: 8px;
-    }
-
-    .tour-option li {
-      margin-bottom: 5px;
-    }
-
     .tour-route {
       font-size: 14px;
       font-style: italic;
@@ -523,19 +514,25 @@
 
         <div class="tour-card">
 
-          <img class="tour-cover" src="GOLFCART%20TOUR%20VERONA%20ING.png" alt="Verona by Golf Cart - Hotel San Luca">
+          <img
+            id="tourCover"
+            class="tour-cover"
+            src="GOLFCART%20TOUR%20VERONA%20ITA.png"
+            alt="Verona in Golf Cart - Hotel San Luca"
+          >
 
           <div class="tour-content">
 
             <div class="tour-header-row">
-              <div class="tour-title">
+              <div class="tour-title" id="tourMainTitle">
                 Verona in Golf Cart
               </div>
 
               <div class="language-box">
                 <label for="tourLanguage">Lingua:</label>
+
                 <select id="tourLanguage" onchange="changeTourLanguage()">
-                  <option value="it">Italiano</option>
+                  <option value="it" selected>Italiano</option>
                   <option value="en">English</option>
                 </select>
               </div>
@@ -684,15 +681,29 @@
       var select = document.getElementById("tourLanguage");
       var itPanel = document.getElementById("tourIt");
       var enPanel = document.getElementById("tourEn");
+      var tourCover = document.getElementById("tourCover");
+      var tourMainTitle = document.getElementById("tourMainTitle");
 
       if (select.value === "it") {
         itPanel.classList.add("active");
         enPanel.classList.remove("active");
+
+        tourCover.src = "GOLFCART%20TOUR%20VERONA%20ITA.png";
+        tourCover.alt = "Verona in Golf Cart - Hotel San Luca";
+        tourMainTitle.innerHTML = "Verona in Golf Cart";
       } else {
         enPanel.classList.add("active");
         itPanel.classList.remove("active");
+
+        tourCover.src = "GOLFCART%20TOUR%20VERONA%20ING.png";
+        tourCover.alt = "Verona by Golf Cart - Hotel San Luca";
+        tourMainTitle.innerHTML = "Verona by Golf Cart";
       }
     }
+
+    window.addEventListener("load", function() {
+      changeTourLanguage();
+    });
   </script>
 
 </body>
