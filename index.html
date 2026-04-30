@@ -185,38 +185,6 @@
       font-size: 19px;
     }
 
-    .download-box {
-      background: #f8f2ec;
-      border: 1px solid #d4b89e;
-      border-radius: 8px;
-      padding: 22px;
-      margin-top: 18px;
-      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.12);
-    }
-
-    .download-box h3 {
-      color: #5b3d2d;
-      font-size: 21px;
-      margin-bottom: 8px;
-    }
-
-    .download-button {
-      display: inline-block;
-      margin-top: 14px;
-      background: #b88b6a;
-      color: #fff;
-      padding: 13px 20px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 17px;
-      letter-spacing: 0.5px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-    }
-
-    .download-button:hover {
-      background: #8a5f45;
-    }
-
     .price-list {
       width: 100%;
       border-collapse: collapse;
@@ -392,6 +360,68 @@
       font-size: 20px;
     }
 
+    .tourism-box {
+      background: #fff8f0;
+      border: 2px solid #b88b6a;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 20px;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
+    }
+
+    .tourism-box h3 {
+      font-size: 23px;
+      color: #5b3d2d;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .tourism-box p {
+      font-size: 17px;
+      margin-bottom: 18px;
+    }
+
+    .pdf-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .pdf-button {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #b88b6a;
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 18px;
+      border-radius: 6px;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+
+    .pdf-button:hover {
+      background: #8a5f45;
+      color: #fff;
+    }
+
+    .pdf-button.dark {
+      background: #3b2a22;
+    }
+
+    .pdf-button.dark:hover {
+      background: #5b3d2d;
+    }
+
+    .small-note {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #6b4b37;
+    }
+
     footer {
       text-align: center;
       padding: 25px 15px;
@@ -438,6 +468,11 @@
 
       .booking-strip {
         font-size: 16px;
+      }
+
+      .pdf-button {
+        font-size: 16px;
+        padding: 15px;
       }
     }
   </style>
@@ -708,15 +743,26 @@
           parcheggi, numeri utili e informazioni per muoversi in città.
         </p>
 
-        <div class="download-box">
+        <div class="tourism-box">
           <h3>Cartina turistica di Verona</h3>
+
           <p>
-            Apri o scarica il PDF con la mappa della città e le informazioni utili.
+            Qui puoi aprire oppure scaricare la mappa PDF di Verona.
           </p>
 
-          <a class="download-button" href="Cartina verona&amp;info.pdf" target="_blank" download>
-            Scarica la mappa PDF
-          </a>
+          <div class="pdf-buttons">
+            <a class="pdf-button" href="Cartina%20verona%26info.pdf" target="_blank">
+              Apri la mappa PDF
+            </a>
+
+            <a class="pdf-button dark" href="Cartina%20verona%26info.pdf" download>
+              Scarica la mappa PDF
+            </a>
+          </div>
+
+          <div class="small-note">
+            Se il download non parte subito, il PDF si aprirà nel browser e potrai salvarlo da lì.
+          </div>
         </div>
       </section>
 
