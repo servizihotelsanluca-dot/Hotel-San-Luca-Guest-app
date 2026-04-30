@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hotel San Luca - Guest App</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f4eee8;
+      color: #3b2a22;
+      line-height: 1.6;
+    }
+
+    .app {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(45, 32, 25, 0.62), rgba(45, 32, 25, 0.62)),
+        url("https://static.wixstatic.com/media/4be999_620f100d135d44fcb05e0bb1c65c1455~mv2.jpg") center/cover no-repeat fixed;
+    }
+
+    header {
+      padding: 24px 18px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .logo-box {
+      width: 145px;
+      height: 145px;
+      margin: 0 auto 15px auto;
+      background: rgba(185, 143, 111, 0.92);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
+
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    header h1 {
+      font-size: 31px;
+      letter-spacing: 2px;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+
+    header p {
+      font-size: 15px;
+      margin-top: 5px;
+      letter-spacing: 1px;
+    }
+
+    .menu-wrapper {
+      width: 92%;
+      max-width: 480px;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    .menu-button {
+      background: #b88b6a;
+      color: #fff;
+      padding: 16px 18px;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .menu-button::after {
+      content: " ▼";
+      font-size: 13px;
+    }
+
+    .dropdown {
+      list-style: none;
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 0 0 4px 4px;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    }
+
+    .menu-wrapper:hover .dropdown {
+      max-height: 280px;
+    }
+
+    .dropdown li {
+      border-bottom: 1px solid #e5d8ce;
+    }
+
+    .dropdown li:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 16px 20px;
+      color: #3b2a22;
+      text-decoration: none;
+      font-size: 17px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .dropdown a:hover {
+      background: #b88b6a;
+      color: #fff;
+    }
+
+    main {
+      width: 92%;
+      max-width: 1050px;
+      margin: 35px auto;
+      background: rgba(255,255,255,0.96);
+      padding: 28px;
+      border-radius: 6px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.28);
+    }
+
+    section {
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #dfd2c7;
+    }
+
+    section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      color: #8a5f45;
+      font-size: 25px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: normal;
+    }
+
+    .intro {
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .card {
+      background: #f8f2ec;
+      padding: 18px;
+      border-left: 4px solid #b88b6a;
+      border-radius: 4px;
+    }
+
+    .card h3 {
+      color: #5b3d2d;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .price-list {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      background: #fff;
+    }
+
+    .price-list th,
+    .price-list td {
+      padding: 13px;
+      border-bottom: 1px solid #e5d8ce;
+      text-align: left;
+    }
+
+    .price-list th {
+      background: #b88b6a;
+      color: #fff;
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
+
+    .tour-card {
+      background: #f8f2ec;
+      border: 1px solid #d4b89e;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 20px;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.16);
+    }
+
+    .tour-cover {
+      width: 100%;
+      display: block;
+      background: #d9c1aa;
+    }
+
+    .tour-content {
+      padding: 20px;
+    }
+
+    .tour-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #d8c0aa;
+      padding-bottom: 15px;
+    }
+
+    .tour-title {
+      font-size: 24px;
+      color: #5b3d2d;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .language-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .language-box label {
+      color: #6b4b37;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .language-box select {
+      appearance: none;
+      background: #b88b6a;
+      color: #fff;
+      border: none;
+      padding: 10px 36px 10px 14px;
+      border-radius: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      cursor: pointer;
+      background-image:
+        linear-gradient(45deg, transparent 50%, #fff 50%),
+        linear-gradient(135deg, #fff 50%, transparent 50%);
+      background-position:
+        calc(100% - 17px) 50%,
+        calc(100% - 11px) 50%;
+      background-size:
+        6px 6px,
+        6px 6px;
+      background-repeat: no-repeat;
+    }
+
+    .tour-lang-panel {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .tour-lang-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .tour-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .tour-option {
+      background: #fff;
+      border-left: 5px solid #b88b6a;
+      border-radius: 5px;
+      padding: 18px;
+      min-height: 100%;
+    }
+
+    .tour-option h3 {
+      color: #5b3d2d;
+      font-size: 21px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .tour-option p {
+      margin-bottom: 10px;
+    }
+
+    .tour-option ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    .tour-option li {
+      margin-bottom: 5px;
+    }
+
+    .tour-route {
+      font-size: 14px;
+      font-style: italic;
+      color: #4a362c;
+      margin-top: 8px;
+    }
+
+    .tour-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .tour-info {
+      background: #f4eee8;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #e0cbb8;
+      font-size: 15px;
+    }
+
+    .booking-strip {
+      margin-top: 20px;
+      background: #3b2a22;
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #fff;
+      background: rgba(45, 32, 25, 0.95);
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #e8c9ad;
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 24px;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .logo-box {
+        width: 120px;
+        height: 120px;
+      }
+
+      .tour-header-row {
+        display: block;
+      }
+
+      .tour-title {
+        font-size: 21px;
+        margin-bottom: 14px;
+      }
+
+      .language-box {
+        justify-content: flex-start;
+      }
+
+      .booking-strip {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <header>
+      <div class="logo-box">
+        <img src="https://static.wixstatic.com/media/4be999_a009bfa873fb4f12aa933bd0286b46aa~mv2.jpg/v1/fill/w_171,h_157,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/6241_1_SanLUCA-NEGcol2.jpg" alt="Hotel San Luca Verona">
+      </div>
+
+      <h1>Hotel San Luca</h1>
+      <p>Verona - Guest App</p>
+    </header>
+
+    <nav class="menu-wrapper">
+      <div class="menu-button">Menu</div>
+
+      <ul class="dropdown">
+        <li><a href="#servizi">I nostri servizi</a></li>
+        <li><a href="#minibar">Listino minibar</a></li>
+        <li><a href="#tour">I nostri tour</a></li>
+      </ul>
+    </nav>
+
+    <main>
+
+      <section>
+        <h2>Benvenuti</h2>
+        <p class="intro">
+          Benvenuti all'Hotel San Luca di Verona. Questa piccola app è pensata per consultare velocemente
+          le informazioni utili durante il soggiorno.
+        </p>
+        <p>
+          L’hotel si trova in posizione centrale e tranquilla, a pochi passi dal cuore storico di Verona.
+        </p>
+      </section>
+
+      <section id="servizi">
+        <h2>I nostri servizi</h2>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Reception</h3>
+            <p>Reception disponibile per informazioni, assistenza e consigli sulla città.</p>
+          </div>
+
+          <div class="card">
+            <h3>Garage privato</h3>
+            <p>Garage disponibile su prenotazione, comodo per chi arriva in auto.</p>
+          </div>
+
+          <div class="card">
+            <h3>Colazione</h3>
+            <p>Colazione disponibile in hotel. Per orari e dettagli rivolgersi alla reception.</p>
+          </div>
+
+          <div class="card">
+            <h3>Informazioni turistiche</h3>
+            <p>Mappe, suggerimenti e indicazioni per visitare Verona e dintorni.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="minibar">
+        <h2>Listino minibar</h2>
+
+        <table class="price-list">
+          <thead>
+            <tr>
+              <th>Prodotto</th>
+              <th>Prezzo</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Acqua naturale</td>
+              <td>€ 2,00</td>
+            </tr>
+            <tr>
+              <td>Acqua frizzante</td>
+              <td>€ 2,00</td>
+            </tr>
+            <tr>
+              <td>Bibita analcolica</td>
+              <td>€ 3,50</td>
+            </tr>
+            <tr>
+              <td>Birra</td>
+              <td>€ 4,50</td>
+            </tr>
+            <tr>
+              <td>Snack dolce/salato</td>
+              <td>€ 2,50</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="tour">
+        <h2>I nostri tour</h2>
+
+        <div class="tour-card">
+
+          <img class="tour-cover" src="GOLFCART%20TOUR%20VERONA%20ING.png" alt="Verona by Golf Cart - Hotel San Luca">
+
+          <div class="tour-content">
+
+            <div class="tour-header-row">
+              <div class="tour-title">
+                Verona in Golf Cart
+              </div>
+
+              <div class="language-box">
+                <label for="tourLanguage">Lingua:</label>
+                <select id="tourLanguage" onchange="changeTourLanguage()">
+                  <option value="it">Italiano</option>
+                  <option value="en">English</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="tourIt" class="tour-lang-panel active">
+
+              <p class="intro">
+                Due tour esclusivi per scoprire Verona in modo comodo e suggestivo.
+              </p>
+
+              <div class="tour-options">
+
+                <div class="tour-option">
+                  <h3>Tour 1 - Verona panoramica & Teatro Romano</h3>
+                  <p>
+                    Il tour più scenografico: attraversa il centro storico, costeggia l’Adige,
+                    sale verso Castel San Pietro e raggiunge il Teatro Romano, con viste panoramiche sulla città.
+                  </p>
+
+                  <div class="tour-route">
+                    Percorso: Porta Bra - Corso Nuovo - Porta Nuova - Porta Palio - Castelvecchio -
+                    Arco dei Gavi - Porta Borsari - Ponte della Vittoria - Lungadige -
+                    Rondella delle Boccare - Rondella della Baccola - Castel San Pietro -
+                    Teatro Romano - San Giovanni in Valle - San Giorgio di Braida - Porta Trento -
+                    Ponte Garibaldi - Duomo - Ponte Pietra - Sant’Anastasia - San Fermo - Piazza Bra.
+                  </div>
+
+                  <div class="tour-info-grid">
+                    <div class="tour-info">Durata: 1,5 ore</div>
+                    <div class="tour-info">Prezzo: 65 € a persona</div>
+                    <div class="tour-info">Tour panoramico e collinare</div>
+                    <div class="tour-info">Autista locale e audioguida multilingue</div>
+                  </div>
+                </div>
+
+                <div class="tour-option">
+                  <h3>Tour 2 - Verona centro storico classico</h3>
+                  <p>
+                    Il tour più classico per chi vuole vedere i principali monumenti del centro:
+                    porte storiche, Castelvecchio, Duomo, Ponte Pietra, piazze e Arena.
+                  </p>
+
+                  <div class="tour-route">
+                    Percorso: Porta Bra - Corso Nuovo - Porta Nuova - Porta Palio - Castelvecchio -
+                    Arco dei Gavi - Palazzo Bevilacqua - Sant’Apostoli - Porta Borsari -
+                    Ponte della Vittoria - Lungadige - Ponte Garibaldi - Duomo -
+                    San Giovanni in Fonte - Ponte Pietra - Sant’Anastasia - Piazza Indipendenza -
+                    Piazza Viviani - San Fermo Maggiore - Piazza Bra - Arena di Verona.
+                  </div>
+
+                  <div class="tour-info-grid">
+                    <div class="tour-info">Durata: 1 ora</div>
+                    <div class="tour-info">Prezzo: 45 € a persona</div>
+                    <div class="tour-info">Tour del centro storico</div>
+                    <div class="tour-info">Esperienza privata con audioguida multilingue</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="booking-strip">
+                Prenota presso la reception il tuo tour
+              </div>
+
+            </div>
+
+            <div id="tourEn" class="tour-lang-panel">
+
+              <p class="intro">
+                Two exclusive tours to discover Verona in comfort and style.
+              </p>
+
+              <div class="tour-options">
+
+                <div class="tour-option">
+                  <h3>Tour 1 - Verona panoramic & Roman Theatre</h3>
+                  <p>
+                    The most scenic tour: it crosses the historic centre, follows the Adige River,
+                    climbs towards Castel San Pietro and reaches the Roman Theatre, with panoramic views over the city.
+                  </p>
+
+                  <div class="tour-route">
+                    Route: Porta Bra - Corso Nuovo - Porta Nuova - Porta Palio - Castelvecchio -
+                    Arco dei Gavi - Porta Borsari - Ponte della Vittoria - Lungadige -
+                    Rondella delle Boccare - Rondella della Baccola - Castel San Pietro -
+                    Teatro Romano - San Giovanni in Valle - San Giorgio di Braida - Porta Trento -
+                    Ponte Garibaldi - Duomo - Ponte Pietra - Sant’Anastasia - San Fermo - Piazza Bra.
+                  </div>
+
+                  <div class="tour-info-grid">
+                    <div class="tour-info">Duration: 1.5 hours</div>
+                    <div class="tour-info">Price: €65 per person</div>
+                    <div class="tour-info">Panoramic and hillside tour</div>
+                    <div class="tour-info">Local driver and multilingual audio guide</div>
+                  </div>
+                </div>
+
+                <div class="tour-option">
+                  <h3>Tour 2 - Verona historic centre classic</h3>
+                  <p>
+                    The most classic tour for those who want to see the main monuments of the city centre:
+                    historic gates, Castelvecchio, Duomo, Ponte Pietra, squares and the Arena.
+                  </p>
+
+                  <div class="tour-route">
+                    Route: Porta Bra - Corso Nuovo - Porta Nuova - Porta Palio - Castelvecchio -
+                    Arco dei Gavi - Palazzo Bevilacqua - Santi Apostoli - Porta Borsari -
+                    Ponte della Vittoria - Lungadige - Ponte Garibaldi - Duomo -
+                    San Giovanni in Fonte - Ponte Pietra - Sant’Anastasia - Piazza Indipendenza -
+                    Piazza Viviani - San Fermo Maggiore - Piazza Bra - Arena di Verona.
+                  </div>
+
+                  <div class="tour-info-grid">
+                    <div class="tour-info">Duration: 1 hour</div>
+                    <div class="tour-info">Price: €45 per person</div>
+                    <div class="tour-info">Historic centre tour</div>
+                    <div class="tour-info">Private experience with multilingual audio guide</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="booking-strip">
+                Book your tour at the reception
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+      Hotel San Luca Verona<br>
+      <a href="https://www.sanlucahotel.com/" target="_blank">https://www.sanlucahotel.com/</a>
+    </footer>
+
+  </div>
+
+  <script>
+    function changeTourLanguage() {
+      var select = document.getElementById("tourLanguage");
+      var itPanel = document.getElementById("tourIt");
+      var enPanel = document.getElementById("tourEn");
+
+      if (select.value === "it") {
+        itPanel.classList.add("active");
+        enPanel.classList.remove("active");
+      } else {
+        enPanel.classList.add("active");
+        itPanel.classList.remove("active");
+      }
+    }
+  </script>
+
+</body>
+</html>
