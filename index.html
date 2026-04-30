@@ -105,7 +105,7 @@
     }
 
     .menu-wrapper:hover .dropdown {
-      max-height: 280px;
+      max-height: 420px;
     }
 
     .dropdown li {
@@ -183,6 +183,38 @@
       color: #5b3d2d;
       margin-bottom: 8px;
       font-size: 19px;
+    }
+
+    .download-box {
+      background: #f8f2ec;
+      border: 1px solid #d4b89e;
+      border-radius: 8px;
+      padding: 22px;
+      margin-top: 18px;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.12);
+    }
+
+    .download-box h3 {
+      color: #5b3d2d;
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .download-button {
+      display: inline-block;
+      margin-top: 14px;
+      background: #b88b6a;
+      color: #fff;
+      padding: 13px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 17px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    .download-button:hover {
+      background: #8a5f45;
     }
 
     .price-list {
@@ -431,6 +463,7 @@
         <li><a href="#servizi">I nostri servizi</a></li>
         <li><a href="#minibar">Listino minibar</a></li>
         <li><a href="#tour">I nostri tour</a></li>
+        <li><a href="#info-turistiche">Informazioni turistiche</a></li>
       </ul>
     </nav>
 
@@ -665,6 +698,26 @@
           </div>
         </div>
 
+      </section>
+
+      <section id="info-turistiche">
+        <h2>Informazioni turistiche</h2>
+
+        <p class="intro">
+          Consulta o scarica la cartina turistica di Verona con monumenti, musei,
+          parcheggi, numeri utili e informazioni per muoversi in città.
+        </p>
+
+        <div class="download-box">
+          <h3>Cartina turistica di Verona</h3>
+          <p>
+            Apri o scarica il PDF con la mappa della città e le informazioni utili.
+          </p>
+
+          <a class="download-button" href="Cartina verona&amp;info.pdf" target="_blank" download>
+            Scarica la mappa PDF
+          </a>
+        </div>
       </section>
 
     </main>
