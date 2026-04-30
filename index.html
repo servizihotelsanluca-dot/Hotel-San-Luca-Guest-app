@@ -105,7 +105,7 @@
     }
 
     .menu-wrapper:hover .dropdown {
-      max-height: 420px;
+      max-height: 520px;
     }
 
     .dropdown li {
@@ -185,7 +185,8 @@
       font-size: 19px;
     }
 
-    .price-list {
+    .price-list,
+    .laundry-table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 18px;
@@ -193,17 +194,66 @@
     }
 
     .price-list th,
-    .price-list td {
+    .price-list td,
+    .laundry-table th,
+    .laundry-table td {
       padding: 13px;
       border-bottom: 1px solid #e5d8ce;
       text-align: left;
     }
 
-    .price-list th {
+    .price-list th,
+    .laundry-table th {
       background: #b88b6a;
       color: #fff;
       font-weight: normal;
       letter-spacing: 1px;
+    }
+
+    .laundry-box {
+      background: #fff8f0;
+      border: 2px solid #b88b6a;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 20px;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
+    }
+
+    .laundry-notes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+      margin-bottom: 18px;
+    }
+
+    .laundry-note {
+      background: #f4eee8;
+      border: 1px solid #d4b89e;
+      border-radius: 6px;
+      padding: 15px;
+      color: #4a362c;
+    }
+
+    .laundry-note strong {
+      color: #8a5f45;
+      display: block;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .laundry-small {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #6b4b37;
+      font-style: italic;
+    }
+
+    .not-available {
+      color: #8a5f45;
+      font-style: italic;
     }
 
     .tour-card {
@@ -474,6 +524,12 @@
         font-size: 16px;
         padding: 15px;
       }
+
+      .laundry-table th,
+      .laundry-table td {
+        font-size: 14px;
+        padding: 9px;
+      }
     }
   </style>
 </head>
@@ -497,6 +553,7 @@
       <ul class="dropdown">
         <li><a href="#servizi">I nostri servizi</a></li>
         <li><a href="#minibar">Listino minibar</a></li>
+        <li><a href="#lavanderia">Lavanderia</a></li>
         <li><a href="#tour">I nostri tour</a></li>
         <li><a href="#info-turistiche">Informazioni turistiche</a></li>
       </ul>
@@ -578,6 +635,113 @@
             </tr>
           </tbody>
         </table>
+      </section>
+
+      <section id="lavanderia">
+        <h2>Lavanderia</h2>
+
+        <p class="intro">
+          Servizio di lavatura e/o stiratura disponibile tramite reception.
+        </p>
+
+        <div class="laundry-box">
+
+          <div class="laundry-notes">
+            <div class="laundry-note">
+              <strong>Consegna</strong>
+              Si prega di consegnare il sacchetto lavanderia alla mattina entro le ore 9:00.
+            </div>
+
+            <div class="laundry-note">
+              <strong>Delivery</strong>
+              Please deliver the laundry bag before 9:00 A.M.
+            </div>
+
+            <div class="laundry-note">
+              <strong>Durata servizio</strong>
+              Servizio entro 48 ore.
+            </div>
+
+            <div class="laundry-note">
+              <strong>Service time</strong>
+              Service within 48 hrs.
+            </div>
+          </div>
+
+          <table class="laundry-table">
+            <thead>
+              <tr>
+                <th>Indumento / Garment</th>
+                <th>Solo lavatura / Only washing</th>
+                <th>Solo stiratura / Only ironing</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Camicie / Shirts</td>
+                <td>€ 1,50</td>
+                <td>€ 3,00</td>
+              </tr>
+              <tr>
+                <td>Calzini / Socks</td>
+                <td>€ 1,50</td>
+                <td class="not-available">Non disponibile</td>
+              </tr>
+              <tr>
+                <td>Magliette / T-Shirts</td>
+                <td>€ 1,50</td>
+                <td>€ 1,50</td>
+              </tr>
+              <tr>
+                <td>Maglie - Felpe / Sweaters</td>
+                <td>€ 1,50</td>
+                <td>€ 1,50</td>
+              </tr>
+              <tr>
+                <td>Giacche / Jackets</td>
+                <td class="not-available">Non disponibile</td>
+                <td>€ 2,50</td>
+              </tr>
+              <tr>
+                <td>Pantaloni / Trousers</td>
+                <td>€ 2,50</td>
+                <td>€ 2,50</td>
+              </tr>
+              <tr>
+                <td>Gonne / Skirts</td>
+                <td class="not-available">Non disponibile</td>
+                <td>€ 2,50</td>
+              </tr>
+              <tr>
+                <td>Vestiti / Dresses</td>
+                <td class="not-available">Non disponibile</td>
+                <td>€ 4,50</td>
+              </tr>
+              <tr>
+                <td>Camicie da notte / Night gowns</td>
+                <td>€ 1,50</td>
+                <td>€ 2,00</td>
+              </tr>
+              <tr>
+                <td>Intimo / Slips</td>
+                <td>€ 1,50</td>
+                <td class="not-available">Non disponibile</td>
+              </tr>
+              <tr>
+                <td>Reggiseni / Bras</td>
+                <td>€ 1,50</td>
+                <td class="not-available">Non disponibile</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="laundry-small">
+            Il servizio per indumenti speciali non presenti nell’elenco verrà valutato al momento.
+            Service for special clothes, not listed, will be valued from time to time.
+          </div>
+
+        </div>
       </section>
 
       <section id="tour">
