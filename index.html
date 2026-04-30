@@ -517,7 +517,7 @@
           <img
             id="tourCover"
             class="tour-cover"
-            src="GOLFCART%20TOUR%20VERONA%20ITA.png"
+            src="GOLFCART TOUR VERONA ITA.png"
             alt="Verona in Golf Cart - Hotel San Luca"
           >
 
@@ -531,7 +531,7 @@
               <div class="language-box">
                 <label for="tourLanguage">Lingua:</label>
 
-                <select id="tourLanguage" onchange="changeTourLanguage()">
+                <select id="tourLanguage">
                   <option value="it" selected>Italiano</option>
                   <option value="en">English</option>
                 </select>
@@ -688,20 +688,26 @@
         itPanel.classList.add("active");
         enPanel.classList.remove("active");
 
-        tourCover.src = "GOLFCART%20TOUR%20VERONA%20ITA.png";
-        tourCover.alt = "Verona in Golf Cart - Hotel San Luca";
+        tourCover.setAttribute("src", "GOLFCART TOUR VERONA ITA.png");
+        tourCover.setAttribute("alt", "Verona in Golf Cart - Hotel San Luca");
         tourMainTitle.innerHTML = "Verona in Golf Cart";
       } else {
         enPanel.classList.add("active");
         itPanel.classList.remove("active");
 
-        tourCover.src = "GOLFCART%20TOUR%20VERONA%20ING.png";
-        tourCover.alt = "Verona by Golf Cart - Hotel San Luca";
+        tourCover.setAttribute("src", "GOLFCART TOUR VERONA ING.png");
+        tourCover.setAttribute("alt", "Verona by Golf Cart - Hotel San Luca");
         tourMainTitle.innerHTML = "Verona by Golf Cart";
       }
     }
 
-    window.addEventListener("load", function() {
+    document.addEventListener("DOMContentLoaded", function() {
+      var select = document.getElementById("tourLanguage");
+
+      select.addEventListener("change", function() {
+        changeTourLanguage();
+      });
+
       changeTourLanguage();
     });
   </script>
