@@ -32,7 +32,7 @@
     }
 
     header {
-      padding: 24px 18px;
+      padding: 24px 18px 10px 18px;
       text-align: center;
       color: #fff;
     }
@@ -67,6 +67,18 @@
       font-size: 15px;
       margin-top: 5px;
       letter-spacing: 1px;
+    }
+
+    .arena-photo {
+      display: block;
+      width: 92%;
+      max-width: 860px;
+      max-height: 380px;
+      object-fit: cover;
+      margin: 24px auto 22px auto;
+      border-radius: 10px;
+      border: 2px solid #b88b6a;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.28);
     }
 
     .menu-wrapper {
@@ -201,6 +213,17 @@
     .service-button:hover {
       background: #8a5f45;
       color: #fff;
+    }
+
+    .bruno-image {
+      display: block;
+      width: 100%;
+      max-height: 380px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 0 0 22px 0;
+      border: 2px solid #b88b6a;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
     }
 
     .taxi-image {
@@ -636,6 +659,11 @@
         height: 120px;
       }
 
+      .arena-photo {
+        width: 94%;
+        max-height: 260px;
+      }
+
       .tour-header-row {
         display: block;
       }
@@ -685,6 +713,12 @@
 
       <h1>Hotel San Luca</h1>
       <p>Verona - Guest App</p>
+
+      <img
+        class="arena-photo"
+        src="ARENA.png"
+        alt="Arena di Verona"
+      >
     </header>
 
     <nav class="menu-wrapper">
@@ -743,6 +777,12 @@
       </section>
 
       <section id="taxi-ncc">
+        <img
+          class="bruno-image"
+          src="BRUNO.png"
+          alt="Servizio NCC Bruno"
+        >
+
         <h2>Prenota il tuo taxi</h2>
 
         <p class="intro">
