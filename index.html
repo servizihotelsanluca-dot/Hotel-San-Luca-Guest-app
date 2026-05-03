@@ -172,7 +172,7 @@
       color: #fff;
     }
 
-    .taxi-image {
+    .driver-image {
       width: 100%;
       max-height: 360px;
       object-fit: cover;
@@ -182,7 +182,7 @@
       box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
     }
 
-    .taxi-box,
+    .driver-box,
     .laundry-box,
     .tourism-box {
       background: #fff8f0;
@@ -193,7 +193,7 @@
       box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
     }
 
-    .taxi-form {
+    .driver-form {
       display: grid;
       gap: 15px;
       margin-top: 18px;
@@ -661,9 +661,6 @@
         <p class="intro">
           Benvenuti all'Hotel San Luca di Verona. Questa App è stata creata per permettervi di visualizzare tutti i servizi dell'hotel e conoscere le principali attrazioni turistiche che vi saranno utili durante il vostro soggiorno.
         </p>
-        <p>
-          L’hotel si trova in posizione centrale e tranquilla, a pochi passi dal cuore storico di Verona.
-        </p>
       </section>
 
       <section id="servizi">
@@ -702,8 +699,8 @@
           >
 
           <div class="bruno-buttons">
-            <a class="bruno-button" href="#taxi-ncc">
-              Prenota un taxi
+            <a class="bruno-button" href="#autista-ncc">
+              Prenota un autista
             </a>
 
             <a class="bruno-button" href="#lavanderia">
@@ -714,62 +711,6 @@
               Mappa di Verona
             </a>
           </div>
-        </div>
-      </section>
-
-      <section id="taxi-ncc">
-        <h2>Prenota il tuo taxi</h2>
-
-        <p class="intro">
-          Compila il modulo per richiedere un servizio NCC. La richiesta verrà inviata direttamente alla reception.
-        </p>
-
-        <img
-          class="taxi-image"
-          src="sacav-chauffeurs.jpg"
-          alt="Servizio NCC Hotel San Luca"
-        >
-
-        <div class="taxi-box">
-          <form class="taxi-form" action="https://formspree.io/f/xbdwjdvb" method="POST">
-
-            <input type="hidden" name="_subject" value="Richiesta servizio NCC - Hotel San Luca">
-            <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="nome">Nome e cognome *</label>
-                <input type="text" id="nome" name="Nome e cognome" required>
-              </div>
-
-              <div class="form-group">
-                <label for="camera">Numero di camera *</label>
-                <input type="text" id="camera" name="Numero di camera" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="persone">Numero di persone *</label>
-                <input type="number" id="persone" name="Numero di persone" min="1" required>
-              </div>
-
-              <div class="form-group">
-                <label for="orario">Orario di pick-up *</label>
-                <input type="datetime-local" id="orario" name="Orario di pick-up" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="destinazione">Destinazione *</label>
-              <textarea id="destinazione" name="Destinazione" required></textarea>
-            </div>
-
-            <button class="submit-button" type="submit">
-              Invia richiesta alla reception
-            </button>
-
-          </form>
         </div>
       </section>
 
@@ -977,6 +918,62 @@
 
           </form>
 
+        </div>
+      </section>
+
+      <section id="autista-ncc">
+        <h2>Prenota il tuo autista</h2>
+
+        <p class="intro">
+          Compila il modulo per richiedere un servizio NCC. La richiesta verrà inviata direttamente alla reception.
+        </p>
+
+        <img
+          class="driver-image"
+          src="sacav-chauffeurs.jpg"
+          alt="Servizio NCC Hotel San Luca"
+        >
+
+        <div class="driver-box">
+          <form class="driver-form" action="https://formspree.io/f/xbdwjdvb" method="POST">
+
+            <input type="hidden" name="_subject" value="Richiesta servizio autista NCC - Hotel San Luca">
+            <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome">Nome e cognome *</label>
+                <input type="text" id="nome" name="Nome e cognome" required>
+              </div>
+
+              <div class="form-group">
+                <label for="camera">Numero di camera *</label>
+                <input type="text" id="camera" name="Numero di camera" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="persone">Numero di persone *</label>
+                <input type="number" id="persone" name="Numero di persone" min="1" required>
+              </div>
+
+              <div class="form-group">
+                <label for="orario">Orario di pick-up *</label>
+                <input type="datetime-local" id="orario" name="Orario di pick-up" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="destinazione">Destinazione *</label>
+              <textarea id="destinazione" name="Destinazione" required></textarea>
+            </div>
+
+            <button class="submit-button" type="submit">
+              Invia richiesta alla reception
+            </button>
+
+          </form>
         </div>
       </section>
 
