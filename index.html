@@ -144,6 +144,32 @@
       box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
     }
 
+    .weather-widget-box {
+      background: #f4eee8;
+      border: 1px solid #d4b89e;
+      border-radius: 10px;
+      padding: 18px;
+      margin: 0 0 22px 0;
+      box-shadow: 0 6px 16px rgba(60, 40, 25, 0.12);
+    }
+
+    .weather-widget-box h3 {
+      color: #5b3d2d;
+      font-size: 21px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    .weather-note {
+      color: #6b4b37;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
     .bruno-buttons {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -750,6 +776,35 @@
             src="BRUNO.png"
             alt="Virtual Receptionist Hotel San Luca"
           >
+
+          <div class="weather-widget-box">
+            <h3>Meteo Verona</h3>
+
+            <a
+              class="weatherwidget-io"
+              href="https://forecast7.com/it/45d4411d00/verona/"
+              data-label_1="VERONA"
+              data-label_2="METEO"
+              data-theme="pure"
+              data-basecolor="#fff8f0"
+              data-accent="#b88b6a"
+              data-textcolor="#3b2a22"
+              data-highcolor="#8a5f45"
+              data-lowcolor="#6b4b37"
+              data-suncolor="#b88b6a"
+              data-mooncolor="#8a5f45"
+              data-cloudcolor="#d4b89e"
+              data-cloudfill="#f4eee8"
+              data-raincolor="#8a5f45"
+              data-snowcolor="#d4b89e"
+            >
+              VERONA METEO
+            </a>
+
+            <p class="weather-note">
+              Previsioni aggiornate per Verona.
+            </p>
+          </div>
 
           <div class="bruno-buttons">
             <a class="bruno-button" href="#autista-ncc">
@@ -1573,6 +1628,21 @@
 
       updateLaundryTotals();
     });
+  </script>
+
+  <script>
+    function loadWeatherWidget(d, s, id) {
+      var js = d.createElement(s);
+      var fjs = d.getElementsByTagName(s)[0];
+
+      if (!d.getElementById(id)) {
+        js.id = id;
+        js.src = "https://weatherwidget.io/js/widget.min.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    }
+
+    loadWeatherWidget(document, "script", "weatherwidget-io-js");
   </script>
 
 </body>
