@@ -185,7 +185,8 @@
     .driver-box,
     .laundry-box,
     .tourism-box,
-    .prosecco-box {
+    .prosecco-box,
+    .invoice-box {
       background: #fff8f0;
       border: 2px solid #b88b6a;
       border-radius: 10px;
@@ -195,7 +196,8 @@
     }
 
     .driver-form,
-    .prosecco-form {
+    .prosecco-form,
+    .invoice-form {
       display: grid;
       gap: 15px;
       margin-top: 18px;
@@ -239,6 +241,40 @@
       font-size: 16px;
       color: #4a362c;
       margin-bottom: 8px;
+    }
+
+    .invoice-text {
+      background: #f4eee8;
+      border: 1px solid #d4b89e;
+      border-radius: 6px;
+      padding: 18px;
+      color: #4a362c;
+      margin-bottom: 18px;
+    }
+
+    .invoice-text p {
+      margin-bottom: 12px;
+    }
+
+    .invoice-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .invoice-warning {
+      background: #fff;
+      border-left: 5px solid #b88b6a;
+      padding: 16px;
+      border-radius: 6px;
+      margin-top: 18px;
+      color: #4a362c;
+    }
+
+    .invoice-warning p {
+      margin-bottom: 12px;
+    }
+
+    .invoice-warning p:last-child {
+      margin-bottom: 0;
     }
 
     .form-row {
@@ -720,6 +756,10 @@
               Prenota un autista
             </a>
 
+            <a class="bruno-button" href="#fattura">
+              Richiedi la fattura
+            </a>
+
             <a class="bruno-button" href="#lavanderia">
               Lavanderia
             </a>
@@ -980,117 +1020,6 @@
         </div>
       </section>
 
-      <section id="autista-ncc">
-        <h2>Prenota il tuo autista</h2>
-
-        <p class="intro">
-          Compila il modulo per richiedere un servizio NCC. La richiesta verrà inviata direttamente alla reception.
-        </p>
-
-        <img
-          class="driver-image"
-          src="sacav-chauffeurs.jpg"
-          alt="Servizio NCC Hotel San Luca"
-        >
-
-        <div class="driver-box">
-          <form class="driver-form" action="https://formspree.io/f/xbdwjdvb" method="POST">
-
-            <input type="hidden" name="_subject" value="Richiesta servizio autista NCC - Hotel San Luca">
-            <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="nome">Nome e cognome *</label>
-                <input type="text" id="nome" name="Nome e cognome" required>
-              </div>
-
-              <div class="form-group">
-                <label for="camera">Numero di camera *</label>
-                <input type="text" id="camera" name="Numero di camera" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="persone">Numero di persone *</label>
-                <input type="number" id="persone" name="Numero di persone" min="1" required>
-              </div>
-
-              <div class="form-group">
-                <label for="orario">Orario di pick-up *</label>
-                <input type="datetime-local" id="orario" name="Orario di pick-up" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="destinazione">Destinazione *</label>
-              <textarea id="destinazione" name="Destinazione" required></textarea>
-            </div>
-
-            <button class="submit-button" type="submit">
-              Invia richiesta alla reception
-            </button>
-
-          </form>
-        </div>
-      </section>
-
-      <section id="tour">
-        <h2>I nostri tour</h2>
-
-        <div class="tour-card">
-          <div class="tour-cover-wrapper">
-            <img
-              id="tourCover"
-              class="tour-cover"
-              src="GOLFCART TOUR VERONA ITA.png"
-              alt="Verona in Golf Cart - Hotel San Luca"
-            >
-
-            <div class="language-box">
-              <label for="tourLanguage">Lingua:</label>
-
-              <select id="tourLanguage">
-                <option value="it" selected>Italiano</option>
-                <option value="en">English</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="info-turistiche">
-        <h2>Informazioni turistiche</h2>
-
-        <p class="intro">
-          Consulta o scarica la cartina turistica di Verona con monumenti, musei,
-          parcheggi, numeri utili e informazioni per muoversi in città.
-        </p>
-
-        <div class="tourism-box">
-          <h3>Cartina turistica di Verona</h3>
-
-          <p>
-            Qui puoi aprire oppure scaricare la mappa PDF di Verona.
-          </p>
-
-          <div class="pdf-buttons">
-            <a class="pdf-button" href="Cartina%20verona%26info.pdf" target="_blank">
-              Apri la mappa PDF
-            </a>
-
-            <a class="pdf-button dark" href="Cartina%20verona%26info.pdf" download>
-              Scarica la mappa PDF
-            </a>
-          </div>
-
-          <div class="small-note">
-            Se il download non parte subito, il PDF si aprirà nel browser e potrai salvarlo da lì.
-          </div>
-        </div>
-      </section>
-
       <section id="ristoranti-consigliati">
         <h2>Ristoranti consigliati a Verona</h2>
 
@@ -1297,6 +1226,204 @@
             </div>
           </div>
 
+        </div>
+      </section>
+
+      <section id="autista-ncc">
+        <h2>Prenota il tuo autista</h2>
+
+        <p class="intro">
+          Compila il modulo per richiedere un servizio NCC. La richiesta verrà inviata direttamente alla reception.
+        </p>
+
+        <img
+          class="driver-image"
+          src="sacav-chauffeurs.jpg"
+          alt="Servizio NCC Hotel San Luca"
+        >
+
+        <div class="driver-box">
+          <form class="driver-form" action="https://formspree.io/f/xbdwjdvb" method="POST">
+
+            <input type="hidden" name="_subject" value="Richiesta servizio autista NCC - Hotel San Luca">
+            <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome">Nome e cognome *</label>
+                <input type="text" id="nome" name="Nome e cognome" required>
+              </div>
+
+              <div class="form-group">
+                <label for="camera">Numero di camera *</label>
+                <input type="text" id="camera" name="Numero di camera" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="persone">Numero di persone *</label>
+                <input type="number" id="persone" name="Numero di persone" min="1" required>
+              </div>
+
+              <div class="form-group">
+                <label for="orario">Orario di pick-up *</label>
+                <input type="datetime-local" id="orario" name="Orario di pick-up" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="destinazione">Destinazione *</label>
+              <textarea id="destinazione" name="Destinazione" required></textarea>
+            </div>
+
+            <button class="submit-button" type="submit">
+              Invia richiesta alla reception
+            </button>
+
+          </form>
+        </div>
+      </section>
+
+      <section id="fattura">
+        <h2>Richiedi la fattura</h2>
+
+        <div class="invoice-box">
+          <div class="invoice-text">
+            <p>
+              Gentile Cliente,
+            </p>
+
+            <p>
+              con l’entrata in vigore dell’obbligo della fatturazione elettronica tra i privati B2B e B2C per le cessioni di beni e le prestazioni di servizi effettuate tra soggetti residenti, stabiliti o identificati in Italia, così come indicato dalla legge di Bilancio 2018 – Provv. 73203/2018 – Provv. 89757/2018 e da ultimo dalla circolare 8E dell’Agenzia delle Entrate,
+            </p>
+
+            <p>
+              Le chiediamo di indicarci di seguito, in modo ben leggibile, i dati completi per adempiere alle procedure fiscali:
+            </p>
+          </div>
+
+          <form class="invoice-form" action="https://formspree.io/f/mbdwdbzn" method="POST">
+
+            <input type="hidden" name="_subject" value="Richiesta fattura - Hotel San Luca">
+            <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="invoiceRoom">Numero di camera *</label>
+                <input type="text" id="invoiceRoom" name="Numero di camera" required>
+              </div>
+
+              <div class="form-group">
+                <label for="ragioneSociale">Ragione sociale *</label>
+                <input type="text" id="ragioneSociale" name="Ragione sociale" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="indirizzo">Indirizzo *</label>
+              <input type="text" id="indirizzo" name="Indirizzo" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="citta">Città *</label>
+                <input type="text" id="citta" name="Città" required>
+              </div>
+
+              <div class="form-group">
+                <label for="cap">CAP *</label>
+                <input type="text" id="cap" name="CAP" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="codiceFiscale">Codice fiscale *</label>
+                <input type="text" id="codiceFiscale" name="Codice fiscale" required>
+              </div>
+
+              <div class="form-group">
+                <label for="partitaIva">Partita IVA *</label>
+                <input type="text" id="partitaIva" name="Partita IVA" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="codiceUnivoco">Codice univoco *</label>
+              <input type="text" id="codiceUnivoco" name="Codice univoco" required>
+            </div>
+
+            <div class="invoice-warning">
+              <p>
+                Vi precisiamo che in mancanza di tali dati richiesti, saremo tenuti ad utilizzare il codice univoco alternativo “0000000”; con tale procedura, le fatture risulteranno per Voi disponibili nell’apposita sezione del sito dell’Agenzia delle Entrate.
+              </p>
+
+              <p>
+                La comunicazione di dati errati comporterà un addebito pari ad € 6.00 per l’emissione di nuovi documenti.
+              </p>
+            </div>
+
+            <button class="submit-button" type="submit">
+              Invia richiesta alla reception
+            </button>
+
+          </form>
+        </div>
+      </section>
+
+      <section id="tour">
+        <h2>I nostri tour</h2>
+
+        <div class="tour-card">
+          <div class="tour-cover-wrapper">
+            <img
+              id="tourCover"
+              class="tour-cover"
+              src="GOLFCART TOUR VERONA ITA.png"
+              alt="Verona in Golf Cart - Hotel San Luca"
+            >
+
+            <div class="language-box">
+              <label for="tourLanguage">Lingua:</label>
+
+              <select id="tourLanguage">
+                <option value="it" selected>Italiano</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="info-turistiche">
+        <h2>Informazioni turistiche</h2>
+
+        <p class="intro">
+          Consulta o scarica la cartina turistica di Verona con monumenti, musei,
+          parcheggi, numeri utili e informazioni per muoversi in città.
+        </p>
+
+        <div class="tourism-box">
+          <h3>Cartina turistica di Verona</h3>
+
+          <p>
+            Qui puoi aprire oppure scaricare la mappa PDF di Verona.
+          </p>
+
+          <div class="pdf-buttons">
+            <a class="pdf-button" href="Cartina%20verona%26info.pdf" target="_blank">
+              Apri la mappa PDF
+            </a>
+
+            <a class="pdf-button dark" href="Cartina%20verona%26info.pdf" download>
+              Scarica la mappa PDF
+            </a>
+          </div>
+
+          <div class="small-note">
+            Se il download non parte subito, il PDF si aprirà nel browser e potrai salvarlo da lì.
+          </div>
         </div>
       </section>
 
