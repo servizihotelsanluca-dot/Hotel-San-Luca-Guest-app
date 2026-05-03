@@ -184,7 +184,8 @@
 
     .driver-box,
     .laundry-box,
-    .tourism-box {
+    .tourism-box,
+    .prosecco-box {
       background: #fff8f0;
       border: 2px solid #b88b6a;
       border-radius: 10px;
@@ -193,10 +194,51 @@
       box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
     }
 
-    .driver-form {
+    .driver-form,
+    .prosecco-form {
       display: grid;
       gap: 15px;
       margin-top: 18px;
+    }
+
+    .minibar-offer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 28px;
+    }
+
+    .prosecco-image {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #b88b6a;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
+      display: block;
+    }
+
+    .prosecco-box {
+      margin-top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .prosecco-box h3 {
+      color: #5b3d2d;
+      font-size: 24px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .prosecco-subtitle {
+      font-size: 16px;
+      color: #4a362c;
+      margin-bottom: 8px;
     }
 
     .form-row {
@@ -513,6 +555,14 @@
         height: 120px;
       }
 
+      .minibar-offer {
+        grid-template-columns: 1fr;
+      }
+
+      .prosecco-image {
+        min-height: 260px;
+      }
+
       .language-box {
         top: 8px;
         right: 8px;
@@ -660,6 +710,44 @@
             </tr>
           </tbody>
         </table>
+
+        <div class="minibar-offer">
+          <img
+            class="prosecco-image"
+            src="PROSECCO.png"
+            alt="Prosecco Hotel San Luca"
+          >
+
+          <div class="prosecco-box">
+            <h3>Festeggia con una bottiglia di Prosecco il tuo momento speciale</h3>
+
+            <p class="prosecco-subtitle">
+              Prenota una bottiglia di Prosecco e un piccolo snack nella tua camera al costo extra di €15.00.
+            </p>
+
+            <form class="prosecco-form" action="https://formspree.io/f/xojrjbey" method="POST">
+
+              <input type="hidden" name="_subject" value="Richiesta Prosecco in camera - Hotel San Luca">
+              <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
+              <input type="hidden" name="Servizio richiesto" value="Bottiglia di Prosecco con piccolo snack in camera - €15.00">
+
+              <div class="form-group">
+                <label for="proseccoQuantity">Quantità *</label>
+                <input type="number" id="proseccoQuantity" name="Quantità" min="1" required>
+              </div>
+
+              <div class="form-group">
+                <label for="proseccoRoom">Numero di camera *</label>
+                <input type="text" id="proseccoRoom" name="Numero di camera" required>
+              </div>
+
+              <button class="submit-button" type="submit">
+                Invia richiesta alla reception
+              </button>
+
+            </form>
+          </div>
+        </div>
       </section>
 
       <section id="lavanderia">
