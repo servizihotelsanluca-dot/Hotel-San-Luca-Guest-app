@@ -214,8 +214,14 @@
 
     .hotel-weather-details {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 12px;
+    }
+
+    .hotel-weather-one {
+      grid-template-columns: 1fr;
+      max-width: 260px;
+      margin: 0 auto 16px auto;
     }
 
     .hotel-weather-details div {
@@ -237,6 +243,37 @@
     .hotel-weather-details span {
       color: #3b2a22;
       font-size: 15px;
+    }
+
+    .hotel-forecast-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .hotel-forecast-card {
+      background: #fff;
+      border: 1px solid #e0cbb8;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(60, 40, 25, 0.08);
+    }
+
+    .hotel-forecast-card strong {
+      display: block;
+      color: #8a5f45;
+      font-size: 14px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .hotel-forecast-card span {
+      display: block;
+      color: #3b2a22;
+      font-size: 15px;
+      line-height: 1.4;
     }
 
     .bruno-buttons {
@@ -766,6 +803,10 @@
         grid-template-columns: 1fr;
       }
 
+      .hotel-forecast-grid {
+        grid-template-columns: 1fr;
+      }
+
       .language-box {
         top: 8px;
         right: 8px;
@@ -872,21 +913,33 @@
                 </div>
               </div>
 
-              <div class="hotel-weather-details">
+              <div class="hotel-weather-details hotel-weather-one">
                 <div>
                   <strong>Vento</strong>
                   <span id="weatherWind">-- km/h</span>
                 </div>
+              </div>
 
-                <div>
-                  <strong>Aggiornato</strong>
-                  <span id="weatherTime">--:--</span>
+              <div class="hotel-forecast-grid" id="weatherForecast">
+                <div class="hotel-forecast-card">
+                  <strong>Oggi</strong>
+                  <span>--</span>
+                </div>
+
+                <div class="hotel-forecast-card">
+                  <strong>Domani</strong>
+                  <span>--</span>
+                </div>
+
+                <div class="hotel-forecast-card">
+                  <strong>Dopodomani</strong>
+                  <span>--</span>
                 </div>
               </div>
             </div>
 
             <p class="weather-note">
-              Previsioni aggiornate per Verona.
+              Meteo attuale e previsioni per Verona.
             </p>
           </div>
 
@@ -1791,7 +1844,7 @@
     }
 
     function loadVeronaWeather() {
-      var weatherUrl = "https://api.open-meteo.com/v1/forecast?latitude=45.4384&longitude=10.9916&current=temperature_2m,weather_code,wind_speed_10m&timezone=Europe%2FRome";
+      var weatherUrl = "https://api.open-meteo.com/v1/forecast?latitude=45.4384&longitude=10.9916&current=temperature_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&forecast_days=3&timezone=Europe%2FRome";
 
       fetch(weatherUrl)
         .then(function(response) {
@@ -1805,14 +1858,31 @@
           document.getElementById("weatherIcon").innerHTML = getWeatherIcon(current.weather_code);
           document.getElementById("weatherWind").innerHTML = Math.round(current.wind_speed_10m) + " km/h";
 
-          var weatherDate = new Date(current.time);
-          var hours = weatherDate.getHours().toString().padStart(2, "0");
-          var minutes = weatherDate.getMinutes().toString().padStart(2, "0");
+          var forecastBox = document.getElementById("weatherForecast");
+          var labels = ["Oggi", "Domani", "Dopodomani"];
+          var forecastHtml = "";
 
-          document.getElementById("weatherTime").innerHTML = hours + ":" + minutes;
+          for (var i = 0; i < 3; i++) {
+            var dayCode = data.daily.weather_code[i];
+            var maxTemp = Math.round(data.daily.temperature_2m_max[i]);
+            var minTemp = Math.round(data.daily.temperature_2m_min[i]);
+            var icon = getWeatherIcon(dayCode);
+            var desc = getWeatherDescription(dayCode);
+
+            forecastHtml = forecastHtml +
+              '<div class="hotel-forecast-card">' +
+                '<strong>' + labels[i] + '</strong>' +
+                '<span>' + icon + ' ' + desc + '</span>' +
+                '<span>Max ' + maxTemp + '°C / Min ' + minTemp + '°C</span>' +
+              '</div>';
+          }
+
+          forecastBox.innerHTML = forecastHtml;
         })
         .catch(function() {
           document.getElementById("weatherDesc").innerHTML = "Meteo non disponibile";
+          document.getElementById("weatherForecast").innerHTML =
+            '<div class="hotel-forecast-card"><strong>Previsioni</strong><span>Non disponibili</span></div>';
         });
     }
 
