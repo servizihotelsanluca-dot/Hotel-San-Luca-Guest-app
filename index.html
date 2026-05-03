@@ -172,14 +172,6 @@
       color: #fff;
     }
 
-    .bruno-button.dark {
-      background: #3b2a22;
-    }
-
-    .bruno-button.dark:hover {
-      background: #5b3d2d;
-    }
-
     .taxi-image {
       width: 100%;
       max-height: 360px;
@@ -284,9 +276,6 @@
     }
 
     .laundry-notes {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
       margin-top: 18px;
       margin-bottom: 18px;
     }
@@ -295,17 +284,25 @@
       background: #f4eee8;
       border: 1px solid #d4b89e;
       border-radius: 6px;
-      padding: 15px;
+      padding: 18px;
       color: #4a362c;
     }
 
     .laundry-note strong {
       color: #8a5f45;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: 16px;
       letter-spacing: 0.5px;
+    }
+
+    .laundry-note p {
+      margin-bottom: 8px;
+    }
+
+    .laundry-note p:last-child {
+      margin-bottom: 0;
     }
 
     .laundry-small {
@@ -725,7 +722,7 @@
               Lavanderia
             </a>
 
-            <a class="bruno-button dark" href="#info-turistiche">
+            <a class="bruno-button" href="#info-turistiche">
               Mappa di Verona
             </a>
           </div>
@@ -839,23 +836,10 @@
 
           <div class="laundry-notes">
             <div class="laundry-note">
-              <strong>Consegna</strong>
-              Si prega di consegnare il sacchetto lavanderia alla mattina entro le ore 9:00.
-            </div>
-
-            <div class="laundry-note">
-              <strong>Delivery</strong>
-              Please deliver the laundry bag before 9:00 A.M.
-            </div>
-
-            <div class="laundry-note">
-              <strong>Durata servizio</strong>
-              Servizio entro 48 ore.
-            </div>
-
-            <div class="laundry-note">
-              <strong>Service time</strong>
-              Service within 48 hrs.
+              <strong>Informazioni servizio lavanderia</strong>
+              <p>Si prega di consegnare il sacchetto lavanderia alla reception entro le ore 9:00 del mattino.</p>
+              <p>Il servizio viene effettuato entro 48 ore.</p>
+              <p>Per indumenti speciali non presenti nell’elenco, il servizio verrà valutato al momento.</p>
             </div>
           </div>
 
@@ -997,11 +981,6 @@
                 <span>Totale complessivo</span>
                 <span id="grandTotal">€ 0,00</span>
               </div>
-            </div>
-
-            <div class="laundry-small">
-              Il servizio per indumenti speciali non presenti nell’elenco verrà valutato al momento.
-              Service for special clothes, not listed, will be valued from time to time.
             </div>
 
             <button class="submit-button" type="submit">
