@@ -524,6 +524,65 @@
       color: #6b4b37;
     }
 
+    .restaurants-box {
+      background: #fff8f0;
+      border: 2px solid #b88b6a;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 20px;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
+    }
+
+    .restaurant-category {
+      margin-bottom: 28px;
+    }
+
+    .restaurant-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .restaurant-category h3 {
+      color: #5b3d2d;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid #d8c0aa;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+    }
+
+    .restaurant-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .restaurant-card {
+      background: #fff;
+      border-left: 5px solid #b88b6a;
+      border-radius: 6px;
+      padding: 16px;
+      box-shadow: 0 5px 14px rgba(60, 40, 25, 0.10);
+    }
+
+    .restaurant-card h4 {
+      color: #3b2a22;
+      font-size: 18px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .restaurant-card p {
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .restaurant-card a {
+      color: #8a5f45;
+      text-decoration: underline;
+      word-break: break-word;
+    }
+
     footer {
       text-align: center;
       padding: 25px 15px;
@@ -667,6 +726,10 @@
 
             <a class="bruno-button" href="#info-turistiche">
               Mappa di Verona
+            </a>
+
+            <a class="bruno-button" href="#ristoranti-consigliati">
+              Ristoranti
             </a>
           </div>
         </div>
@@ -1025,6 +1088,215 @@
           <div class="small-note">
             Se il download non parte subito, il PDF si aprirà nel browser e potrai salvarlo da lì.
           </div>
+        </div>
+      </section>
+
+      <section id="ristoranti-consigliati">
+        <h2>Ristoranti consigliati a Verona</h2>
+
+        <p class="intro">
+          Una selezione di ristoranti, trattorie e pizzerie consigliate per gli ospiti dell'Hotel San Luca.
+        </p>
+
+        <div class="restaurants-box">
+
+          <div class="restaurant-category">
+            <h3>Ristoranti tradizionali</h3>
+
+            <div class="restaurant-grid">
+              <div class="restaurant-card">
+                <h4>Orologio</h4>
+                <p><strong>Indirizzo:</strong> Corso Porta Nuova 7</p>
+                <p><strong>Tel:</strong> 045 8007183</p>
+                <p><strong>Sito:</strong> <a href="https://www.ristoranteorologio.com" target="_blank">www.ristoranteorologio.com</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>La Greppia</h4>
+                <p><strong>Indirizzo:</strong> Vicolo Samaritana 3</p>
+                <p><strong>Tel:</strong> 045 8004577</p>
+                <p><strong>Sito:</strong> <a href="https://www.ristorantegreppia.it" target="_blank">www.ristorantegreppia.it</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>La Taverna di Via Stella</h4>
+                <p><strong>Indirizzo:</strong> Via Stella 5C</p>
+                <p><strong>Tel:</strong> 045 8008008</p>
+                <p><strong>Sito:</strong> <a href="https://www.tavernadiviastella.com" target="_blank">www.tavernadiviastella.com</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>Osteria Da Ugo</h4>
+                <p><strong>Indirizzo:</strong> Vicolo Dietro Sant'Andrea 1/B</p>
+                <p><strong>Tel:</strong> 045 594400</p>
+                <p><strong>Sito:</strong> <a href="https://www.osteriadaugo.com" target="_blank">www.osteriadaugo.com</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="restaurant-category">
+            <h3>Trattorie</h3>
+
+            <div class="restaurant-grid">
+              <div class="restaurant-card">
+                <h4>Arco dei Gavi</h4>
+                <p><strong>Indirizzo:</strong> Corso Cavour 43</p>
+                <p><strong>Tel:</strong> 045 8065035</p>
+                <p><strong>Sito:</strong> <a href="https://www.trattoriaarcodeigavi.it" target="_blank">www.trattoriaarcodeigavi.it</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>Giulietta & Romeo</h4>
+                <p><strong>Indirizzo:</strong> Corso Santa Anastasia 27</p>
+                <p><strong>Tel:</strong> 045 8009177</p>
+                <p><strong>Sito:</strong> <a href="https://www.osteriagiuliettaeromeo.it" target="_blank">www.osteriagiuliettaeromeo.it</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="restaurant-category">
+            <h3>Ristoranti di carne</h3>
+
+            <div class="restaurant-grid">
+              <div class="restaurant-card">
+                <h4>Il Cenacolo</h4>
+                <p><strong>Indirizzo:</strong> Via Teatro Filarmonico 10</p>
+                <p><strong>Tel:</strong> 045 592288</p>
+                <p><strong>Sito:</strong> <a href="https://www.ristoranteilcenacolo.it" target="_blank">www.ristoranteilcenacolo.it</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>La Griglia</h4>
+                <p><strong>Indirizzo:</strong> Via Leoncino 29</p>
+                <p><strong>Tel:</strong> 045 8031212</p>
+                <p><strong>Sito:</strong> <a href="https://www.lagrigliaverona.it" target="_blank">www.lagrigliaverona.it</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="restaurant-category">
+            <h3>Ristoranti innovativi</h3>
+
+            <div class="restaurant-grid">
+              <div class="restaurant-card">
+                <h4>Maffei</h4>
+                <p><strong>Indirizzo:</strong> Piazza Erbe 38</p>
+                <p><strong>Tel:</strong> 045 8010015</p>
+                <p><strong>Sito:</strong> <a href="https://www.ristorantemaffei.it" target="_blank">www.ristorantemaffei.it</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>Locanda Quattro Cuochi</h4>
+                <p><strong>Indirizzo:</strong> Via Alberto Mario 12</p>
+                <p><strong>Tel:</strong> 045 8030311</p>
+                <p><strong>Sito:</strong> <a href="https://www.locanda4cuochi.it" target="_blank">www.locanda4cuochi.it</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="restaurant-category">
+            <h3>Ristoranti di pesce</h3>
+
+            <div class="restaurant-grid">
+              <div class="restaurant-card">
+                <h4>L'Oste Scuro</h4>
+                <p><strong>Indirizzo:</strong> Vicolo San Silvestro 10</p>
+                <p><strong>Tel:</strong> 045 592650</p>
+                <p><strong>Sito:</strong> <a href="https://www.ristoranteostescuro.tv" target="_blank">www.ristoranteostescuro.tv</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>Vecio Mulin</h4>
+                <p><strong>Indirizzo:</strong> Via Sottoriva 42/A</p>
+                <p><strong>Tel:</strong> 045 8065146</p>
+                <p><strong>Sito:</strong> <a href="https://www.veciomulin.com" target="_blank">www.veciomulin.com</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>Al Capitan della Cittadella</h4>
+                <p><strong>Indirizzo:</strong> Piazza Cittadella 7</p>
+                <p><strong>Tel:</strong> 045 595157</p>
+                <p><strong>Sito:</strong> <a href="https://www.alcapitan.it" target="_blank">www.alcapitan.it</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="restaurant-category">
+            <h3>Ristoranti vegetariani</h3>
+
+            <div class="restaurant-grid">
+              <div class="restaurant-card">
+                <h4>Flora</h4>
+                <p><strong>Indirizzo:</strong> Stradone Scipione Maffei 8C</p>
+                <p><strong>Tel:</strong> 045 8006300</p>
+                <p><strong>Sito:</strong> <a href="https://www.ristoranteflora.it" target="_blank">www.ristoranteflora.it</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>Flower Burger</h4>
+                <p><strong>Indirizzo:</strong> Corso Porta Nuova 87</p>
+                <p><strong>Tel:</strong> 045 2215958</p>
+                <p><strong>Sito:</strong> <a href="https://www.flowerburger.it" target="_blank">www.flowerburger.it</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="restaurant-category">
+            <h3>Ristoranti etnici</h3>
+
+            <div class="restaurant-grid">
+              <div class="restaurant-card">
+                <h4>Porto Alegre</h4>
+                <p><strong>Cucina:</strong> Brasiliano</p>
+                <p><strong>Indirizzo:</strong> Corso Porta Nuova 78</p>
+                <p><strong>Tel:</strong> 045 8008576</p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>I-Sushi</h4>
+                <p><strong>Cucina:</strong> Giapponese</p>
+                <p><strong>Indirizzo:</strong> Piazza Pradaval 14</p>
+                <p><strong>Tel:</strong> 045 8011454</p>
+                <p><strong>Sito:</strong> <a href="https://www.isushi.it" target="_blank">www.isushi.it</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>Maharajah</h4>
+                <p><strong>Cucina:</strong> Indiano</p>
+                <p><strong>Indirizzo:</strong> Via Locatelli 19</p>
+                <p><strong>Tel:</strong> 045 8011038</p>
+                <p><strong>Sito:</strong> <a href="https://www.ristoranteindianomaharajah.it" target="_blank">www.ristoranteindianomaharajah.it</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="restaurant-category">
+            <h3>Pizzerie</h3>
+
+            <div class="restaurant-grid">
+              <div class="restaurant-card">
+                <h4>Bella Napoli</h4>
+                <p><strong>Indirizzo:</strong> Via Marconi 11</p>
+                <p><strong>Tel:</strong> 045 8069182</p>
+                <p><strong>Sito:</strong> <a href="https://www.bellanapoliverona.it" target="_blank">www.bellanapoliverona.it</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>Le Cantine dell'Arena</h4>
+                <p><strong>Indirizzo:</strong> P.tta Scalette Rubiani 1</p>
+                <p><strong>Tel:</strong> 045 8032849</p>
+                <p><strong>Sito:</strong> <a href="https://www.lecantine-arena.com" target="_blank">www.lecantine-arena.com</a></p>
+              </div>
+
+              <div class="restaurant-card">
+                <h4>Impero</h4>
+                <p><strong>Indirizzo:</strong> Piazza dei Signori 8</p>
+                <p><strong>Tel:</strong> 045 8030160</p>
+                <p><strong>Sito:</strong> <a href="https://www.pizzeriaimpero.it" target="_blank">www.pizzeriaimpero.it</a></p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
