@@ -117,7 +117,7 @@
     }
 
     .menu-wrapper:hover .dropdown {
-      max-height: 650px;
+      max-height: 750px;
     }
 
     .dropdown li {
@@ -197,33 +197,60 @@
       font-size: 19px;
     }
 
-    .service-button {
-      display: inline-block;
-      margin-top: 14px;
-      background: #b88b6a;
-      color: #fff;
-      padding: 11px 15px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 15px;
-      letter-spacing: 0.4px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-    }
-
-    .service-button:hover {
-      background: #8a5f45;
-      color: #fff;
+    .bruno-box {
+      background: #fff8f0;
+      border: 2px solid #b88b6a;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 20px;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
     }
 
     .bruno-image {
       display: block;
       width: 100%;
-      max-height: 380px;
+      max-height: 420px;
       object-fit: cover;
       border-radius: 10px;
       margin: 0 0 22px 0;
       border: 2px solid #b88b6a;
       box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
+    }
+
+    .bruno-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .bruno-button,
+    .service-button {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #b88b6a;
+      color: #fff;
+      padding: 15px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 17px;
+      letter-spacing: 0.4px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+    }
+
+    .bruno-button:hover,
+    .service-button:hover {
+      background: #8a5f45;
+      color: #fff;
+    }
+
+    .bruno-button.dark {
+      background: #3b2a22;
+    }
+
+    .bruno-button.dark:hover {
+      background: #5b3d2d;
     }
 
     .taxi-image {
@@ -726,6 +753,7 @@
 
       <ul class="dropdown">
         <li><a href="#servizi">I nostri servizi</a></li>
+        <li><a href="#bruno-receptionist">Receptionist Bruno</a></li>
         <li><a href="#taxi-ncc">Prenota taxi</a></li>
         <li><a href="#minibar">Listino minibar</a></li>
         <li><a href="#lavanderia">Lavanderia</a></li>
@@ -753,10 +781,6 @@
           <div class="card">
             <h3>Reception</h3>
             <p>Reception con personale qualificato e multilingue a vostra disposizione 24 ORE. Lo staff è vostra completa disposizione per suportarvi durante il vostro soggiorno</p>
-
-            <a class="service-button" href="#taxi-ncc">
-              Prenota il tuo taxi
-            </a>
           </div>
 
           <div class="card">
@@ -776,13 +800,37 @@
         </div>
       </section>
 
-      <section id="taxi-ncc">
-        <img
-          class="bruno-image"
-          src="BRUNO.png"
-          alt="Servizio NCC Bruno"
-        >
+      <section id="bruno-receptionist">
+        <h2>Receptionist Bruno</h2>
 
+        <p class="intro">
+          Ciao, sono Bruno. Da qui puoi accedere velocemente ai servizi più richiesti durante il soggiorno.
+        </p>
+
+        <div class="bruno-box">
+          <img
+            class="bruno-image"
+            src="BRUNO.png"
+            alt="Receptionist Bruno Hotel San Luca"
+          >
+
+          <div class="bruno-buttons">
+            <a class="bruno-button" href="#taxi-ncc">
+              Prenota un taxi
+            </a>
+
+            <a class="bruno-button" href="#lavanderia">
+              Lavanderia
+            </a>
+
+            <a class="bruno-button dark" href="#info-turistiche">
+              Mappa di Verona
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="taxi-ncc">
         <h2>Prenota il tuo taxi</h2>
 
         <p class="intro">
