@@ -69,79 +69,6 @@
       letter-spacing: 1px;
     }
 
-    .arena-photo {
-      display: block;
-      width: 92%;
-      max-width: 860px;
-      max-height: 380px;
-      object-fit: cover;
-      margin: 24px auto 22px auto;
-      border-radius: 10px;
-      border: 2px solid #b88b6a;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.28);
-    }
-
-    .menu-wrapper {
-      width: 92%;
-      max-width: 480px;
-      margin: 20px auto;
-      position: relative;
-    }
-
-    .menu-button {
-      background: #b88b6a;
-      color: #fff;
-      padding: 16px 18px;
-      border-radius: 4px;
-      text-align: center;
-      font-size: 18px;
-      letter-spacing: 1px;
-      cursor: pointer;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.28);
-      border: 1px solid rgba(255,255,255,0.25);
-    }
-
-    .menu-button::after {
-      content: " ▼";
-      font-size: 13px;
-    }
-
-    .dropdown {
-      list-style: none;
-      background: rgba(255, 255, 255, 0.97);
-      border-radius: 0 0 4px 4px;
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.35s ease;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-    }
-
-    .menu-wrapper:hover .dropdown {
-      max-height: 750px;
-    }
-
-    .dropdown li {
-      border-bottom: 1px solid #e5d8ce;
-    }
-
-    .dropdown li:last-child {
-      border-bottom: none;
-    }
-
-    .dropdown a {
-      display: block;
-      padding: 16px 20px;
-      color: #3b2a22;
-      text-decoration: none;
-      font-size: 17px;
-      transition: background 0.25s ease, color 0.25s ease;
-    }
-
-    .dropdown a:hover {
-      background: #b88b6a;
-      color: #fff;
-    }
-
     main {
       width: 92%;
       max-width: 1050px;
@@ -686,11 +613,6 @@
         height: 120px;
       }
 
-      .arena-photo {
-        width: 94%;
-        max-height: 260px;
-      }
-
       .tour-header-row {
         display: block;
       }
@@ -740,27 +662,7 @@
 
       <h1>Hotel San Luca</h1>
       <p>Verona - Guest App</p>
-
-      <img
-        class="arena-photo"
-        src="ARENA.png"
-        alt="Arena di Verona"
-      >
     </header>
-
-    <nav class="menu-wrapper">
-      <div class="menu-button">Menu</div>
-
-      <ul class="dropdown">
-        <li><a href="#servizi">I nostri servizi</a></li>
-        <li><a href="#bruno-receptionist">Receptionist Bruno</a></li>
-        <li><a href="#taxi-ncc">Prenota taxi</a></li>
-        <li><a href="#minibar">Listino minibar</a></li>
-        <li><a href="#lavanderia">Lavanderia</a></li>
-        <li><a href="#tour">I nostri tour</a></li>
-        <li><a href="#info-turistiche">Informazioni turistiche</a></li>
-      </ul>
-    </nav>
 
     <main>
 
