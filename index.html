@@ -617,6 +617,8 @@
     .arena-cover-wrapper {
       position: relative;
       width: 100%;
+      min-height: 220px;
+      background: #f4eee8;
     }
 
     .tour-cover,
@@ -624,6 +626,7 @@
       width: 100%;
       display: block;
       background: #d9c1aa;
+      border-radius: 6px;
     }
 
     .language-box,
@@ -1956,7 +1959,7 @@
               <img
                 id="arenaOperaCover"
                 class="arena-cover"
-                src="Arena San Luca Ita.png"
+                src="Arena%20San%20Luca%20Ita.png"
                 alt="Arena Opera Festival 2026 - Hotel San Luca"
               >
 
@@ -2090,23 +2093,23 @@
       var arenaCover = document.getElementById("arenaOperaCover");
 
       if (select.value === "it") {
-        arenaCover.setAttribute("src", "Arena San Luca Ita.png");
+        arenaCover.setAttribute("src", "Arena%20San%20Luca%20Ita.png");
         arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Italiano");
       } else {
         if (select.value === "en") {
-          arenaCover.setAttribute("src", "Arena San Luca Ing.png");
+          arenaCover.setAttribute("src", "Arena%20San%20Luca%20Ing.png");
           arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - English");
         } else {
           if (select.value === "de") {
-            arenaCover.setAttribute("src", "Arena San Luca Ted.png");
+            arenaCover.setAttribute("src", "Arena%20San%20Luca%20Ted.png");
             arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Deutsch");
           } else {
             if (select.value === "fr") {
-              arenaCover.setAttribute("src", "Arena San Luca Fra.png");
+              arenaCover.setAttribute("src", "Arena%20San%20Luca%20Fra.png");
               arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Français");
             } else {
               if (select.value === "es") {
-                arenaCover.setAttribute("src", "Arena San Luca Spa.png");
+                arenaCover.setAttribute("src", "Arena%20San%20Luca%20Spa.png");
                 arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Español");
               }
             }
