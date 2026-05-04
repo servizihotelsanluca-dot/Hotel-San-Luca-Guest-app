@@ -602,7 +602,8 @@
       color: #5b3d2d;
     }
 
-    .tour-card {
+    .tour-card,
+    .arena-card {
       background: #f8f2ec;
       border: 1px solid #d4b89e;
       border-radius: 8px;
@@ -612,18 +613,21 @@
       position: relative;
     }
 
-    .tour-cover-wrapper {
+    .tour-cover-wrapper,
+    .arena-cover-wrapper {
       position: relative;
       width: 100%;
     }
 
-    .tour-cover {
+    .tour-cover,
+    .arena-cover {
       width: 100%;
       display: block;
       background: #d9c1aa;
     }
 
-    .language-box {
+    .language-box,
+    .arena-language-box {
       position: absolute;
       top: 14px;
       right: 14px;
@@ -638,13 +642,15 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.18);
     }
 
-    .language-box label {
+    .language-box label,
+    .arena-language-box label {
       color: #5b3d2d;
       font-size: 15px;
       font-weight: bold;
     }
 
-    .language-box select {
+    .language-box select,
+    .arena-language-box select {
       appearance: none;
       background: #b88b6a;
       color: #fff;
@@ -666,16 +672,27 @@
       background-repeat: no-repeat;
     }
 
-    .tourism-box h3 {
+    .tourism-box h3,
+    .arena-opera-box h3 {
       font-size: 23px;
       color: #5b3d2d;
       margin-bottom: 10px;
       text-transform: uppercase;
     }
 
-    .tourism-box p {
+    .tourism-box p,
+    .arena-opera-box p {
       font-size: 17px;
       margin-bottom: 18px;
+    }
+
+    .arena-opera-box {
+      background: #fff8f0;
+      border: 2px solid #b88b6a;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 28px;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
     }
 
     .pdf-buttons {
@@ -868,7 +885,8 @@
       .tourism-box,
       .prosecco-box,
       .invoice-box,
-      .restaurants-box {
+      .restaurants-box,
+      .arena-opera-box {
         padding: 14px;
         border-radius: 8px;
       }
@@ -1033,17 +1051,20 @@
         font-size: 18px;
       }
 
-      .language-box {
+      .language-box,
+      .arena-language-box {
         top: 8px;
         right: 8px;
         padding: 6px 8px;
       }
 
-      .language-box label {
+      .language-box label,
+      .arena-language-box label {
         font-size: 13px;
       }
 
-      .language-box select {
+      .language-box select,
+      .arena-language-box select {
         font-size: 13px;
         padding: 7px 30px 7px 10px;
       }
@@ -1086,7 +1107,8 @@
       .tourism-box,
       .prosecco-box,
       .invoice-box,
-      .restaurants-box {
+      .restaurants-box,
+      .arena-opera-box {
         padding: 12px;
       }
 
@@ -1132,6 +1154,12 @@
       .laundry-choice {
         font-size: 14px;
       }
+
+      .arena-language-box {
+        position: static;
+        margin: 0 0 10px 0;
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -1154,7 +1182,7 @@
       <section>
         <h2>Benvenuti</h2>
         <p class="intro">
-          Benvenuti all'Hotel San Luca di Verona. Questa App è stata creata per voi, per permettervi di visualizzare in tempo reale tutti i servizi offerti dal nostro albergo. Troverete anche informazioni turistiche che vi permettono di organizzare al meglio il vostro soggiorno e le vostre escursioni.
+          Benvenuti all'Hotel San Luca di Verona. Questa App è stata creata per permettervi di visualizzare tutti i servizi dell'hotel e conoscere le principali attrazioni turistiche che vi saranno utili durante il vostro soggiorno.
         </p>
       </section>
 
@@ -1169,12 +1197,12 @@
 
           <div class="card">
             <h3>Garage privato</h3>
-            <p>Garage disponibile su prenotazione dalle ore 02.00 PM del giorno di arrivo alle ore 12.00 AM del giorno di partenza, comodo per chi arriva in auto. Le chiavi dovranno essere consegnate alla reception durante il soggiorno.</p>
+            <p>Garage disponibile su prenotazione dalle ore 02.00 PM del giorno di arrivo alle ore 12.00 AM comodo per chi arriva in auto. Le chiavi dovranno essere consegnate alla reception durante il soggiorno.</p>
           </div>
 
           <div class="card">
             <h3>Colazione (tasto A in ascensore)</h3>
-            <p>La colazione viene servita dalle ore 07.00 AM alle ore 10.00 AM. I clienti, che ne sono sprovvisti, potranno aggiungerla alla tariffa extra di €13.00/persona per giorno. Il buffet propone prodotti dolci e salati, per celiaci ed intolleranti al lattosio.</p>
+            <p>La colazione viene servita dalle ore 07.00 AM alle ore 10.00 AM. I clienti che ne sono sprovvisti, potranno aggiungerla alla tariffa extra di €13.00/persona per giorno. Il buffet propone prodotti dolci e salati, per celiaci ed intolleranti al lattosio.</p>
           </div>
         </div>
       </section>
@@ -1183,7 +1211,7 @@
         <h2>Virtual Receptionist</h2>
 
         <p class="intro">
-          Ciao, sono il Virtual Receptionist. Da qui puoi accedere velocemente a tutti i nostri servizi.
+          Ciao, sono il Virtual Receptionist. Da qui puoi accedere velocemente ai servizi più richiesti durante il soggiorno.
         </p>
 
         <div class="bruno-box">
@@ -1250,7 +1278,7 @@
             </a>
 
             <a class="bruno-button" href="#info-turistiche">
-              Mappa di Verona
+              Informazioni turistiche
             </a>
 
             <a class="bruno-button" href="#ristoranti-consigliati">
@@ -1314,7 +1342,7 @@
             <h3>Festeggia con una bottiglia di Prosecco il tuo momento speciale</h3>
 
             <p class="prosecco-subtitle">
-              Prenota una bottiglia di Prosecco e un piccolo snack nella tua camera al costo extra di €25.00.
+              Prenota una bottiglia di Prosecco e un piccolo snack nella tua camera al costo extra di €15.00.
             </p>
 
             <form class="prosecco-form" action="https://formspree.io/f/xojrjbey" method="POST">
@@ -1914,6 +1942,39 @@
             Se il download non parte subito, il PDF si aprirà nel browser e potrai salvarlo da lì.
           </div>
         </div>
+
+        <div class="arena-opera-box">
+          <h3>Arena Opera Festival 2026</h3>
+
+          <p>
+            Consulta il programma dell'Arena Opera Festival 2026 nella lingua desiderata.
+          </p>
+
+          <div class="arena-card">
+            <div class="arena-cover-wrapper">
+
+              <img
+                id="arenaOperaCover"
+                class="arena-cover"
+                src="Arena San Luca Ita.png"
+                alt="Arena Opera Festival 2026 - Hotel San Luca"
+              >
+
+              <div class="arena-language-box">
+                <label for="arenaLanguage">Lingua:</label>
+
+                <select id="arenaLanguage">
+                  <option value="it" selected>Italiano</option>
+                  <option value="en">English</option>
+                  <option value="de">Deutsch</option>
+                  <option value="fr">Français</option>
+                  <option value="es">Español</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </section>
 
     </main>
@@ -2021,6 +2082,36 @@
       } else {
         tourCover.setAttribute("src", "GOLFCART TOUR VERONA ING.png");
         tourCover.setAttribute("alt", "Verona by Golf Cart - Hotel San Luca");
+      }
+    }
+
+    function changeArenaLanguage() {
+      var select = document.getElementById("arenaLanguage");
+      var arenaCover = document.getElementById("arenaOperaCover");
+
+      if (select.value === "it") {
+        arenaCover.setAttribute("src", "Arena San Luca Ita.png");
+        arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Italiano");
+      } else {
+        if (select.value === "en") {
+          arenaCover.setAttribute("src", "Arena San Luca Ing.png");
+          arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - English");
+        } else {
+          if (select.value === "de") {
+            arenaCover.setAttribute("src", "Arena San Luca Ted.png");
+            arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Deutsch");
+          } else {
+            if (select.value === "fr") {
+              arenaCover.setAttribute("src", "Arena San Luca Fra.png");
+              arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Français");
+            } else {
+              if (select.value === "es") {
+                arenaCover.setAttribute("src", "Arena San Luca Spa.png");
+                arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Español");
+              }
+            }
+          }
+        }
       }
     }
 
@@ -2187,6 +2278,14 @@
       });
 
       changeTourLanguage();
+
+      var arenaSelect = document.getElementById("arenaLanguage");
+
+      arenaSelect.addEventListener("change", function() {
+        changeArenaLanguage();
+      });
+
+      changeArenaLanguage();
 
       var laundryInputs = document.querySelectorAll(".laundry-qty, .wash-check, .iron-check");
 
