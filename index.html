@@ -764,6 +764,63 @@
       overflow-wrap: break-word;
     }
 
+    .train-widget {
+      background: #f8f2ec;
+      border: 1px solid #d4b89e;
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.12);
+    }
+
+    .train-widget-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 16px auto;
+      border-radius: 50%;
+      background: #b88b6a;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      box-shadow: 0 8px 18px rgba(60, 40, 25, 0.20);
+    }
+
+    .train-widget h4 {
+      color: #5b3d2d;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .train-widget p {
+      color: #4a362c;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .train-widget-link {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #b88b6a;
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 18px;
+      border-radius: 6px;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+
+    .train-widget-link:hover {
+      background: #8a5f45;
+      color: #fff;
+    }
+
     .tour-card,
     .arena-card {
       background: #f8f2ec;
@@ -1233,6 +1290,14 @@
       .pdf-button {
         font-size: 16px;
         padding: 15px;
+      }
+
+      .train-widget {
+        padding: 18px;
+      }
+
+      .train-widget h4 {
+        font-size: 19px;
       }
     }
 
@@ -1941,7 +2006,7 @@
         <h2>Informazioni turistiche</h2>
 
         <p class="intro">
-          Consulta cartine turistiche, collegamenti autobus e programma Arena Opera Festival 2026.
+          Consulta cartine turistiche, collegamenti autobus, orari treni e programma Arena Opera Festival 2026.
         </p>
 
         <div class="tourism-box">
@@ -1958,6 +2023,10 @@
 
             <button class="pdf-button dark" type="button" onclick="openTourismPopup('bus')">
               Collegamento Lago di Garda
+            </button>
+
+            <button class="pdf-button" type="button" onclick="openTourismPopup('treni')">
+              Orario treni
             </button>
           </div>
         </div>
@@ -2210,6 +2279,19 @@
                 '<a class="pdf-button dark" href="Bus_linea_026_Verona_Brescia.pdf" download>Scarica gli orari PDF</a>' +
               '</div>' +
             '</div>';
+        } else {
+          if (type === "treni") {
+            title.innerHTML = "Orario treni";
+
+            content.innerHTML =
+              '<div class="train-widget">' +
+                '<div class="train-widget-icon">🚆</div>' +
+                '<h4>Consulta gli orari dei treni</h4>' +
+                '<p>Apri il sito ufficiale Trenitalia per cercare partenze, arrivi, coincidenze e acquistare biglietti.</p>' +
+                '<p><strong>Stazione consigliata:</strong> Verona Porta Nuova</p>' +
+                '<a class="train-widget-link" href="https://www.trenitalia.com/" target="_blank">Apri Trenitalia</a>' +
+              '</div>';
+          }
         }
       }
 
