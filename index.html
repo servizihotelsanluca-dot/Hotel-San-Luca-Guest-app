@@ -110,6 +110,36 @@
       font-weight: normal;
     }
 
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .section-title-row h2 {
+      margin-bottom: 0;
+    }
+
+    .open-laundry-button {
+      background: #b88b6a;
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      cursor: pointer;
+      letter-spacing: 0.4px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+      white-space: nowrap;
+    }
+
+    .open-laundry-button:hover {
+      background: #8a5f45;
+    }
+
     .intro {
       font-size: 18px;
       margin-bottom: 18px;
@@ -331,7 +361,6 @@
     }
 
     .driver-box,
-    .laundry-box,
     .tourism-box,
     .prosecco-box,
     .invoice-box {
@@ -507,6 +536,76 @@
       color: #fff;
       font-weight: normal;
       letter-spacing: 1px;
+    }
+
+    .laundry-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(45, 32, 25, 0.72);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .laundry-popup-overlay.active {
+      display: flex;
+    }
+
+    .laundry-popup-box {
+      width: 100%;
+      max-width: 980px;
+      max-height: 88vh;
+      overflow-y: auto;
+      background: #fff8f0;
+      border: 2px solid #b88b6a;
+      border-radius: 12px;
+      padding: 26px;
+      position: relative;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+    }
+
+    .laundry-popup-box h3 {
+      color: #5b3d2d;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      padding-right: 42px;
+    }
+
+    .laundry-popup-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: #3b2a22;
+      color: #fff;
+      font-size: 28px;
+      line-height: 36px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+    }
+
+    .laundry-popup-close:hover {
+      background: #8a5f45;
+    }
+
+    .laundry-box {
+      background: #fff8f0;
+      border: 2px solid #b88b6a;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 20px;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
+      overflow-x: hidden;
     }
 
     .laundry-notes {
@@ -934,6 +1033,19 @@
         line-height: 1.25;
       }
 
+      .section-title-row {
+        display: block;
+      }
+
+      .section-title-row h2 {
+        margin-bottom: 12px;
+      }
+
+      .open-laundry-button {
+        width: 100%;
+        padding: 14px;
+      }
+
       .intro {
         font-size: 16px;
       }
@@ -953,7 +1065,6 @@
 
       .bruno-box,
       .driver-box,
-      .laundry-box,
       .tourism-box,
       .prosecco-box,
       .invoice-box,
@@ -1031,6 +1142,26 @@
       .price-list th,
       .price-list td {
         padding: 10px;
+      }
+
+      .laundry-popup-overlay {
+        padding: 10px;
+        align-items: flex-start;
+      }
+
+      .laundry-popup-box {
+        max-height: 92vh;
+        padding: 18px;
+        margin-top: 20px;
+      }
+
+      .laundry-popup-box h3 {
+        font-size: 20px;
+      }
+
+      .laundry-box {
+        padding: 14px;
+        border-radius: 8px;
       }
 
       .laundry-table {
@@ -1191,12 +1322,16 @@
 
       .bruno-box,
       .driver-box,
-      .laundry-box,
       .tourism-box,
       .prosecco-box,
       .invoice-box,
       .restaurants-box,
       .arena-opera-box {
+        padding: 12px;
+      }
+
+      .laundry-popup-box,
+      .laundry-box {
         padding: 12px;
       }
 
@@ -1459,169 +1594,186 @@
       </section>
 
       <section id="lavanderia">
-        <h2>Lavanderia</h2>
+        <div class="section-title-row">
+          <h2>Lavanderia</h2>
+
+          <button class="open-laundry-button" type="button" onclick="openLaundryPopup()">
+            Apri form lavanderia
+          </button>
+        </div>
 
         <p class="intro">
           Servizio di lavatura e/o stiratura disponibile tramite reception.
         </p>
 
-        <div class="laundry-box">
+        <div id="laundryPopup" class="laundry-popup-overlay">
+          <div class="laundry-popup-box">
 
-          <div class="laundry-notes">
-            <div class="laundry-note">
-              <strong>Informazioni servizio lavanderia</strong>
-              <p>Si prega di inviare il form della lavanderia alla reception entro le ore 10:00 del mattino.</p>
-              <p>Il servizio viene effettuato entro 48 ore.</p>
-              <p>Per indumenti speciali non presenti nell’elenco, il servizio verrà valutato al momento.</p>
-            </div>
-          </div>
-
-          <form id="laundryForm" action="https://formspree.io/f/xbdwjdvb" method="POST">
-
-            <input type="hidden" name="_subject" value="Richiesta servizio lavanderia - Hotel San Luca">
-            <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
-            <input type="hidden" id="laundryDetails" name="Dettaglio richiesta lavanderia">
-            <input type="hidden" id="laundryTotalWashingHidden" name="Totale lavatura">
-            <input type="hidden" id="laundryTotalIroningHidden" name="Totale stiratura">
-            <input type="hidden" id="laundryGrandTotalHidden" name="Totale complessivo">
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="laundryName">Nome e cognome *</label>
-                <input type="text" id="laundryName" name="Nome e cognome" required>
-              </div>
-
-              <div class="form-group">
-                <label for="laundryRoom">Numero di camera *</label>
-                <input type="text" id="laundryRoom" name="Numero di camera" required>
-              </div>
-            </div>
-
-            <table class="laundry-table">
-              <thead>
-                <tr>
-                  <th>Indumento</th>
-                  <th>Numero capi</th>
-                  <th>Solo lavatura</th>
-                  <th>Solo stiratura</th>
-                  <th>Costo parziale</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr class="laundry-row" data-item="Camicie" data-wash="1.50" data-iron="3.00">
-                  <td data-label="Indumento">Camicie</td>
-                  <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                  <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
-                  <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 3,00</label></td>
-                  <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
-                </tr>
-
-                <tr class="laundry-row" data-item="Calzini" data-wash="1.50" data-iron="">
-                  <td data-label="Indumento">Calzini</td>
-                  <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                  <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
-                  <td data-label="Solo stiratura" class="not-available">Non disponibile</td>
-                  <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
-                </tr>
-
-                <tr class="laundry-row" data-item="Magliette" data-wash="1.50" data-iron="1.50">
-                  <td data-label="Indumento">Magliette</td>
-                  <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                  <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
-                  <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 1,50</label></td>
-                  <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
-                </tr>
-
-                <tr class="laundry-row" data-item="Maglie - Felpe" data-wash="1.50" data-iron="1.50">
-                  <td data-label="Indumento">Maglie - Felpe</td>
-                  <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                  <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
-                  <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 1,50</label></td>
-                  <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
-                </tr>
-
-                <tr class="laundry-row" data-item="Giacche" data-wash="" data-iron="2.50">
-                  <td data-label="Indumento">Giacche</td>
-                  <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                  <td data-label="Solo lavatura" class="not-available">Non disponibile</td>
-                  <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,50</label></td>
-                  <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
-                </tr>
-
-                <tr class="laundry-row" data-item="Pantaloni" data-wash="2.50" data-iron="2.50">
-                  <td data-label="Indumento">Pantaloni</td>
-                  <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                  <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 2,50</label></td>
-                  <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,50</label></td>
-                  <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
-                </tr>
-
-                <tr class="laundry-row" data-item="Gonne" data-wash="" data-iron="2.50">
-                  <td data-label="Indumento">Gonne</td>
-                  <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                  <td data-label="Solo lavatura" class="not-available">Non disponibile</td>
-                  <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,50</label></td>
-                  <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
-                </tr>
-
-                <tr class="laundry-row" data-item="Vestiti" data-wash="" data-iron="4.50">
-                  <td data-label="Indumento">Vestiti</td>
-                  <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                  <td data-label="Solo lavatura" class="not-available">Non disponibile</td>
-                  <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 4,50</label></td>
-                  <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
-                </tr>
-
-                <tr class="laundry-row" data-item="Camicie da notte" data-wash="1.50" data-iron="2.00">
-                  <td data-label="Indumento">Camicie da notte</td>
-                  <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                  <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
-                  <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,00</label></td>
-                  <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
-                </tr>
-
-                <tr class="laundry-row" data-item="Intimo" data-wash="1.50" data-iron="">
-                  <td data-label="Indumento">Intimo</td>
-                  <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                  <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
-                  <td data-label="Solo stiratura" class="not-available">Non disponibile</td>
-                  <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
-                </tr>
-
-                <tr class="laundry-row" data-item="Reggiseni" data-wash="1.50" data-iron="">
-                  <td data-label="Indumento">Reggiseni</td>
-                  <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                  <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
-                  <td data-label="Solo stiratura" class="not-available">Non disponibile</td>
-                  <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div class="laundry-total-box">
-              <div class="laundry-total-row">
-                <span>Totale lavatura</span>
-                <span id="totalWashing">€ 0,00</span>
-              </div>
-
-              <div class="laundry-total-row">
-                <span>Totale stiratura</span>
-                <span id="totalIroning">€ 0,00</span>
-              </div>
-
-              <div class="laundry-total-row">
-                <span>Totale complessivo</span>
-                <span id="grandTotal">€ 0,00</span>
-              </div>
-            </div>
-
-            <button class="submit-button" type="submit">
-              Invia richiesta alla reception
+            <button class="laundry-popup-close" type="button" onclick="closeLaundryPopup()">
+              ×
             </button>
 
-          </form>
+            <h3>Form lavanderia</h3>
 
+            <div class="laundry-box">
+
+              <div class="laundry-notes">
+                <div class="laundry-note">
+                  <strong>Informazioni servizio lavanderia</strong>
+                  <p>Si prega di inviare il form della lavanderia alla reception entro le ore 10:00 del mattino.</p>
+                  <p>Il servizio viene effettuato entro 48 ore.</p>
+                  <p>Per indumenti speciali non presenti nell’elenco, il servizio verrà valutato al momento.</p>
+                </div>
+              </div>
+
+              <form id="laundryForm" action="https://formspree.io/f/xbdwjdvb" method="POST">
+
+                <input type="hidden" name="_subject" value="Richiesta servizio lavanderia - Hotel San Luca">
+                <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
+                <input type="hidden" id="laundryDetails" name="Dettaglio richiesta lavanderia">
+                <input type="hidden" id="laundryTotalWashingHidden" name="Totale lavatura">
+                <input type="hidden" id="laundryTotalIroningHidden" name="Totale stiratura">
+                <input type="hidden" id="laundryGrandTotalHidden" name="Totale complessivo">
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="laundryName">Nome e cognome *</label>
+                    <input type="text" id="laundryName" name="Nome e cognome" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="laundryRoom">Numero di camera *</label>
+                    <input type="text" id="laundryRoom" name="Numero di camera" required>
+                  </div>
+                </div>
+
+                <table class="laundry-table">
+                  <thead>
+                    <tr>
+                      <th>Indumento</th>
+                      <th>Numero capi</th>
+                      <th>Solo lavatura</th>
+                      <th>Solo stiratura</th>
+                      <th>Costo parziale</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr class="laundry-row" data-item="Camicie" data-wash="1.50" data-iron="3.00">
+                      <td data-label="Indumento">Camicie</td>
+                      <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
+                      <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
+                      <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 3,00</label></td>
+                      <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
+                    </tr>
+
+                    <tr class="laundry-row" data-item="Calzini" data-wash="1.50" data-iron="">
+                      <td data-label="Indumento">Calzini</td>
+                      <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
+                      <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
+                      <td data-label="Solo stiratura" class="not-available">Non disponibile</td>
+                      <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
+                    </tr>
+
+                    <tr class="laundry-row" data-item="Magliette" data-wash="1.50" data-iron="1.50">
+                      <td data-label="Indumento">Magliette</td>
+                      <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
+                      <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
+                      <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 1,50</label></td>
+                      <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
+                    </tr>
+
+                    <tr class="laundry-row" data-item="Maglie - Felpe" data-wash="1.50" data-iron="1.50">
+                      <td data-label="Indumento">Maglie - Felpe</td>
+                      <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
+                      <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
+                      <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 1,50</label></td>
+                      <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
+                    </tr>
+
+                    <tr class="laundry-row" data-item="Giacche" data-wash="" data-iron="2.50">
+                      <td data-label="Indumento">Giacche</td>
+                      <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
+                      <td data-label="Solo lavatura" class="not-available">Non disponibile</td>
+                      <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,50</label></td>
+                      <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
+                    </tr>
+
+                    <tr class="laundry-row" data-item="Pantaloni" data-wash="2.50" data-iron="2.50">
+                      <td data-label="Indumento">Pantaloni</td>
+                      <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
+                      <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 2,50</label></td>
+                      <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,50</label></td>
+                      <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
+                    </tr>
+
+                    <tr class="laundry-row" data-item="Gonne" data-wash="" data-iron="2.50">
+                      <td data-label="Indumento">Gonne</td>
+                      <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
+                      <td data-label="Solo lavatura" class="not-available">Non disponibile</td>
+                      <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,50</label></td>
+                      <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
+                    </tr>
+
+                    <tr class="laundry-row" data-item="Vestiti" data-wash="" data-iron="4.50">
+                      <td data-label="Indumento">Vestiti</td>
+                      <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
+                      <td data-label="Solo lavatura" class="not-available">Non disponibile</td>
+                      <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 4,50</label></td>
+                      <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
+                    </tr>
+
+                    <tr class="laundry-row" data-item="Camicie da notte" data-wash="1.50" data-iron="2.00">
+                      <td data-label="Indumento">Camicie da notte</td>
+                      <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
+                      <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
+                      <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,00</label></td>
+                      <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
+                    </tr>
+
+                    <tr class="laundry-row" data-item="Intimo" data-wash="1.50" data-iron="">
+                      <td data-label="Indumento">Intimo</td>
+                      <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
+                      <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
+                      <td data-label="Solo stiratura" class="not-available">Non disponibile</td>
+                      <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
+                    </tr>
+
+                    <tr class="laundry-row" data-item="Reggiseni" data-wash="1.50" data-iron="">
+                      <td data-label="Indumento">Reggiseni</td>
+                      <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
+                      <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
+                      <td data-label="Solo stiratura" class="not-available">Non disponibile</td>
+                      <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="laundry-total-box">
+                  <div class="laundry-total-row">
+                    <span>Totale lavatura</span>
+                    <span id="totalWashing">€ 0,00</span>
+                  </div>
+
+                  <div class="laundry-total-row">
+                    <span>Totale stiratura</span>
+                    <span id="totalIroning">€ 0,00</span>
+                  </div>
+
+                  <div class="laundry-total-row">
+                    <span>Totale complessivo</span>
+                    <span id="grandTotal">€ 0,00</span>
+                  </div>
+                </div>
+
+                <button class="submit-button" type="submit">
+                  Invia richiesta alla reception
+                </button>
+
+              </form>
+
+            </div>
+          </div>
         </div>
       </section>
 
@@ -2076,6 +2228,19 @@
       document.getElementById("laundryGrandTotalHidden").value = formatEuro(grandTotal);
 
       return grandTotal;
+    }
+
+    function openLaundryPopup() {
+      var popup = document.getElementById("laundryPopup");
+      popup.classList.add("active");
+      document.body.style.overflow = "hidden";
+      updateLaundryTotals();
+    }
+
+    function closeLaundryPopup() {
+      var popup = document.getElementById("laundryPopup");
+      popup.classList.remove("active");
+      document.body.style.overflow = "";
     }
 
     function changeTourLanguage() {
@@ -2536,14 +2701,20 @@
       document.addEventListener("keydown", function(event) {
         if (event.key === "Escape") {
           closeRestaurantPopup();
+          closeLaundryPopup();
         }
       });
 
       document.addEventListener("click", function(event) {
-        var popup = document.getElementById("restaurantPopup");
+        var restaurantPopup = document.getElementById("restaurantPopup");
+        var laundryPopup = document.getElementById("laundryPopup");
 
-        if (event.target === popup) {
+        if (event.target === restaurantPopup) {
           closeRestaurantPopup();
+        }
+
+        if (event.target === laundryPopup) {
+          closeLaundryPopup();
         }
       });
 
