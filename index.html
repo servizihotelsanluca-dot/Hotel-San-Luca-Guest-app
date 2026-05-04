@@ -341,7 +341,8 @@
     .driver-box,
     .tourism-box,
     .prosecco-box,
-    .invoice-box {
+    .invoice-box,
+    .guide-box {
       background: #fff8f0;
       border: 2px solid #b88b6a;
       border-radius: 10px;
@@ -353,10 +354,45 @@
 
     .driver-form,
     .prosecco-form,
-    .invoice-form {
+    .invoice-form,
+    .guide-form {
       display: grid;
       gap: 15px;
       margin-top: 18px;
+    }
+
+    .guide-banner {
+      display: block;
+      width: 100%;
+      max-height: 430px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 0 0 22px 0;
+      border: 2px solid #b88b6a;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
+    }
+
+    .guide-box h3 {
+      color: #5b3d2d;
+      font-size: 23px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .guide-box p {
+      font-size: 17px;
+      color: #4a362c;
+      margin-bottom: 10px;
+    }
+
+    .guide-note {
+      background: #f4eee8;
+      border-left: 5px solid #b88b6a;
+      border-radius: 6px;
+      padding: 16px;
+      margin-top: 16px;
+      color: #4a362c;
     }
 
     .minibar-offer {
@@ -452,7 +488,8 @@
     }
 
     .form-group input,
-    .form-group textarea {
+    .form-group textarea,
+    .form-group select {
       width: 100%;
       max-width: 100%;
       padding: 12px;
@@ -1068,13 +1105,15 @@
       .prosecco-box,
       .invoice-box,
       .restaurants-box,
-      .arena-opera-box {
+      .arena-opera-box,
+      .guide-box {
         padding: 14px;
         border-radius: 8px;
       }
 
       .bruno-image,
-      .laundry-hero-image {
+      .laundry-hero-image,
+      .guide-banner {
         max-height: 260px;
         border-radius: 8px;
       }
@@ -1321,7 +1360,8 @@
       .prosecco-box,
       .invoice-box,
       .restaurants-box,
-      .arena-opera-box {
+      .arena-opera-box,
+      .guide-box {
         padding: 12px;
       }
 
@@ -1351,7 +1391,8 @@
       }
 
       .form-group input,
-      .form-group textarea {
+      .form-group textarea,
+      .form-group select {
         font-size: 15px;
         padding: 11px;
       }
@@ -2044,6 +2085,89 @@
             </div>
 
           </div>
+        </div>
+
+        <div class="guide-box">
+          <img
+            class="guide-banner"
+            src="SanLuca_Guida.png"
+            alt="Guida turistica ufficiale Verona - Hotel San Luca"
+          >
+
+          <h3>Guida turistica ufficiale a Verona</h3>
+
+          <p>
+            Vuoi esplorare Verona con una guida turistica ufficiale in lingua?
+          </p>
+
+          <p>
+            Compila il modulo qui sotto per inviare la richiesta alla reception. Lo staff verificherà disponibilità, lingua richiesta e orario desiderato.
+          </p>
+
+          <div class="guide-note">
+            Servizio soggetto a disponibilità. La richiesta non costituisce conferma automatica della prenotazione.
+          </div>
+
+          <form class="guide-form" action="https://formspree.io/f/xbdwjdvb" method="POST">
+
+            <input type="hidden" name="_subject" value="Richiesta guida turistica ufficiale - Hotel San Luca">
+            <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
+            <input type="hidden" name="Servizio richiesto" value="Guida turistica ufficiale in lingua per Verona">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="guideName">Nome e cognome *</label>
+                <input type="text" id="guideName" name="Nome e cognome" required>
+              </div>
+
+              <div class="form-group">
+                <label for="guideRoom">Numero di camera *</label>
+                <input type="text" id="guideRoom" name="Numero di camera" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="guidePeople">Numero di persone *</label>
+                <input type="number" id="guidePeople" name="Numero di persone" min="1" required>
+              </div>
+
+              <div class="form-group">
+                <label for="guideLanguage">Lingua richiesta *</label>
+                <select id="guideLanguage" name="Lingua richiesta" required>
+                  <option value="">Seleziona una lingua</option>
+                  <option value="Italiano">Italiano</option>
+                  <option value="English">English</option>
+                  <option value="Deutsch">Deutsch</option>
+                  <option value="Français">Français</option>
+                  <option value="Español">Español</option>
+                  <option value="Altra lingua">Altra lingua</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="guideDate">Data desiderata *</label>
+                <input type="date" id="guideDate" name="Data desiderata" required>
+              </div>
+
+              <div class="form-group">
+                <label for="guideTime">Orario desiderato *</label>
+                <input type="time" id="guideTime" name="Orario desiderato" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="guideNotes">Note o richieste particolari</label>
+              <textarea id="guideNotes" name="Note o richieste particolari"></textarea>
+            </div>
+
+            <button class="submit-button" type="submit">
+              Invia richiesta alla reception
+            </button>
+
+          </form>
         </div>
 
         <div class="arena-opera-box">
