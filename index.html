@@ -40,6 +40,50 @@
       overflow-x: hidden;
     }
 
+    .global-language-wrapper {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 10000;
+      background: rgba(255, 248, 240, 0.96);
+      border: 1px solid #d4b89e;
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+    }
+
+    .global-language-wrapper label {
+      color: #5b3d2d;
+      font-weight: bold;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .global-language-wrapper select {
+      appearance: none;
+      background: #b88b6a;
+      color: #fff;
+      border: none;
+      padding: 9px 34px 9px 13px;
+      border-radius: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      cursor: pointer;
+      background-image:
+        linear-gradient(45deg, transparent 50%, #fff 50%),
+        linear-gradient(135deg, #fff 50%, transparent 50%);
+      background-position:
+        calc(100% - 17px) 50%,
+        calc(100% - 11px) 50%;
+      background-size:
+        6px 6px,
+        6px 6px;
+      background-repeat: no-repeat;
+    }
+
     header {
       padding: 24px 18px 10px 18px;
       text-align: center;
@@ -110,36 +154,6 @@
       font-weight: normal;
     }
 
-    .section-title-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
-    }
-
-    .section-title-row h2 {
-      margin-bottom: 0;
-    }
-
-    .open-laundry-button {
-      background: #b88b6a;
-      color: #fff;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 6px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 16px;
-      cursor: pointer;
-      letter-spacing: 0.4px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-      white-space: nowrap;
-    }
-
-    .open-laundry-button:hover {
-      background: #8a5f45;
-    }
-
     .intro {
       font-size: 18px;
       margin-bottom: 18px;
@@ -166,7 +180,7 @@
       font-size: 19px;
     }
 
-    .bruno-box {
+    .box-style {
       background: #fff8f0;
       border: 2px solid #b88b6a;
       border-radius: 10px;
@@ -176,18 +190,9 @@
       overflow-x: hidden;
     }
 
-    .bruno-image {
-      display: block;
-      width: 100%;
-      max-height: 420px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin: 0 0 22px 0;
-      border: 2px solid #b88b6a;
-      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
-    }
-
-    .laundry-hero-image {
+    .bruno-image,
+    .laundry-hero-image,
+    .guide-banner {
       display: block;
       width: 100%;
       max-height: 430px;
@@ -196,17 +201,6 @@
       margin: 0 0 22px 0;
       border: 2px solid #b88b6a;
       box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
-    }
-
-    .news-box,
-    .fiera-box {
-      background: #fff8f0;
-      border: 2px solid #b88b6a;
-      border-radius: 10px;
-      padding: 24px;
-      margin-top: 20px;
-      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
-      overflow-x: hidden;
     }
 
     .news-banner {
@@ -230,7 +224,8 @@
       margin-top: 18px;
     }
 
-    .news-info-card {
+    .news-info-card,
+    .note-box {
       background: #f4eee8;
       border-left: 5px solid #b88b6a;
       border-radius: 8px;
@@ -239,7 +234,8 @@
       color: #4a362c;
     }
 
-    .news-info-card h3 {
+    .news-info-card h3,
+    .box-style h3 {
       color: #5b3d2d;
       font-size: 22px;
       text-transform: uppercase;
@@ -365,15 +361,18 @@
       line-height: 1.4;
     }
 
-    .bruno-buttons {
+    .buttons-grid,
+    .restaurant-buttons-grid,
+    .pdf-buttons {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 14px;
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
-    .bruno-button,
-    .service-button {
+    .main-button,
+    .restaurant-category-button,
+    .pdf-button {
       display: block;
       width: 100%;
       text-align: center;
@@ -386,10 +385,14 @@
       letter-spacing: 0.4px;
       box-shadow: 0 6px 14px rgba(0,0,0,0.18);
       min-width: 0;
+      border: none;
+      font-family: Georgia, "Times New Roman", serif;
+      cursor: pointer;
     }
 
-    .bruno-button:hover,
-    .service-button:hover {
+    .main-button:hover,
+    .restaurant-category-button:hover,
+    .pdf-button:hover {
       background: #8a5f45;
       color: #fff;
     }
@@ -404,74 +407,10 @@
       box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
     }
 
-    .driver-box,
-    .tourism-box,
-    .prosecco-box,
-    .invoice-box,
-    .guide-box {
-      background: #fff8f0;
-      border: 2px solid #b88b6a;
-      border-radius: 10px;
-      padding: 24px;
-      margin-top: 20px;
-      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
-      overflow-x: hidden;
-    }
-
-    .driver-form,
-    .prosecco-form,
-    .invoice-form {
+    .form-style {
       display: grid;
       gap: 15px;
       margin-top: 18px;
-    }
-
-    .guide-banner {
-      display: block;
-      width: 100%;
-      max-height: 430px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin: 0 0 22px 0;
-      border: 2px solid #b88b6a;
-      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
-    }
-
-    .guide-box h3 {
-      color: #5b3d2d;
-      font-size: 23px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-
-    .guide-box p {
-      font-size: 17px;
-      color: #4a362c;
-      margin-bottom: 10px;
-    }
-
-    .guide-note {
-      background: #f4eee8;
-      border-left: 5px solid #b88b6a;
-      border-radius: 6px;
-      padding: 16px;
-      margin-top: 16px;
-      color: #4a362c;
-      font-size: 17px;
-    }
-
-    .guide-highlight {
-      background: #3b2a22;
-      color: #fff;
-      text-align: center;
-      padding: 18px;
-      border-radius: 6px;
-      margin-top: 18px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 18px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.22);
     }
 
     .minibar-offer {
@@ -500,20 +439,6 @@
       justify-content: center;
     }
 
-    .prosecco-box h3 {
-      color: #5b3d2d;
-      font-size: 24px;
-      line-height: 1.25;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .prosecco-subtitle {
-      font-size: 16px;
-      color: #4a362c;
-      margin-bottom: 8px;
-    }
-
     .invoice-text {
       background: #f4eee8;
       border: 1px solid #d4b89e;
@@ -523,12 +448,9 @@
       margin-bottom: 18px;
     }
 
-    .invoice-text p {
+    .invoice-text p,
+    .invoice-warning p {
       margin-bottom: 12px;
-    }
-
-    .invoice-text p:last-child {
-      margin-bottom: 0;
     }
 
     .invoice-warning {
@@ -538,14 +460,6 @@
       border-radius: 6px;
       margin-top: 18px;
       color: #4a362c;
-    }
-
-    .invoice-warning p {
-      margin-bottom: 12px;
-    }
-
-    .invoice-warning p:last-child {
-      margin-bottom: 0;
     }
 
     .form-row {
@@ -632,9 +546,7 @@
       letter-spacing: 1px;
     }
 
-    .laundry-popup-overlay,
-    .restaurant-popup-overlay,
-    .tourism-popup-overlay {
+    .popup-overlay {
       position: fixed;
       top: 0;
       left: 0;
@@ -648,15 +560,11 @@
       padding: 20px;
     }
 
-    .laundry-popup-overlay.active,
-    .restaurant-popup-overlay.active,
-    .tourism-popup-overlay.active {
+    .popup-overlay.active {
       display: flex;
     }
 
-    .laundry-popup-box,
-    .restaurant-popup-box,
-    .tourism-popup-box {
+    .popup-box {
       width: 100%;
       max-width: 980px;
       max-height: 88vh;
@@ -669,9 +577,7 @@
       box-shadow: 0 18px 45px rgba(0,0,0,0.35);
     }
 
-    .laundry-popup-box h3,
-    .restaurant-popup-box h3,
-    .tourism-popup-box h3 {
+    .popup-box h3 {
       color: #5b3d2d;
       font-size: 24px;
       text-transform: uppercase;
@@ -680,9 +586,7 @@
       padding-right: 42px;
     }
 
-    .laundry-popup-close,
-    .restaurant-popup-close,
-    .tourism-popup-close {
+    .popup-close {
       position: absolute;
       top: 12px;
       right: 14px;
@@ -698,50 +602,8 @@
       font-family: Arial, sans-serif;
     }
 
-    .laundry-popup-close:hover,
-    .restaurant-popup-close:hover,
-    .tourism-popup-close:hover {
+    .popup-close:hover {
       background: #8a5f45;
-    }
-
-    .laundry-box {
-      background: #fff8f0;
-      border: 2px solid #b88b6a;
-      border-radius: 10px;
-      padding: 24px;
-      margin-top: 20px;
-      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
-      overflow-x: hidden;
-    }
-
-    .laundry-notes {
-      margin-top: 18px;
-      margin-bottom: 18px;
-    }
-
-    .laundry-note {
-      background: #f4eee8;
-      border: 1px solid #d4b89e;
-      border-radius: 6px;
-      padding: 18px;
-      color: #4a362c;
-    }
-
-    .laundry-note strong {
-      color: #8a5f45;
-      display: block;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      font-size: 16px;
-      letter-spacing: 0.5px;
-    }
-
-    .laundry-note p {
-      margin-bottom: 8px;
-    }
-
-    .laundry-note p:last-child {
-      margin-bottom: 0;
     }
 
     .not-available {
@@ -807,41 +669,13 @@
       color: #5b3d2d;
     }
 
-    .restaurant-buttons-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .restaurant-category-button {
-      display: block;
-      width: 100%;
-      text-align: center;
-      background: #b88b6a;
-      color: #fff;
-      padding: 16px 18px;
-      border-radius: 6px;
-      border: none;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 17px;
-      letter-spacing: 0.4px;
-      cursor: pointer;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-    }
-
-    .restaurant-category-button:hover {
-      background: #8a5f45;
-    }
-
-    .restaurant-popup-content {
+    .popup-content-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
     }
 
-    .restaurant-popup-card,
-    .tourism-popup-card {
+    .popup-card {
       background: #fff;
       border-left: 5px solid #b88b6a;
       border-radius: 6px;
@@ -851,29 +685,21 @@
       margin-bottom: 16px;
     }
 
-    .restaurant-popup-card:last-child,
-    .tourism-popup-card:last-child {
-      margin-bottom: 0;
-    }
-
-    .restaurant-popup-card h4,
-    .tourism-popup-card h4 {
+    .popup-card h4 {
       color: #3b2a22;
       font-size: 18px;
       margin-bottom: 8px;
       text-transform: uppercase;
     }
 
-    .restaurant-popup-card p,
-    .tourism-popup-card p {
+    .popup-card p {
       margin-bottom: 10px;
       font-size: 15px;
       overflow-wrap: break-word;
       word-break: break-word;
     }
 
-    .restaurant-popup-card a,
-    .tourism-popup-card a {
+    .popup-card a {
       color: #8a5f45;
       text-decoration: underline;
       word-break: break-word;
@@ -903,40 +729,6 @@
       box-shadow: 0 8px 18px rgba(60, 40, 25, 0.20);
     }
 
-    .train-widget h4 {
-      color: #5b3d2d;
-      font-size: 22px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-
-    .train-widget p {
-      color: #4a362c;
-      font-size: 16px;
-      margin-bottom: 18px;
-    }
-
-    .train-widget-link {
-      display: block;
-      width: 100%;
-      text-align: center;
-      background: #b88b6a;
-      color: #fff;
-      text-decoration: none;
-      padding: 16px 18px;
-      border-radius: 6px;
-      font-size: 18px;
-      letter-spacing: 0.5px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.22);
-      border: 1px solid rgba(255,255,255,0.35);
-    }
-
-    .train-widget-link:hover {
-      background: #8a5f45;
-      color: #fff;
-    }
-
     .tour-card,
     .arena-card {
       background: #f8f2ec;
@@ -964,125 +756,14 @@
       border-radius: 6px;
     }
 
-    .language-box,
-    .arena-language-box {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      z-index: 5;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 248, 240, 0.94);
-      border: 1px solid #d4b89e;
+    .image-language-note {
+      background: #f4eee8;
+      border-left: 5px solid #b88b6a;
       border-radius: 6px;
-      padding: 8px 10px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-    }
-
-    .language-box label,
-    .arena-language-box label {
-      color: #5b3d2d;
+      padding: 14px;
+      margin-top: 14px;
+      color: #4a362c;
       font-size: 15px;
-      font-weight: bold;
-    }
-
-    .language-box select,
-    .arena-language-box select {
-      appearance: none;
-      background: #b88b6a;
-      color: #fff;
-      border: none;
-      padding: 9px 34px 9px 13px;
-      border-radius: 4px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 15px;
-      cursor: pointer;
-      background-image:
-        linear-gradient(45deg, transparent 50%, #fff 50%),
-        linear-gradient(135deg, #fff 50%, transparent 50%);
-      background-position:
-        calc(100% - 17px) 50%,
-        calc(100% - 11px) 50%;
-      background-size:
-        6px 6px,
-        6px 6px;
-      background-repeat: no-repeat;
-    }
-
-    .tourism-box h3,
-    .arena-opera-box h3 {
-      font-size: 23px;
-      color: #5b3d2d;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-
-    .tourism-box p,
-    .arena-opera-box p {
-      font-size: 17px;
-      margin-bottom: 18px;
-    }
-
-    .arena-opera-box {
-      background: #fff8f0;
-      border: 2px solid #b88b6a;
-      border-radius: 10px;
-      padding: 24px;
-      margin-top: 28px;
-      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
-    }
-
-    .pdf-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .pdf-button {
-      display: block;
-      width: 100%;
-      text-align: center;
-      background: #b88b6a;
-      color: #fff;
-      text-decoration: none;
-      padding: 16px 18px;
-      border-radius: 6px;
-      font-size: 18px;
-      letter-spacing: 0.5px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.22);
-      border: 1px solid rgba(255,255,255,0.35);
-      font-family: Georgia, "Times New Roman", serif;
-      cursor: pointer;
-    }
-
-    .pdf-button:hover {
-      background: #8a5f45;
-      color: #fff;
-    }
-
-    .pdf-button.dark {
-      background: #b88b6a;
-    }
-
-    .pdf-button.dark:hover {
-      background: #8a5f45;
-    }
-
-    .small-note {
-      margin-top: 12px;
-      font-size: 14px;
-      color: #6b4b37;
-    }
-
-    .restaurants-box {
-      background: #fff8f0;
-      border: 2px solid #b88b6a;
-      border-radius: 10px;
-      padding: 24px;
-      margin-top: 20px;
-      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
     }
 
     footer {
@@ -1115,6 +796,13 @@
     }
 
     @media (max-width: 700px) {
+      .global-language-wrapper {
+        position: static;
+        width: 94%;
+        margin: 12px auto 0 auto;
+        justify-content: center;
+      }
+
       .app {
         background-attachment: scroll;
       }
@@ -1148,19 +836,6 @@
         line-height: 1.25;
       }
 
-      .section-title-row {
-        display: block;
-      }
-
-      .section-title-row h2 {
-        margin-bottom: 12px;
-      }
-
-      .open-laundry-button {
-        width: 100%;
-        padding: 14px;
-      }
-
       .intro {
         font-size: 16px;
       }
@@ -1174,20 +849,7 @@
         grid-template-columns: 1fr;
       }
 
-      .card {
-        padding: 16px;
-      }
-
-      .bruno-box,
-      .driver-box,
-      .tourism-box,
-      .prosecco-box,
-      .invoice-box,
-      .restaurants-box,
-      .arena-opera-box,
-      .guide-box,
-      .news-box,
-      .fiera-box {
+      .box-style {
         padding: 14px;
         border-radius: 8px;
       }
@@ -1199,22 +861,16 @@
         border-radius: 8px;
       }
 
-      .news-banner {
-        border-radius: 8px;
-      }
-
-      .bruno-buttons {
+      .buttons-grid,
+      .restaurant-buttons-grid,
+      .pdf-buttons {
         grid-template-columns: 1fr;
-        gap: 12px;
       }
 
-      .bruno-button,
-      .service-button {
+      .main-button,
+      .restaurant-category-button,
+      .pdf-button {
         font-size: 16px;
-        padding: 14px;
-      }
-
-      .weather-widget-box {
         padding: 14px;
       }
 
@@ -1225,10 +881,6 @@
 
       .hotel-weather-icon {
         margin: 0 auto 12px auto;
-      }
-
-      .hotel-weather-temp {
-        font-size: 34px;
       }
 
       .hotel-forecast-grid {
@@ -1247,14 +899,6 @@
         min-height: 230px;
       }
 
-      .prosecco-box h3 {
-        font-size: 20px;
-      }
-
-      .driver-image {
-        max-height: 250px;
-      }
-
       .price-list {
         font-size: 14px;
       }
@@ -1264,30 +908,19 @@
         padding: 10px;
       }
 
-      .laundry-popup-overlay,
-      .restaurant-popup-overlay,
-      .tourism-popup-overlay {
+      .popup-overlay {
         padding: 10px;
         align-items: flex-start;
       }
 
-      .laundry-popup-box,
-      .restaurant-popup-box,
-      .tourism-popup-box {
+      .popup-box {
         max-height: 92vh;
         padding: 18px;
         margin-top: 20px;
       }
 
-      .laundry-popup-box h3,
-      .restaurant-popup-box h3,
-      .tourism-popup-box h3 {
+      .popup-box h3 {
         font-size: 20px;
-      }
-
-      .laundry-box {
-        padding: 14px;
-        border-radius: 8px;
       }
 
       .laundry-table {
@@ -1357,71 +990,8 @@
         text-align: center;
       }
 
-      .laundry-choice {
-        justify-content: flex-end;
-        white-space: normal;
-        text-align: right;
-      }
-
-      .not-available {
-        text-align: right;
-      }
-
-      .laundry-total-box {
-        padding: 14px;
-        font-size: 16px;
-      }
-
-      .laundry-total-row {
-        align-items: center;
-      }
-
-      .laundry-total-row:last-child {
-        font-size: 18px;
-      }
-
-      .restaurant-popup-content {
+      .popup-content-grid {
         grid-template-columns: 1fr;
-      }
-
-      .restaurant-category-button {
-        font-size: 16px;
-        padding: 14px;
-      }
-
-      .language-box,
-      .arena-language-box {
-        top: 8px;
-        right: 8px;
-        padding: 6px 8px;
-      }
-
-      .language-box label,
-      .arena-language-box label {
-        font-size: 13px;
-      }
-
-      .language-box select,
-      .arena-language-box select {
-        font-size: 13px;
-        padding: 7px 30px 7px 10px;
-      }
-
-      .pdf-buttons {
-        grid-template-columns: 1fr;
-      }
-
-      .pdf-button {
-        font-size: 16px;
-        padding: 15px;
-      }
-
-      .train-widget {
-        padding: 18px;
-      }
-
-      .train-widget h4 {
-        font-size: 19px;
       }
     }
 
@@ -1439,42 +1009,9 @@
         font-size: 15px;
       }
 
-      .bruno-box,
-      .driver-box,
-      .tourism-box,
-      .prosecco-box,
-      .invoice-box,
-      .restaurants-box,
-      .arena-opera-box,
-      .guide-box,
-      .news-box,
-      .fiera-box {
+      .box-style,
+      .popup-box {
         padding: 12px;
-      }
-
-      .laundry-popup-box,
-      .laundry-box,
-      .restaurant-popup-box,
-      .tourism-popup-box {
-        padding: 12px;
-      }
-
-      .weather-widget-box {
-        padding: 12px;
-      }
-
-      .hotel-weather-card {
-        padding: 12px;
-      }
-
-      .hotel-weather-icon {
-        width: 64px;
-        height: 64px;
-        font-size: 32px;
-      }
-
-      .hotel-weather-temp {
-        font-size: 30px;
       }
 
       .form-group input,
@@ -1498,16 +1035,6 @@
       .laundry-qty {
         width: 78px;
       }
-
-      .laundry-choice {
-        font-size: 14px;
-      }
-
-      .arena-language-box {
-        position: static;
-        margin: 0 0 10px 0;
-        justify-content: center;
-      }
     }
   </style>
 </head>
@@ -1515,6 +1042,17 @@
 <body>
 
   <div class="app">
+
+    <div class="global-language-wrapper">
+      <label for="siteLanguage" data-i18n="languageLabel">Lingua:</label>
+      <select id="siteLanguage">
+        <option value="it">Italiano</option>
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+      </select>
+    </div>
 
     <header>
       <div class="logo-box">
@@ -1528,41 +1066,37 @@
     <main>
 
       <section>
-        <h2>Benvenuti</h2>
-        <p class="intro">
-          Benvenuti all'Hotel San Luca di Verona. Questa App è stata creata per permettervi di visualizzare tutti i servizi dell'hotel e conoscere le principali attrazioni turistiche che vi saranno utili durante il vostro soggiorno.
-        </p>
+        <h2 data-i18n="welcomeTitle">Benvenuti</h2>
+        <p class="intro" data-i18n="welcomeText"></p>
       </section>
 
       <section id="servizi">
-        <h2>I nostri servizi</h2>
+        <h2 data-i18n="servicesTitle">I nostri servizi</h2>
 
         <div class="cards">
           <div class="card">
-            <h3>Reception</h3>
-            <p>Reception con personale qualificato e multilingue a vostra disposizione 24 ORE. Lo staff è vostra completa disposizione per suportarvi durante il vostro soggiorno</p>
+            <h3 data-i18n="receptionTitle"></h3>
+            <p data-i18n="receptionText"></p>
           </div>
 
           <div class="card">
-            <h3>Garage privato</h3>
-            <p>Garage disponibile su prenotazione dalle ore 02.00 PM del giorno di arrivo alle ore 12.00 AM comodo per chi arriva in auto. Le chiavi dovranno essere consegnate alla reception durante il soggiorno.</p>
+            <h3 data-i18n="garageTitle"></h3>
+            <p data-i18n="garageText"></p>
           </div>
 
           <div class="card">
-            <h3>Colazione (tasto A in ascensore)</h3>
-            <p>La colazione viene servita dalle ore 07.00 AM alle ore 10.00 AM. I clienti che ne sono sprovvisti, potranno aggiungerla alla tariffa extra di €13.00/persona per giorno. Il buffet propone prodotti dolci e salati, per celiaci ed intolleranti al lattosio.</p>
+            <h3 data-i18n="breakfastTitle"></h3>
+            <p data-i18n="breakfastText"></p>
           </div>
         </div>
       </section>
 
       <section id="virtual-receptionist">
-        <h2>Virtual Receptionist</h2>
+        <h2 data-i18n="virtualReceptionistTitle">Virtual Receptionist</h2>
 
-        <p class="intro">
-          Ciao, sono il Virtual Receptionist. Da qui puoi accedere velocemente ai servizi più richiesti durante il soggiorno.
-        </p>
+        <p class="intro" data-i18n="virtualReceptionistText"></p>
 
-        <div class="bruno-box">
+        <div class="box-style">
           <img
             class="bruno-image"
             src="BRUNO.png"
@@ -1570,7 +1104,7 @@
           >
 
           <div class="weather-widget-box">
-            <h3>Meteo Verona</h3>
+            <h3 data-i18n="weatherTitle">Meteo Verona</h3>
 
             <div class="hotel-weather-card">
               <div class="hotel-weather-main">
@@ -1578,73 +1112,48 @@
 
                 <div>
                   <div class="hotel-weather-temp" id="weatherTemp">--°C</div>
-                  <div class="hotel-weather-desc" id="weatherDesc">Caricamento meteo...</div>
+                  <div class="hotel-weather-desc" id="weatherDesc" data-i18n="weatherLoading"></div>
                 </div>
               </div>
 
               <div class="hotel-forecast-grid" id="weatherForecast">
                 <div class="hotel-forecast-card">
-                  <strong>Oggi</strong>
+                  <strong data-i18n="today"></strong>
                   <span>--</span>
                 </div>
 
                 <div class="hotel-forecast-card">
-                  <strong>Domani</strong>
+                  <strong data-i18n="tomorrow"></strong>
                   <span>--</span>
                 </div>
 
                 <div class="hotel-forecast-card">
-                  <strong>Dopodomani</strong>
+                  <strong data-i18n="dayAfterTomorrow"></strong>
                   <span>--</span>
                 </div>
               </div>
             </div>
 
-            <p class="weather-note">
-              Meteo attuale e previsioni per Verona.
-            </p>
+            <p class="weather-note" data-i18n="weatherNote"></p>
           </div>
 
-          <div class="bruno-buttons">
-            <a class="bruno-button" href="#news">
-              News
-            </a>
-
-            <a class="bruno-button" href="#fiera-verona">
-              Fiera di Verona
-            </a>
-
-            <a class="bruno-button" href="#autista-ncc">
-              Prenota un autista
-            </a>
-
-            <a class="bruno-button" href="#fattura">
-              Richiedi la fattura
-            </a>
-
-            <a class="bruno-button" href="#lavanderia">
-              Lavanderia
-            </a>
-
-            <a class="bruno-button" href="#info-turistiche">
-              Informazioni turistiche
-            </a>
-
-            <a class="bruno-button" href="#ristoranti-consigliati">
-              Ristoranti
-            </a>
-
-            <a class="bruno-button" href="#tour">
-              I nostri tour
-            </a>
+          <div class="buttons-grid">
+            <a class="main-button" href="#news" data-i18n="btnNews"></a>
+            <a class="main-button" href="#fiera-verona" data-i18n="btnFair"></a>
+            <a class="main-button" href="#autista-ncc" data-i18n="btnDriver"></a>
+            <a class="main-button" href="#fattura" data-i18n="btnInvoice"></a>
+            <a class="main-button" href="#lavanderia" data-i18n="btnLaundry"></a>
+            <a class="main-button" href="#info-turistiche" data-i18n="btnTouristInfo"></a>
+            <a class="main-button" href="#ristoranti-consigliati" data-i18n="btnRestaurants"></a>
+            <a class="main-button" href="#tour" data-i18n="btnTours"></a>
           </div>
         </div>
       </section>
 
       <section id="news">
-        <h2>News</h2>
+        <h2 data-i18n="newsTitle">News</h2>
 
-        <div class="news-box">
+        <div class="box-style">
           <img
             class="news-banner"
             src="10000026-new_logo-02e7f959d92a7c7e.png"
@@ -1652,71 +1161,57 @@
           >
 
           <div class="news-info-card">
-            <h3>Servizi navetta per SAMOTER 2026</h3>
+            <h3 data-i18n="samoterTitle"></h3>
 
-            <p>
-              In occasione della manifestazione fieristica <strong>SAMOTER</strong>, dal <strong>6/5 al 9/5</strong>, saranno operativi i seguenti servizi navetta gratuiti:
-            </p>
+            <p data-i18n="samoterIntro"></p>
 
             <div class="news-line-box">
-              <strong>Linea "C"</strong>
-              <p>
-                Stadio - Stazione (marciapiede E2) - Fiera via Belgio (Re Teodorico).
-              </p>
-              <p>
-                Frequenza: 20' - 30' - dalle 8.30 alle 20.00.
-              </p>
-              <p>
-                Ultima corsa da via Belgio.
-              </p>
+              <strong data-i18n="samoterLineC"></strong>
+              <p data-i18n="samoterLineCText"></p>
+              <p data-i18n="samoterLineCFrequency"></p>
+              <p data-i18n="samoterLastRide"></p>
             </div>
 
             <div class="news-line-box">
-              <strong>Linea "G"</strong>
-              <p>
-                Park Genovesa - Fiera via Belgio (Re Teodorico).
-              </p>
-              <p>
-                Frequenza: 20' - 30' - dalle 6.00 alle 20.30.
-              </p>
-              <p>
-                Ultima corsa da via Belgio.
-              </p>
+              <strong data-i18n="samoterLineG"></strong>
+              <p data-i18n="samoterLineGText"></p>
+              <p data-i18n="samoterLineGFrequency"></p>
+              <p data-i18n="samoterLastRide"></p>
             </div>
           </div>
         </div>
       </section>
 
       <section id="minibar">
-        <h2>Listino minibar</h2>
+        <h2 data-i18n="minibarTitle">Listino minibar</h2>
 
         <table class="price-list">
           <thead>
             <tr>
-              <th>Prodotto</th>
-              <th>Prezzo</th>
+              <th data-i18n="product"></th>
+              <th data-i18n="price"></th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              <td>Acqua naturale</td>
+              <td data-i18n="waterStill"></td>
               <td>€ 2,50</td>
             </tr>
             <tr>
-              <td>Acqua frizzante</td>
+              <td data-i18n="waterSparkling"></td>
               <td>€ 2,50</td>
             </tr>
             <tr>
-              <td>Bibita analcolica</td>
+              <td data-i18n="softDrink"></td>
               <td>€ 3,50</td>
             </tr>
             <tr>
-              <td>Succo di frutta</td>
+              <td data-i18n="fruitJuice"></td>
               <td>€ 3,50</td>
             </tr>
             <tr>
-              <td>Birra</td>
+              <td data-i18n="beer"></td>
               <td>€ 4,50</td>
             </tr>
             <tr>
@@ -1733,32 +1228,28 @@
             alt="Prosecco Hotel San Luca"
           >
 
-          <div class="prosecco-box">
-            <h3>Festeggia con una bottiglia di Prosecco il tuo momento speciale</h3>
+          <div class="box-style prosecco-box">
+            <h3 data-i18n="proseccoTitle"></h3>
 
-            <p class="prosecco-subtitle">
-              Prenota una bottiglia di Prosecco e un piccolo snack nella tua camera al costo extra di €15.00.
-            </p>
+            <p class="prosecco-subtitle" data-i18n="proseccoText"></p>
 
-            <form class="prosecco-form" action="https://formspree.io/f/xojrjbey" method="POST">
+            <form class="form-style" action="https://formspree.io/f/xojrjbey" method="POST">
 
               <input type="hidden" name="_subject" value="Richiesta Prosecco in camera - Hotel San Luca">
               <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
               <input type="hidden" name="Servizio richiesto" value="Bottiglia di Prosecco con piccolo snack in camera - €15.00">
 
               <div class="form-group">
-                <label for="proseccoQuantity">Quantità *</label>
+                <label for="proseccoQuantity" data-i18n="quantityRequired"></label>
                 <input type="number" id="proseccoQuantity" name="Quantità" min="1" required>
               </div>
 
               <div class="form-group">
-                <label for="proseccoRoom">Numero di camera *</label>
+                <label for="proseccoRoom" data-i18n="roomRequired"></label>
                 <input type="text" id="proseccoRoom" name="Numero di camera" required>
               </div>
 
-              <button class="submit-button" type="submit">
-                Invia richiesta alla reception
-              </button>
+              <button class="submit-button" type="submit" data-i18n="sendReception"></button>
 
             </form>
           </div>
@@ -1773,36 +1264,26 @@
           alt="Servizio lavanderia Hotel San Luca"
         >
 
-        <div class="section-title-row">
-          <h2>Lavanderia</h2>
+        <h2 data-i18n="laundryTitle">Lavanderia</h2>
 
-          <button class="open-laundry-button" type="button" onclick="openLaundryPopup()">
-            Apri form lavanderia
-          </button>
-        </div>
+        <p class="intro" data-i18n="laundryIntro"></p>
 
-        <p class="intro">
-          Servizio di lavatura e/o stiratura disponibile tramite reception.
-        </p>
+        <button class="main-button" type="button" onclick="openLaundryPopup()" data-i18n="openLaundryForm"></button>
 
-        <div id="laundryPopup" class="laundry-popup-overlay">
-          <div class="laundry-popup-box">
+        <div id="laundryPopup" class="popup-overlay">
+          <div class="popup-box">
 
-            <button class="laundry-popup-close" type="button" onclick="closeLaundryPopup()">
-              ×
-            </button>
+            <button class="popup-close" type="button" onclick="closeLaundryPopup()">×</button>
 
-            <h3>Form lavanderia</h3>
+            <h3 data-i18n="laundryFormTitle"></h3>
 
-            <div class="laundry-box">
+            <div class="box-style">
 
-              <div class="laundry-notes">
-                <div class="laundry-note">
-                  <strong>Informazioni servizio lavanderia</strong>
-                  <p>Si prega di inviare il form della lavanderia alla reception entro le ore 10:00 del mattino.</p>
-                  <p>Il servizio viene effettuato entro 48 ore.</p>
-                  <p>Per indumenti speciali non presenti nell’elenco, il servizio verrà valutato al momento.</p>
-                </div>
+              <div class="note-box">
+                <strong data-i18n="laundryServiceInfo"></strong>
+                <p data-i18n="laundryInfo1"></p>
+                <p data-i18n="laundryInfo2"></p>
+                <p data-i18n="laundryInfo3"></p>
               </div>
 
               <form id="laundryForm" action="https://formspree.io/f/xbdwjdvb" method="POST">
@@ -1816,12 +1297,12 @@
 
                 <div class="form-row">
                   <div class="form-group">
-                    <label for="laundryName">Nome e cognome *</label>
+                    <label for="laundryName" data-i18n="nameRequired"></label>
                     <input type="text" id="laundryName" name="Nome e cognome" required>
                   </div>
 
                   <div class="form-group">
-                    <label for="laundryRoom">Numero di camera *</label>
+                    <label for="laundryRoom" data-i18n="roomRequired"></label>
                     <input type="text" id="laundryRoom" name="Numero di camera" required>
                   </div>
                 </div>
@@ -1829,17 +1310,17 @@
                 <table class="laundry-table">
                   <thead>
                     <tr>
-                      <th>Indumento</th>
-                      <th>Numero capi</th>
-                      <th>Solo lavatura</th>
-                      <th>Solo stiratura</th>
-                      <th>Costo parziale</th>
+                      <th data-i18n="garment"></th>
+                      <th data-i18n="numberItems"></th>
+                      <th data-i18n="washingOnly"></th>
+                      <th data-i18n="ironingOnly"></th>
+                      <th data-i18n="partialCost"></th>
                     </tr>
                   </thead>
 
                   <tbody>
                     <tr class="laundry-row" data-item="Camicie" data-wash="1.50" data-iron="3.00">
-                      <td data-label="Indumento">Camicie</td>
+                      <td data-label="Indumento" data-i18n="shirts">Camicie</td>
                       <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
                       <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
                       <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 3,00</label></td>
@@ -1847,15 +1328,15 @@
                     </tr>
 
                     <tr class="laundry-row" data-item="Calzini" data-wash="1.50" data-iron="">
-                      <td data-label="Indumento">Calzini</td>
+                      <td data-label="Indumento" data-i18n="socks">Calzini</td>
                       <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
                       <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
-                      <td data-label="Solo stiratura" class="not-available">Non disponibile</td>
+                      <td data-label="Solo stiratura" class="not-available" data-i18n="notAvailable">Non disponibile</td>
                       <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
                     </tr>
 
                     <tr class="laundry-row" data-item="Magliette" data-wash="1.50" data-iron="1.50">
-                      <td data-label="Indumento">Magliette</td>
+                      <td data-label="Indumento" data-i18n="tshirts">Magliette</td>
                       <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
                       <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
                       <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 1,50</label></td>
@@ -1863,7 +1344,7 @@
                     </tr>
 
                     <tr class="laundry-row" data-item="Maglie - Felpe" data-wash="1.50" data-iron="1.50">
-                      <td data-label="Indumento">Maglie - Felpe</td>
+                      <td data-label="Indumento" data-i18n="sweaters">Maglie - Felpe</td>
                       <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
                       <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
                       <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 1,50</label></td>
@@ -1871,15 +1352,15 @@
                     </tr>
 
                     <tr class="laundry-row" data-item="Giacche" data-wash="" data-iron="2.50">
-                      <td data-label="Indumento">Giacche</td>
+                      <td data-label="Indumento" data-i18n="jackets">Giacche</td>
                       <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                      <td data-label="Solo lavatura" class="not-available">Non disponibile</td>
+                      <td data-label="Solo lavatura" class="not-available" data-i18n="notAvailable">Non disponibile</td>
                       <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,50</label></td>
                       <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
                     </tr>
 
                     <tr class="laundry-row" data-item="Pantaloni" data-wash="2.50" data-iron="2.50">
-                      <td data-label="Indumento">Pantaloni</td>
+                      <td data-label="Indumento" data-i18n="trousers">Pantaloni</td>
                       <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
                       <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 2,50</label></td>
                       <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,50</label></td>
@@ -1887,23 +1368,23 @@
                     </tr>
 
                     <tr class="laundry-row" data-item="Gonne" data-wash="" data-iron="2.50">
-                      <td data-label="Indumento">Gonne</td>
+                      <td data-label="Indumento" data-i18n="skirts">Gonne</td>
                       <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                      <td data-label="Solo lavatura" class="not-available">Non disponibile</td>
+                      <td data-label="Solo lavatura" class="not-available" data-i18n="notAvailable">Non disponibile</td>
                       <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,50</label></td>
                       <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
                     </tr>
 
                     <tr class="laundry-row" data-item="Vestiti" data-wash="" data-iron="4.50">
-                      <td data-label="Indumento">Vestiti</td>
+                      <td data-label="Indumento" data-i18n="dresses">Vestiti</td>
                       <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
-                      <td data-label="Solo lavatura" class="not-available">Non disponibile</td>
+                      <td data-label="Solo lavatura" class="not-available" data-i18n="notAvailable">Non disponibile</td>
                       <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 4,50</label></td>
                       <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
                     </tr>
 
                     <tr class="laundry-row" data-item="Camicie da notte" data-wash="1.50" data-iron="2.00">
-                      <td data-label="Indumento">Camicie da notte</td>
+                      <td data-label="Indumento" data-i18n="nightgowns">Camicie da notte</td>
                       <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
                       <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
                       <td data-label="Solo stiratura"><label class="laundry-choice"><input class="iron-check" type="checkbox"> € 2,00</label></td>
@@ -1911,18 +1392,18 @@
                     </tr>
 
                     <tr class="laundry-row" data-item="Intimo" data-wash="1.50" data-iron="">
-                      <td data-label="Indumento">Intimo</td>
+                      <td data-label="Indumento" data-i18n="underwear">Intimo</td>
                       <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
                       <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
-                      <td data-label="Solo stiratura" class="not-available">Non disponibile</td>
+                      <td data-label="Solo stiratura" class="not-available" data-i18n="notAvailable">Non disponibile</td>
                       <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
                     </tr>
 
                     <tr class="laundry-row" data-item="Reggiseni" data-wash="1.50" data-iron="">
-                      <td data-label="Indumento">Reggiseni</td>
+                      <td data-label="Indumento" data-i18n="bras">Reggiseni</td>
                       <td data-label="Numero capi"><input class="laundry-qty" type="number" min="0" value="0"></td>
                       <td data-label="Solo lavatura"><label class="laundry-choice"><input class="wash-check" type="checkbox"> € 1,50</label></td>
-                      <td data-label="Solo stiratura" class="not-available">Non disponibile</td>
+                      <td data-label="Solo stiratura" class="not-available" data-i18n="notAvailable">Non disponibile</td>
                       <td data-label="Costo parziale" class="laundry-partial">€ 0,00</td>
                     </tr>
                   </tbody>
@@ -1930,24 +1411,22 @@
 
                 <div class="laundry-total-box">
                   <div class="laundry-total-row">
-                    <span>Totale lavatura</span>
+                    <span data-i18n="totalWashing"></span>
                     <span id="totalWashing">€ 0,00</span>
                   </div>
 
                   <div class="laundry-total-row">
-                    <span>Totale stiratura</span>
+                    <span data-i18n="totalIroning"></span>
                     <span id="totalIroning">€ 0,00</span>
                   </div>
 
                   <div class="laundry-total-row">
-                    <span>Totale complessivo</span>
+                    <span data-i18n="grandTotal"></span>
                     <span id="grandTotal">€ 0,00</span>
                   </div>
                 </div>
 
-                <button class="submit-button" type="submit">
-                  Invia richiesta alla reception
-                </button>
+                <button class="submit-button" type="submit" data-i18n="sendReception"></button>
 
               </form>
 
@@ -1957,72 +1436,40 @@
       </section>
 
       <section id="ristoranti-consigliati">
-        <h2>Ristoranti consigliati a Verona</h2>
+        <h2 data-i18n="restaurantsTitle"></h2>
 
-        <p class="intro">
-          Seleziona una categoria per visualizzare i ristoranti consigliati.
-        </p>
+        <p class="intro" data-i18n="restaurantsIntro"></p>
 
-        <div class="restaurants-box">
-
+        <div class="box-style">
           <div class="restaurant-buttons-grid">
-            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('tradizionali')">
-              Ristoranti tradizionali
-            </button>
-
-            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('trattorie')">
-              Trattorie
-            </button>
-
-            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('carne')">
-              Ristoranti di carne
-            </button>
-
-            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('innovativi')">
-              Ristoranti innovativi
-            </button>
-
-            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('pesce')">
-              Ristoranti di pesce
-            </button>
-
-            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('vegetariani')">
-              Ristoranti vegetariani
-            </button>
-
-            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('etnici')">
-              Ristoranti etnici
-            </button>
-
-            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('pizzerie')">
-              Pizzerie
-            </button>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('tradizionali')" data-i18n="traditionalRestaurants"></button>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('trattorie')" data-i18n="trattorie"></button>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('carne')" data-i18n="meatRestaurants"></button>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('innovativi')" data-i18n="innovativeRestaurants"></button>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('pesce')" data-i18n="fishRestaurants"></button>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('vegetariani')" data-i18n="vegetarianRestaurants"></button>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('etnici')" data-i18n="ethnicRestaurants"></button>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('pizzerie')" data-i18n="pizzerias"></button>
           </div>
-
         </div>
 
-        <div id="restaurantPopup" class="restaurant-popup-overlay">
-          <div class="restaurant-popup-box">
+        <div id="restaurantPopup" class="popup-overlay">
+          <div class="popup-box">
 
-            <button class="restaurant-popup-close" type="button" onclick="closeRestaurantPopup()">
-              ×
-            </button>
+            <button class="popup-close" type="button" onclick="closeRestaurantPopup()">×</button>
 
             <h3 id="restaurantPopupTitle">Ristoranti</h3>
 
-            <div id="restaurantPopupContent" class="restaurant-popup-content">
-            </div>
+            <div id="restaurantPopupContent" class="popup-content-grid"></div>
 
           </div>
         </div>
       </section>
 
       <section id="autista-ncc">
-        <h2>Prenota il tuo autista</h2>
+        <h2 data-i18n="driverTitle"></h2>
 
-        <p class="intro">
-          Compila il modulo per richiedere un servizio NCC. La richiesta verrà inviata direttamente alla reception.
-        </p>
+        <p class="intro" data-i18n="driverIntro"></p>
 
         <img
           class="driver-image"
@@ -2030,138 +1477,121 @@
           alt="Servizio NCC Hotel San Luca"
         >
 
-        <div class="driver-box">
-          <form class="driver-form" action="https://formspree.io/f/xbdwjdvb" method="POST">
+        <div class="box-style">
+          <form class="form-style" action="https://formspree.io/f/xbdwjdvb" method="POST">
 
             <input type="hidden" name="_subject" value="Richiesta servizio autista NCC - Hotel San Luca">
             <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
 
             <div class="form-row">
               <div class="form-group">
-                <label for="nome">Nome e cognome *</label>
+                <label for="nome" data-i18n="nameRequired"></label>
                 <input type="text" id="nome" name="Nome e cognome" required>
               </div>
 
               <div class="form-group">
-                <label for="camera">Numero di camera *</label>
+                <label for="camera" data-i18n="roomRequired"></label>
                 <input type="text" id="camera" name="Numero di camera" required>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="persone">Numero di persone *</label>
+                <label for="persone" data-i18n="peopleRequired"></label>
                 <input type="number" id="persone" name="Numero di persone" min="1" required>
               </div>
 
               <div class="form-group">
-                <label for="orario">Orario di pick-up *</label>
+                <label for="orario" data-i18n="pickupRequired"></label>
                 <input type="datetime-local" id="orario" name="Orario di pick-up" required>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="destinazione">Destinazione *</label>
+              <label for="destinazione" data-i18n="destinationRequired"></label>
               <textarea id="destinazione" name="Destinazione" required></textarea>
             </div>
 
-            <button class="submit-button" type="submit">
-              Invia richiesta alla reception
-            </button>
+            <button class="submit-button" type="submit" data-i18n="sendReception"></button>
 
           </form>
         </div>
       </section>
 
       <section id="fattura">
-        <h2>Richiedi la fattura</h2>
+        <h2 data-i18n="invoiceTitle"></h2>
 
-        <div class="invoice-box">
+        <div class="box-style">
           <div class="invoice-text">
-            <p>
-              Gentile Cliente,
-            </p>
-
-            <p>
-              con l’entrata in vigore dell’obbligo della fatturazione elettronica tra i privati B2B e B2C per le cessioni di beni e le prestazioni di servizi effettuate tra soggetti residenti, stabiliti o identificati in Italia, così come indicato dalla legge di Bilancio 2018 – Provv. 73203/2018 – Provv. 89757/2018 e da ultimo dalla circolare 8E dell’Agenzia delle Entrate,
-            </p>
-
-            <p>
-              Le chiediamo di indicarci di seguito, in modo ben leggibile, i dati completi per adempiere alle procedure fiscali:
-            </p>
+            <p data-i18n="invoiceDear"></p>
+            <p data-i18n="invoicePremise"></p>
+            <p data-i18n="invoiceAsk"></p>
           </div>
 
-          <form class="invoice-form" action="https://formspree.io/f/mbdwdbzn" method="POST">
+          <form class="form-style" action="https://formspree.io/f/mbdwdbzn" method="POST">
 
             <input type="hidden" name="_subject" value="Richiesta fattura - Hotel San Luca">
             <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
 
             <div class="form-row">
               <div class="form-group">
-                <label for="invoiceRoom">Numero di camera *</label>
+                <label for="invoiceRoom" data-i18n="roomRequired"></label>
                 <input type="text" id="invoiceRoom" name="Numero di camera" required>
               </div>
 
               <div class="form-group">
-                <label for="ragioneSociale">Ragione sociale *</label>
+                <label for="ragioneSociale" data-i18n="companyNameRequired"></label>
                 <input type="text" id="ragioneSociale" name="Ragione sociale" required>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="indirizzo">Indirizzo *</label>
+              <label for="indirizzo" data-i18n="addressRequired"></label>
               <input type="text" id="indirizzo" name="Indirizzo" required>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="citta">Città *</label>
+                <label for="citta" data-i18n="cityRequired"></label>
                 <input type="text" id="citta" name="Città" required>
               </div>
 
               <div class="form-group">
-                <label for="cap">CAP *</label>
+                <label for="cap" data-i18n="postalCodeRequired"></label>
                 <input type="text" id="cap" name="CAP" required>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="codiceFiscale">Codice fiscale *</label>
+                <label for="codiceFiscale" data-i18n="taxCodeRequired"></label>
                 <input type="text" id="codiceFiscale" name="Codice fiscale" required>
               </div>
 
               <div class="form-group">
-                <label for="partitaIva">Partita IVA *</label>
+                <label for="partitaIva" data-i18n="vatRequired"></label>
                 <input type="text" id="partitaIva" name="Partita IVA" required>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="codiceUnivoco">Codice univoco *</label>
+              <label for="codiceUnivoco" data-i18n="uniqueCodeRequired"></label>
               <input type="text" id="codiceUnivoco" name="Codice univoco" required>
             </div>
 
             <div class="invoice-warning">
-              <p>
-                Vi precisiamo che in mancanza di tali dati richiesti, saremo tenuti ad utilizzare il codice univoco alternativo “0000000”; con tale procedura, le fatture risulteranno per Voi disponibili nell’apposita sezione del sito dell’Agenzia delle Entrate.
-              </p>
-
-              <p>
-                La comunicazione di dati errati comporterà un addebito pari ad € 6.00 per l’emissione di nuovi documenti.
-              </p>
+              <p data-i18n="invoiceWarning1"></p>
+              <p data-i18n="invoiceWarning2"></p>
             </div>
 
-            <button class="submit-button" type="submit">
-              Invia richiesta alla reception
-            </button>
+            <button class="submit-button" type="submit" data-i18n="sendReception"></button>
 
           </form>
         </div>
       </section>
 
       <section id="tour">
-        <h2>I nostri tour</h2>
+        <h2 data-i18n="ourToursTitle"></h2>
 
         <div class="tour-card">
           <div class="tour-cover-wrapper">
@@ -2171,130 +1601,84 @@
               src="GOLFCART TOUR VERONA ITA.png"
               alt="Verona in Golf Cart - Hotel San Luca"
             >
-
-            <div class="language-box">
-              <label for="tourLanguage">Lingua:</label>
-
-              <select id="tourLanguage">
-                <option value="it" selected>Italiano</option>
-                <option value="en">English</option>
-              </select>
-            </div>
           </div>
         </div>
+
+        <div class="image-language-note" data-i18n="imageFallbackNote"></div>
       </section>
 
       <section id="info-turistiche">
-        <h2>Informazioni turistiche</h2>
+        <h2 data-i18n="touristInfoTitle"></h2>
 
-        <p class="intro">
-          Consulta cartine turistiche, collegamenti autobus, orari treni e programma Arena Opera Festival 2026.
-        </p>
+        <p class="intro" data-i18n="touristInfoIntro"></p>
 
-        <div class="tourism-box">
-          <h3>Informazioni utili</h3>
+        <div class="box-style">
+          <h3 data-i18n="usefulInfo"></h3>
 
-          <p>
-            Seleziona il servizio che vuoi consultare.
-          </p>
+          <p data-i18n="selectService"></p>
 
           <div class="pdf-buttons">
-            <button class="pdf-button" type="button" onclick="openTourismPopup('cartine')">
-              Cartine
-            </button>
-
-            <button class="pdf-button dark" type="button" onclick="openTourismPopup('bus')">
-              Collegamento Lago di Garda
-            </button>
-
-            <button class="pdf-button" type="button" onclick="openTourismPopup('treni')">
-              Orario treni
-            </button>
+            <button class="pdf-button" type="button" onclick="openTourismPopup('cartine')" data-i18n="maps"></button>
+            <button class="pdf-button" type="button" onclick="openTourismPopup('bus')" data-i18n="gardaConnection"></button>
+            <button class="pdf-button" type="button" onclick="openTourismPopup('treni')" data-i18n="trainTimetable"></button>
           </div>
         </div>
 
-        <div id="tourismPopup" class="tourism-popup-overlay">
-          <div class="tourism-popup-box">
+        <div id="tourismPopup" class="popup-overlay">
+          <div class="popup-box">
 
-            <button class="tourism-popup-close" type="button" onclick="closeTourismPopup()">
-              ×
-            </button>
+            <button class="popup-close" type="button" onclick="closeTourismPopup()">×</button>
 
-            <h3 id="tourismPopupTitle">Informazioni turistiche</h3>
+            <h3 id="tourismPopupTitle"></h3>
 
-            <div id="tourismPopupContent">
-            </div>
+            <div id="tourismPopupContent"></div>
 
           </div>
         </div>
 
-        <div class="guide-box">
+        <div class="box-style">
           <img
             class="guide-banner"
             src="SanLuca_Guida.png"
             alt="Guida turistica ufficiale Verona - Hotel San Luca"
           >
 
-          <h3>Guida turistica ufficiale a Verona</h3>
+          <h3 data-i18n="guideTitle"></h3>
 
-          <p>
-            Vuoi esplorare Verona con una guida turistica ufficiale in lingua?
-          </p>
+          <p data-i18n="guideText1"></p>
+          <p data-i18n="guideText2"></p>
 
-          <p>
-            Consulta la reception per organizzare il tuo tour personalizzato e prenota direttamente al banco.
-          </p>
+          <div class="note-box" data-i18n="guideNote"></div>
 
-          <div class="guide-note">
-            Il nostro staff sarà lieto di verificare disponibilità, lingua richiesta, orario desiderato e tipologia di visita più adatta alle tue esigenze.
-          </div>
-
-          <div class="guide-highlight">
-            Prenota la tua guida direttamente alla reception
-          </div>
+          <div class="submit-button" data-i18n="guideHighlight"></div>
         </div>
 
-        <div class="arena-opera-box">
-          <h3>Arena Opera Festival 2026</h3>
+        <div class="box-style">
+          <h3 data-i18n="arenaTitle"></h3>
 
-          <p>
-            Consulta il programma dell'Arena Opera Festival 2026 nella lingua desiderata.
-          </p>
+          <p data-i18n="arenaIntro"></p>
 
           <div class="arena-card">
             <div class="arena-cover-wrapper">
-
               <img
                 id="arenaOperaCover"
                 class="arena-cover"
-                src="Arena%20San%20Luca%20Ita.png"
+                src="Arena San Luca Ita.png"
                 alt="Arena Opera Festival 2026 - Hotel San Luca"
               >
-
-              <div class="arena-language-box">
-                <label for="arenaLanguage">Lingua:</label>
-
-                <select id="arenaLanguage">
-                  <option value="it" selected>Italiano</option>
-                  <option value="en">English</option>
-                  <option value="de">Deutsch</option>
-                  <option value="fr">Français</option>
-                  <option value="es">Español</option>
-                </select>
-              </div>
-
             </div>
           </div>
+
+          <div class="image-language-note" data-i18n="imageFallbackNote"></div>
         </div>
 
-        <div id="fiera-verona" class="fiera-box">
-          <h3>Fiera di Verona 2026</h3>
+        <div id="fiera-verona" class="box-style">
+          <h3 data-i18n="fairTitle"></h3>
 
-          <p>
-            Consulta il calendario delle principali fiere ed eventi di Verona 2026.
-          </p>
+          <p data-i18n="fairIntro"></p>
 
           <img
+            id="fairCover"
             class="fiera-banner"
             src="SanLuca_fiere.png"
             alt="Calendario Fiere Verona 2026 - Hotel San Luca"
@@ -2312,6 +1696,893 @@
   </div>
 
   <script>
+    var currentLanguage = "it";
+
+    var translations = {
+      it: {
+        languageLabel: "Lingua:",
+        welcomeTitle: "Benvenuti",
+        welcomeText: "Benvenuti all'Hotel San Luca di Verona. Questa App è stata creata per permettervi di visualizzare tutti i servizi dell'hotel e conoscere le principali attrazioni turistiche che vi saranno utili durante il vostro soggiorno.",
+        servicesTitle: "I nostri servizi",
+        receptionTitle: "Reception",
+        receptionText: "Reception con personale qualificato e multilingue a vostra disposizione 24 ORE. Lo staff è vostra completa disposizione per supportarvi durante il vostro soggiorno.",
+        garageTitle: "Garage privato",
+        garageText: "Garage disponibile su prenotazione dalle ore 02.00 PM del giorno di arrivo alle ore 12.00 AM, comodo per chi arriva in auto. Le chiavi dovranno essere consegnate alla reception durante il soggiorno.",
+        breakfastTitle: "Colazione (tasto A in ascensore)",
+        breakfastText: "La colazione viene servita dalle ore 07.00 AM alle ore 10.00 AM. I clienti che ne sono sprovvisti potranno aggiungerla alla tariffa extra di €13.00/persona per giorno. Il buffet propone prodotti dolci e salati, per celiaci ed intolleranti al lattosio.",
+        virtualReceptionistTitle: "Virtual Receptionist",
+        virtualReceptionistText: "Ciao, sono il Virtual Receptionist. Da qui puoi accedere velocemente ai servizi più richiesti durante il soggiorno.",
+        weatherTitle: "Meteo Verona",
+        weatherLoading: "Caricamento meteo...",
+        weatherNote: "Meteo attuale e previsioni per Verona.",
+        today: "Oggi",
+        tomorrow: "Domani",
+        dayAfterTomorrow: "Dopodomani",
+        btnNews: "News",
+        btnFair: "Fiera di Verona",
+        btnDriver: "Prenota un autista",
+        btnInvoice: "Richiedi la fattura",
+        btnLaundry: "Lavanderia",
+        btnTouristInfo: "Informazioni turistiche",
+        btnRestaurants: "Ristoranti",
+        btnTours: "I nostri tour",
+        newsTitle: "News",
+        samoterTitle: "Servizi navetta per SAMOTER 2026",
+        samoterIntro: "In occasione della manifestazione fieristica SAMOTER, dal 6/5 al 9/5, saranno operativi i seguenti servizi navetta gratuiti:",
+        samoterLineC: "Linea C",
+        samoterLineCText: "Stadio - Stazione (marciapiede E2) - Fiera via Belgio (Re Teodorico).",
+        samoterLineCFrequency: "Frequenza: 20' - 30' - dalle 8.30 alle 20.00.",
+        samoterLineG: "Linea G",
+        samoterLineGText: "Park Genovesa - Fiera via Belgio (Re Teodorico).",
+        samoterLineGFrequency: "Frequenza: 20' - 30' - dalle 6.00 alle 20.30.",
+        samoterLastRide: "Ultima corsa da via Belgio.",
+        minibarTitle: "Listino minibar",
+        product: "Prodotto",
+        price: "Prezzo",
+        waterStill: "Acqua naturale",
+        waterSparkling: "Acqua frizzante",
+        softDrink: "Bibita analcolica",
+        fruitJuice: "Succo di frutta",
+        beer: "Birra",
+        proseccoTitle: "Festeggia con una bottiglia di Prosecco il tuo momento speciale",
+        proseccoText: "Prenota una bottiglia di Prosecco e un piccolo snack nella tua camera al costo extra di €15.00.",
+        quantityRequired: "Quantità *",
+        roomRequired: "Numero di camera *",
+        nameRequired: "Nome e cognome *",
+        sendReception: "Invia richiesta alla reception",
+        laundryTitle: "Lavanderia",
+        openLaundryForm: "Apri form lavanderia",
+        laundryIntro: "Servizio di lavatura e/o stiratura disponibile tramite reception.",
+        laundryFormTitle: "Form lavanderia",
+        laundryServiceInfo: "Informazioni servizio lavanderia",
+        laundryInfo1: "Si prega di inviare il form della lavanderia alla reception entro le ore 10:00 del mattino.",
+        laundryInfo2: "Il servizio viene effettuato entro 48 ore.",
+        laundryInfo3: "Per indumenti speciali non presenti nell’elenco, il servizio verrà valutato al momento.",
+        garment: "Indumento",
+        numberItems: "Numero capi",
+        washingOnly: "Solo lavatura",
+        ironingOnly: "Solo stiratura",
+        partialCost: "Costo parziale",
+        notAvailable: "Non disponibile",
+        shirts: "Camicie",
+        socks: "Calzini",
+        tshirts: "Magliette",
+        sweaters: "Maglie - Felpe",
+        jackets: "Giacche",
+        trousers: "Pantaloni",
+        skirts: "Gonne",
+        dresses: "Vestiti",
+        nightgowns: "Camicie da notte",
+        underwear: "Intimo",
+        bras: "Reggiseni",
+        totalWashing: "Totale lavatura",
+        totalIroning: "Totale stiratura",
+        grandTotal: "Totale complessivo",
+        restaurantsTitle: "Ristoranti consigliati a Verona",
+        restaurantsIntro: "Seleziona una categoria per visualizzare i ristoranti consigliati.",
+        traditionalRestaurants: "Ristoranti tradizionali",
+        trattorie: "Trattorie",
+        meatRestaurants: "Ristoranti di carne",
+        innovativeRestaurants: "Ristoranti innovativi",
+        fishRestaurants: "Ristoranti di pesce",
+        vegetarianRestaurants: "Ristoranti vegetariani",
+        ethnicRestaurants: "Ristoranti etnici",
+        pizzerias: "Pizzerie",
+        driverTitle: "Prenota il tuo autista",
+        driverIntro: "Compila il modulo per richiedere un servizio NCC. La richiesta verrà inviata direttamente alla reception.",
+        peopleRequired: "Numero di persone *",
+        pickupRequired: "Orario di pick-up *",
+        destinationRequired: "Destinazione *",
+        invoiceTitle: "Richiedi la fattura",
+        invoiceDear: "Gentile Cliente,",
+        invoicePremise: "con l’entrata in vigore dell’obbligo della fatturazione elettronica tra i privati B2B e B2C per le cessioni di beni e le prestazioni di servizi effettuate tra soggetti residenti, stabiliti o identificati in Italia, così come indicato dalla legge di Bilancio 2018 – Provv. 73203/2018 – Provv. 89757/2018 e da ultimo dalla circolare 8E dell’Agenzia delle Entrate,",
+        invoiceAsk: "Le chiediamo di indicarci di seguito, in modo ben leggibile, i dati completi per adempiere alle procedure fiscali:",
+        companyNameRequired: "Ragione sociale *",
+        addressRequired: "Indirizzo *",
+        cityRequired: "Città *",
+        postalCodeRequired: "CAP *",
+        taxCodeRequired: "Codice fiscale *",
+        vatRequired: "Partita IVA *",
+        uniqueCodeRequired: "Codice univoco *",
+        invoiceWarning1: "Vi precisiamo che in mancanza di tali dati richiesti, saremo tenuti ad utilizzare il codice univoco alternativo “0000000”; con tale procedura, le fatture risulteranno per Voi disponibili nell’apposita sezione del sito dell’Agenzia delle Entrate.",
+        invoiceWarning2: "La comunicazione di dati errati comporterà un addebito pari ad € 6.00 per l’emissione di nuovi documenti.",
+        ourToursTitle: "I nostri tour",
+        imageFallbackNote: "Se l'immagine non è disponibile nella lingua scelta, verrà mostrata la versione inglese.",
+        touristInfoTitle: "Informazioni turistiche",
+        touristInfoIntro: "Consulta cartine turistiche, collegamenti autobus, orari treni e programma Arena Opera Festival 2026.",
+        usefulInfo: "Informazioni utili",
+        selectService: "Seleziona il servizio che vuoi consultare.",
+        maps: "Cartine",
+        gardaConnection: "Collegamento Lago di Garda",
+        trainTimetable: "Orario treni",
+        guideTitle: "Guida turistica ufficiale a Verona",
+        guideText1: "Vuoi esplorare Verona con una guida turistica ufficiale in lingua?",
+        guideText2: "Consulta la reception per organizzare il tuo tour personalizzato e prenota direttamente al banco.",
+        guideNote: "Il nostro staff sarà lieto di verificare disponibilità, lingua richiesta, orario desiderato e tipologia di visita più adatta alle tue esigenze.",
+        guideHighlight: "Prenota la tua guida direttamente alla reception",
+        arenaTitle: "Arena Opera Festival 2026",
+        arenaIntro: "Consulta il programma dell'Arena Opera Festival 2026 nella lingua desiderata.",
+        fairTitle: "Fiera di Verona 2026",
+        fairIntro: "Consulta il calendario delle principali fiere ed eventi di Verona 2026.",
+        mapVeronaTitle: "Cartina turistica di Verona",
+        mapVeronaText: "Qui puoi aprire oppure scaricare la mappa PDF di Verona.",
+        mapGardaTitle: "Cartina turistica del Lago di Garda",
+        mapGardaText: "Qui puoi aprire oppure scaricare la mappa PDF del Lago di Garda.",
+        openPdf: "Apri il PDF",
+        downloadPdf: "Scarica il PDF",
+        busTitle: "Collegamento Lago di Garda",
+        busVeronaGarda: "Orari autobus Verona - Lago di Garda",
+        busVeronaGardaText: "Consulta o scarica gli orari degli autobus da Verona verso il Lago di Garda.",
+        bus026: "Orari autobus linea 026 Verona - Brescia",
+        bus026Text: "Consulta o scarica gli orari della linea autobus 026 Verona - Brescia.",
+        trainTitle: "Orario treni",
+        trainWidgetTitle: "Consulta gli orari dei treni",
+        trainWidgetText: "Apri il sito ufficiale Trenitalia per cercare partenze, arrivi, coincidenze e acquistare biglietti.",
+        trainStation: "Stazione consigliata: Verona Porta Nuova",
+        openTrenitalia: "Apri Trenitalia",
+        address: "Indirizzo",
+        phone: "Tel",
+        website: "Sito",
+        weatherUnavailable: "Meteo non disponibile",
+        forecastUnavailable: "Previsioni non disponibili",
+        clearSky: "Sereno",
+        mostlyClear: "Prevalentemente sereno",
+        partlyCloudy: "Parzialmente nuvoloso",
+        cloudy: "Nuvoloso",
+        fog: "Nebbia",
+        rain: "Pioggia",
+        showers: "Rovesci",
+        thunderstorm: "Temporale",
+        variableWeather: "Meteo variabile",
+        selectLaundryAlert: "Seleziona almeno un capo e un servizio di lavatura o stiratura."
+      },
+
+      en: {
+        languageLabel: "Language:",
+        welcomeTitle: "Welcome",
+        welcomeText: "Welcome to Hotel San Luca in Verona. This App has been created to allow you to view all hotel services and discover the main tourist attractions that may be useful during your stay.",
+        servicesTitle: "Our services",
+        receptionTitle: "Reception",
+        receptionText: "Reception with qualified multilingual staff available 24 HOURS. Our team is at your complete disposal to support you during your stay.",
+        garageTitle: "Private garage",
+        garageText: "Garage available by reservation from 02.00 PM on the day of arrival until 12.00 AM. Keys must be left at reception during the stay.",
+        breakfastTitle: "Breakfast (button A in the lift)",
+        breakfastText: "Breakfast is served from 07.00 AM to 10.00 AM. Guests without breakfast included may add it at an extra cost of €13.00 per person per day. The buffet offers sweet and savory products, also suitable for celiac and lactose-intolerant guests.",
+        virtualReceptionistTitle: "Virtual Receptionist",
+        virtualReceptionistText: "Hello, I am the Virtual Receptionist. From here you can quickly access the most requested services during your stay.",
+        weatherTitle: "Verona weather",
+        weatherLoading: "Loading weather...",
+        weatherNote: "Current weather and forecast for Verona.",
+        today: "Today",
+        tomorrow: "Tomorrow",
+        dayAfterTomorrow: "Day after tomorrow",
+        btnNews: "News",
+        btnFair: "Verona Fair",
+        btnDriver: "Book a driver",
+        btnInvoice: "Request invoice",
+        btnLaundry: "Laundry",
+        btnTouristInfo: "Tourist information",
+        btnRestaurants: "Restaurants",
+        btnTours: "Our tours",
+        newsTitle: "News",
+        samoterTitle: "Shuttle services for SAMOTER 2026",
+        samoterIntro: "On the occasion of the SAMOTER trade fair, from 6/5 to 9/5, the following free shuttle services will be operating:",
+        samoterLineC: "Line C",
+        samoterLineCText: "Stadium - Station (platform E2) - Fair via Belgio (Re Teodorico).",
+        samoterLineCFrequency: "Frequency: 20' - 30' - from 8:30 AM to 8:00 PM.",
+        samoterLineG: "Line G",
+        samoterLineGText: "Park Genovesa - Fair via Belgio (Re Teodorico).",
+        samoterLineGFrequency: "Frequency: 20' - 30' - from 6:00 AM to 8:30 PM.",
+        samoterLastRide: "Last ride from via Belgio.",
+        minibarTitle: "Minibar price list",
+        product: "Product",
+        price: "Price",
+        waterStill: "Still water",
+        waterSparkling: "Sparkling water",
+        softDrink: "Soft drink",
+        fruitJuice: "Fruit juice",
+        beer: "Beer",
+        proseccoTitle: "Celebrate your special moment with a bottle of Prosecco",
+        proseccoText: "Book a bottle of Prosecco and a small snack in your room for an extra cost of €15.00.",
+        quantityRequired: "Quantity *",
+        roomRequired: "Room number *",
+        nameRequired: "Full name *",
+        sendReception: "Send request to reception",
+        laundryTitle: "Laundry",
+        openLaundryForm: "Open laundry form",
+        laundryIntro: "Washing and/or ironing service available through reception.",
+        laundryFormTitle: "Laundry form",
+        laundryServiceInfo: "Laundry service information",
+        laundryInfo1: "Please send the laundry form to reception by 10:00 AM.",
+        laundryInfo2: "The service is completed within 48 hours.",
+        laundryInfo3: "For special garments not listed, the service will be evaluated at the moment.",
+        garment: "Garment",
+        numberItems: "Number of items",
+        washingOnly: "Washing only",
+        ironingOnly: "Ironing only",
+        partialCost: "Partial cost",
+        notAvailable: "Not available",
+        shirts: "Shirts",
+        socks: "Socks",
+        tshirts: "T-shirts",
+        sweaters: "Sweaters",
+        jackets: "Jackets",
+        trousers: "Trousers",
+        skirts: "Skirts",
+        dresses: "Dresses",
+        nightgowns: "Night gowns",
+        underwear: "Underwear",
+        bras: "Bras",
+        totalWashing: "Total washing",
+        totalIroning: "Total ironing",
+        grandTotal: "Grand total",
+        restaurantsTitle: "Recommended restaurants in Verona",
+        restaurantsIntro: "Select a category to view the recommended restaurants.",
+        traditionalRestaurants: "Traditional restaurants",
+        trattorie: "Trattorias",
+        meatRestaurants: "Meat restaurants",
+        innovativeRestaurants: "Innovative restaurants",
+        fishRestaurants: "Fish restaurants",
+        vegetarianRestaurants: "Vegetarian restaurants",
+        ethnicRestaurants: "Ethnic restaurants",
+        pizzerias: "Pizzerias",
+        driverTitle: "Book your driver",
+        driverIntro: "Fill in the form to request an NCC private driver service. The request will be sent directly to reception.",
+        peopleRequired: "Number of people *",
+        pickupRequired: "Pick-up time *",
+        destinationRequired: "Destination *",
+        invoiceTitle: "Request invoice",
+        invoiceDear: "Dear Guest,",
+        invoicePremise: "with the introduction of mandatory electronic invoicing between private B2B and B2C parties for supplies of goods and services carried out between subjects resident, established or identified in Italy, as indicated by the 2018 Budget Law and related provisions,",
+        invoiceAsk: "we kindly ask you to provide below, clearly and completely, the data required to comply with tax procedures:",
+        companyNameRequired: "Company name *",
+        addressRequired: "Address *",
+        cityRequired: "City *",
+        postalCodeRequired: "Postal code *",
+        taxCodeRequired: "Tax code *",
+        vatRequired: "VAT number *",
+        uniqueCodeRequired: "Recipient code *",
+        invoiceWarning1: "Please note that if the requested data is missing, we will be required to use the alternative recipient code “0000000”; with this procedure, invoices will be available to you in the dedicated section of the Italian Revenue Agency website.",
+        invoiceWarning2: "Incorrect data will result in a charge of €6.00 for the issuing of new documents.",
+        ourToursTitle: "Our tours",
+        imageFallbackNote: "If the image is not available in the selected language, the English version will be shown.",
+        touristInfoTitle: "Tourist information",
+        touristInfoIntro: "Consult tourist maps, bus connections, train timetables and the Arena Opera Festival 2026 programme.",
+        usefulInfo: "Useful information",
+        selectService: "Select the service you would like to consult.",
+        maps: "Maps",
+        gardaConnection: "Lake Garda connection",
+        trainTimetable: "Train timetable",
+        guideTitle: "Official tourist guide in Verona",
+        guideText1: "Would you like to explore Verona with an official tourist guide in your language?",
+        guideText2: "Contact reception to organize your personalized tour and book directly at the desk.",
+        guideNote: "Our staff will be happy to check availability, requested language, preferred time and the most suitable type of visit for your needs.",
+        guideHighlight: "Book your guide directly at reception",
+        arenaTitle: "Arena Opera Festival 2026",
+        arenaIntro: "Consult the Arena Opera Festival 2026 programme in your preferred language.",
+        fairTitle: "Verona Fair 2026",
+        fairIntro: "Consult the calendar of the main Verona fairs and events in 2026.",
+        mapVeronaTitle: "Verona tourist map",
+        mapVeronaText: "Here you can open or download the Verona PDF map.",
+        mapGardaTitle: "Lake Garda tourist map",
+        mapGardaText: "Here you can open or download the Lake Garda PDF map.",
+        openPdf: "Open PDF",
+        downloadPdf: "Download PDF",
+        busTitle: "Lake Garda connection",
+        busVeronaGarda: "Bus timetable Verona - Lake Garda",
+        busVeronaGardaText: "Consult or download the bus timetable from Verona to Lake Garda.",
+        bus026: "Bus timetable line 026 Verona - Brescia",
+        bus026Text: "Consult or download the timetable for bus line 026 Verona - Brescia.",
+        trainTitle: "Train timetable",
+        trainWidgetTitle: "Check train timetables",
+        trainWidgetText: "Open the official Trenitalia website to search for departures, arrivals, connections and buy tickets.",
+        trainStation: "Recommended station: Verona Porta Nuova",
+        openTrenitalia: "Open Trenitalia",
+        address: "Address",
+        phone: "Phone",
+        website: "Website",
+        weatherUnavailable: "Weather unavailable",
+        forecastUnavailable: "Forecast unavailable",
+        clearSky: "Clear sky",
+        mostlyClear: "Mostly clear",
+        partlyCloudy: "Partly cloudy",
+        cloudy: "Cloudy",
+        fog: "Fog",
+        rain: "Rain",
+        showers: "Showers",
+        thunderstorm: "Thunderstorm",
+        variableWeather: "Variable weather",
+        selectLaundryAlert: "Select at least one garment and a washing or ironing service."
+      }
+    };
+
+    translations.de = {
+      languageLabel: "Sprache:",
+      welcomeTitle: "Willkommen",
+      welcomeText: "Willkommen im Hotel San Luca in Verona. Diese App wurde erstellt, damit Sie alle Hoteldienstleistungen einsehen und die wichtigsten touristischen Informationen für Ihren Aufenthalt entdecken können.",
+      servicesTitle: "Unsere Dienstleistungen",
+      receptionTitle: "Rezeption",
+      receptionText: "Rezeption mit qualifiziertem, mehrsprachigem Personal 24 STUNDEN verfügbar. Unser Team steht Ihnen während Ihres Aufenthalts gerne zur Verfügung.",
+      garageTitle: "Private Garage",
+      garageText: "Garage nach Reservierung verfügbar, von 14:00 Uhr am Anreisetag bis 12:00 Uhr. Die Autoschlüssel müssen während des Aufenthalts an der Rezeption abgegeben werden.",
+      breakfastTitle: "Frühstück (Taste A im Aufzug)",
+      breakfastText: "Das Frühstück wird von 07:00 bis 10:00 Uhr serviert. Gäste ohne Frühstück können es für €13,00 pro Person und Tag hinzufügen. Das Buffet bietet süße und herzhafte Produkte, auch für Zöliakie und Laktoseintoleranz.",
+      virtualReceptionistTitle: "Virtual Receptionist",
+      virtualReceptionistText: "Hallo, ich bin der Virtual Receptionist. Von hier aus können Sie schnell auf die am häufigsten angefragten Services zugreifen.",
+      weatherTitle: "Wetter Verona",
+      weatherLoading: "Wetter wird geladen...",
+      weatherNote: "Aktuelles Wetter und Vorhersage für Verona.",
+      today: "Heute",
+      tomorrow: "Morgen",
+      dayAfterTomorrow: "Übermorgen",
+      btnNews: "News",
+      btnFair: "Messe Verona",
+      btnDriver: "Fahrer buchen",
+      btnInvoice: "Rechnung anfordern",
+      btnLaundry: "Wäscherei",
+      btnTouristInfo: "Touristische Informationen",
+      btnRestaurants: "Restaurants",
+      btnTours: "Unsere Touren",
+      newsTitle: "News",
+      samoterTitle: "Shuttle-Service für SAMOTER 2026",
+      samoterIntro: "Anlässlich der Messe SAMOTER sind vom 6.5. bis 9.5. die folgenden kostenlosen Shuttle-Services aktiv:",
+      samoterLineC: "Linie C",
+      samoterLineCText: "Stadion - Bahnhof (Bahnsteig E2) - Messe via Belgio (Re Teodorico).",
+      samoterLineCFrequency: "Takt: 20' - 30' - von 8:30 bis 20:00 Uhr.",
+      samoterLineG: "Linie G",
+      samoterLineGText: "Park Genovesa - Messe via Belgio (Re Teodorico).",
+      samoterLineGFrequency: "Takt: 20' - 30' - von 6:00 bis 20:30 Uhr.",
+      samoterLastRide: "Letzte Fahrt ab via Belgio.",
+      minibarTitle: "Minibar-Preisliste",
+      product: "Produkt",
+      price: "Preis",
+      waterStill: "Stilles Wasser",
+      waterSparkling: "Sprudelwasser",
+      softDrink: "Alkoholfreies Getränk",
+      fruitJuice: "Fruchtsaft",
+      beer: "Bier",
+      proseccoTitle: "Feiern Sie Ihren besonderen Moment mit einer Flasche Prosecco",
+      proseccoText: "Bestellen Sie eine Flasche Prosecco und einen kleinen Snack auf Ihr Zimmer zum Aufpreis von €15,00.",
+      quantityRequired: "Menge *",
+      roomRequired: "Zimmernummer *",
+      nameRequired: "Vor- und Nachname *",
+      sendReception: "Anfrage an die Rezeption senden",
+      laundryTitle: "Wäscherei",
+      openLaundryForm: "Wäscheformular öffnen",
+      laundryIntro: "Wasch- und/oder Bügelservice über die Rezeption verfügbar.",
+      laundryFormTitle: "Wäscheformular",
+      laundryServiceInfo: "Informationen zum Wäscheservice",
+      laundryInfo1: "Bitte senden Sie das Wäscheformular bis 10:00 Uhr an die Rezeption.",
+      laundryInfo2: "Der Service wird innerhalb von 48 Stunden ausgeführt.",
+      laundryInfo3: "Für spezielle Kleidungsstücke, die nicht aufgeführt sind, wird der Service vor Ort bewertet.",
+      garment: "Kleidungsstück",
+      numberItems: "Anzahl",
+      washingOnly: "Nur Waschen",
+      ironingOnly: "Nur Bügeln",
+      partialCost: "Teilbetrag",
+      notAvailable: "Nicht verfügbar",
+      shirts: "Hemden",
+      socks: "Socken",
+      tshirts: "T-Shirts",
+      sweaters: "Pullover",
+      jackets: "Jacken",
+      trousers: "Hosen",
+      skirts: "Röcke",
+      dresses: "Kleider",
+      nightgowns: "Nachthemden",
+      underwear: "Unterwäsche",
+      bras: "BHs",
+      totalWashing: "Waschen gesamt",
+      totalIroning: "Bügeln gesamt",
+      grandTotal: "Gesamtsumme",
+      restaurantsTitle: "Empfohlene Restaurants in Verona",
+      restaurantsIntro: "Wählen Sie eine Kategorie, um empfohlene Restaurants anzuzeigen.",
+      traditionalRestaurants: "Traditionelle Restaurants",
+      trattorie: "Trattorien",
+      meatRestaurants: "Fleischrestaurants",
+      innovativeRestaurants: "Innovative Restaurants",
+      fishRestaurants: "Fischrestaurants",
+      vegetarianRestaurants: "Vegetarische Restaurants",
+      ethnicRestaurants: "Ethnische Restaurants",
+      pizzerias: "Pizzerien",
+      driverTitle: "Ihren Fahrer buchen",
+      driverIntro: "Füllen Sie das Formular aus, um einen NCC-Privatfahrerservice anzufordern. Die Anfrage wird direkt an die Rezeption gesendet.",
+      peopleRequired: "Personenzahl *",
+      pickupRequired: "Abholzeit *",
+      destinationRequired: "Ziel *",
+      invoiceTitle: "Rechnung anfordern",
+      invoiceDear: "Sehr geehrter Gast,",
+      invoicePremise: "mit Einführung der Pflicht zur elektronischen Rechnungsstellung für B2B- und B2C-Leistungen zwischen in Italien ansässigen, niedergelassenen oder identifizierten Subjekten,",
+      invoiceAsk: "bitten wir Sie, die vollständigen Daten für die steuerlichen Verfahren gut lesbar anzugeben:",
+      companyNameRequired: "Firmenname *",
+      addressRequired: "Adresse *",
+      cityRequired: "Stadt *",
+      postalCodeRequired: "PLZ *",
+      taxCodeRequired: "Steuernummer *",
+      vatRequired: "USt-IdNr. *",
+      uniqueCodeRequired: "Empfängercode *",
+      invoiceWarning1: "Fehlen diese Daten, müssen wir den alternativen Empfängercode “0000000” verwenden; die Rechnungen sind dann im entsprechenden Bereich der Website der italienischen Steuerbehörde verfügbar.",
+      invoiceWarning2: "Falsche Angaben führen zu einer Gebühr von €6,00 für die Ausstellung neuer Dokumente.",
+      ourToursTitle: "Unsere Touren",
+      imageFallbackNote: "Wenn das Bild in der gewählten Sprache nicht verfügbar ist, wird die englische Version angezeigt.",
+      touristInfoTitle: "Touristische Informationen",
+      touristInfoIntro: "Konsultieren Sie Stadtpläne, Busverbindungen, Zugfahrpläne und das Programm des Arena Opera Festival 2026.",
+      usefulInfo: "Nützliche Informationen",
+      selectService: "Wählen Sie den gewünschten Service aus.",
+      maps: "Karten",
+      gardaConnection: "Verbindung Gardasee",
+      trainTimetable: "Zugfahrplan",
+      guideTitle: "Offizieller Stadtführer in Verona",
+      guideText1: "Möchten Sie Verona mit einem offiziellen Stadtführer in Ihrer Sprache entdecken?",
+      guideText2: "Wenden Sie sich an die Rezeption, um Ihre individuelle Tour zu organisieren und direkt am Empfang zu buchen.",
+      guideNote: "Unser Team prüft gerne Verfügbarkeit, gewünschte Sprache, Uhrzeit und die passende Art der Besichtigung.",
+      guideHighlight: "Buchen Sie Ihren Guide direkt an der Rezeption",
+      arenaTitle: "Arena Opera Festival 2026",
+      arenaIntro: "Konsultieren Sie das Programm des Arena Opera Festival 2026 in Ihrer gewünschten Sprache.",
+      fairTitle: "Messe Verona 2026",
+      fairIntro: "Konsultieren Sie den Kalender der wichtigsten Messen und Veranstaltungen in Verona 2026.",
+      mapVeronaTitle: "Touristische Karte von Verona",
+      mapVeronaText: "Hier können Sie die PDF-Karte von Verona öffnen oder herunterladen.",
+      mapGardaTitle: "Touristische Karte des Gardasees",
+      mapGardaText: "Hier können Sie die PDF-Karte des Gardasees öffnen oder herunterladen.",
+      openPdf: "PDF öffnen",
+      downloadPdf: "PDF herunterladen",
+      busTitle: "Verbindung Gardasee",
+      busVeronaGarda: "Busfahrplan Verona - Gardasee",
+      busVeronaGardaText: "Konsultieren oder laden Sie den Busfahrplan von Verona zum Gardasee herunter.",
+      bus026: "Busfahrplan Linie 026 Verona - Brescia",
+      bus026Text: "Konsultieren oder laden Sie den Fahrplan der Buslinie 026 Verona - Brescia herunter.",
+      trainTitle: "Zugfahrplan",
+      trainWidgetTitle: "Zugfahrpläne prüfen",
+      trainWidgetText: "Öffnen Sie die offizielle Trenitalia-Website, um Abfahrten, Ankünfte, Verbindungen zu suchen und Tickets zu kaufen.",
+      trainStation: "Empfohlener Bahnhof: Verona Porta Nuova",
+      openTrenitalia: "Trenitalia öffnen",
+      address: "Adresse",
+      phone: "Tel",
+      website: "Website",
+      weatherUnavailable: "Wetter nicht verfügbar",
+      forecastUnavailable: "Vorhersage nicht verfügbar",
+      clearSky: "Sonnig",
+      mostlyClear: "Meist sonnig",
+      partlyCloudy: "Teilweise bewölkt",
+      cloudy: "Bewölkt",
+      fog: "Nebel",
+      rain: "Regen",
+      showers: "Regenschauer",
+      thunderstorm: "Gewitter",
+      variableWeather: "Wechselhaft",
+      selectLaundryAlert: "Wählen Sie mindestens ein Kleidungsstück und einen Wasch- oder Bügelservice aus."
+    };
+
+    translations.fr = {
+      languageLabel: "Langue :",
+      welcomeTitle: "Bienvenue",
+      welcomeText: "Bienvenue à l'Hotel San Luca de Vérone. Cette application a été créée pour vous permettre de consulter tous les services de l'hôtel et de découvrir les principales informations touristiques utiles pendant votre séjour.",
+      servicesTitle: "Nos services",
+      receptionTitle: "Réception",
+      receptionText: "Réception avec personnel qualifié et multilingue à votre disposition 24H/24. Notre équipe est à votre entière disposition pendant votre séjour.",
+      garageTitle: "Garage privé",
+      garageText: "Garage disponible sur réservation de 14h00 le jour de l'arrivée jusqu'à 12h00. Les clés doivent être remises à la réception pendant le séjour.",
+      breakfastTitle: "Petit-déjeuner (bouton A dans l'ascenseur)",
+      breakfastText: "Le petit-déjeuner est servi de 07h00 à 10h00. Les clients qui ne l'ont pas inclus peuvent l'ajouter au tarif de €13,00 par personne et par jour. Le buffet propose des produits sucrés et salés, également pour cœliaques et intolérants au lactose.",
+      virtualReceptionistTitle: "Virtual Receptionist",
+      virtualReceptionistText: "Bonjour, je suis le Virtual Receptionist. D'ici vous pouvez accéder rapidement aux services les plus demandés pendant votre séjour.",
+      weatherTitle: "Météo Vérone",
+      weatherLoading: "Chargement météo...",
+      weatherNote: "Météo actuelle et prévisions pour Vérone.",
+      today: "Aujourd'hui",
+      tomorrow: "Demain",
+      dayAfterTomorrow: "Après-demain",
+      btnNews: "News",
+      btnFair: "Foire de Vérone",
+      btnDriver: "Réserver un chauffeur",
+      btnInvoice: "Demander la facture",
+      btnLaundry: "Blanchisserie",
+      btnTouristInfo: "Informations touristiques",
+      btnRestaurants: "Restaurants",
+      btnTours: "Nos tours",
+      newsTitle: "News",
+      samoterTitle: "Services de navette pour SAMOTER 2026",
+      samoterIntro: "À l'occasion du salon SAMOTER, du 6/5 au 9/5, les services de navette gratuits suivants seront actifs :",
+      samoterLineC: "Ligne C",
+      samoterLineCText: "Stade - Gare (quai E2) - Foire via Belgio (Re Teodorico).",
+      samoterLineCFrequency: "Fréquence : 20' - 30' - de 8h30 à 20h00.",
+      samoterLineG: "Ligne G",
+      samoterLineGText: "Park Genovesa - Foire via Belgio (Re Teodorico).",
+      samoterLineGFrequency: "Fréquence : 20' - 30' - de 6h00 à 20h30.",
+      samoterLastRide: "Dernière course depuis via Belgio.",
+      minibarTitle: "Tarif minibar",
+      product: "Produit",
+      price: "Prix",
+      waterStill: "Eau plate",
+      waterSparkling: "Eau gazeuse",
+      softDrink: "Boisson sans alcool",
+      fruitJuice: "Jus de fruit",
+      beer: "Bière",
+      proseccoTitle: "Célébrez votre moment spécial avec une bouteille de Prosecco",
+      proseccoText: "Réservez une bouteille de Prosecco et un petit snack dans votre chambre au coût supplémentaire de €15,00.",
+      quantityRequired: "Quantité *",
+      roomRequired: "Numéro de chambre *",
+      nameRequired: "Nom et prénom *",
+      sendReception: "Envoyer la demande à la réception",
+      laundryTitle: "Blanchisserie",
+      openLaundryForm: "Ouvrir le formulaire blanchisserie",
+      laundryIntro: "Service de lavage et/ou repassage disponible via la réception.",
+      laundryFormTitle: "Formulaire blanchisserie",
+      laundryServiceInfo: "Informations service blanchisserie",
+      laundryInfo1: "Veuillez envoyer le formulaire de blanchisserie à la réception avant 10h00.",
+      laundryInfo2: "Le service est effectué sous 48 heures.",
+      laundryInfo3: "Pour les vêtements spéciaux non listés, le service sera évalué sur place.",
+      garment: "Vêtement",
+      numberItems: "Nombre d'articles",
+      washingOnly: "Lavage seul",
+      ironingOnly: "Repassage seul",
+      partialCost: "Coût partiel",
+      notAvailable: "Non disponible",
+      shirts: "Chemises",
+      socks: "Chaussettes",
+      tshirts: "T-shirts",
+      sweaters: "Pulls",
+      jackets: "Vestes",
+      trousers: "Pantalons",
+      skirts: "Jupes",
+      dresses: "Robes",
+      nightgowns: "Chemises de nuit",
+      underwear: "Sous-vêtements",
+      bras: "Soutiens-gorge",
+      totalWashing: "Total lavage",
+      totalIroning: "Total repassage",
+      grandTotal: "Total général",
+      restaurantsTitle: "Restaurants conseillés à Vérone",
+      restaurantsIntro: "Sélectionnez une catégorie pour afficher les restaurants conseillés.",
+      traditionalRestaurants: "Restaurants traditionnels",
+      trattorie: "Trattorias",
+      meatRestaurants: "Restaurants de viande",
+      innovativeRestaurants: "Restaurants innovants",
+      fishRestaurants: "Restaurants de poisson",
+      vegetarianRestaurants: "Restaurants végétariens",
+      ethnicRestaurants: "Restaurants ethniques",
+      pizzerias: "Pizzerias",
+      driverTitle: "Réservez votre chauffeur",
+      driverIntro: "Remplissez le formulaire pour demander un service de chauffeur privé NCC. La demande sera envoyée directement à la réception.",
+      peopleRequired: "Nombre de personnes *",
+      pickupRequired: "Heure de prise en charge *",
+      destinationRequired: "Destination *",
+      invoiceTitle: "Demander la facture",
+      invoiceDear: "Cher Client,",
+      invoicePremise: "avec l'entrée en vigueur de l'obligation de facturation électronique entre particuliers B2B et B2C pour les cessions de biens et prestations de services effectuées entre sujets résidents, établis ou identifiés en Italie,",
+      invoiceAsk: "nous vous demandons d'indiquer ci-dessous, de manière lisible, les données complètes nécessaires aux procédures fiscales :",
+      companyNameRequired: "Raison sociale *",
+      addressRequired: "Adresse *",
+      cityRequired: "Ville *",
+      postalCodeRequired: "Code postal *",
+      taxCodeRequired: "Code fiscal *",
+      vatRequired: "Numéro TVA *",
+      uniqueCodeRequired: "Code destinataire *",
+      invoiceWarning1: "En l'absence des données demandées, nous serons tenus d'utiliser le code destinataire alternatif “0000000”; les factures seront disponibles dans la section dédiée du site de l'Agence des impôts italienne.",
+      invoiceWarning2: "La communication de données erronées entraînera un supplément de €6,00 pour l'émission de nouveaux documents.",
+      ourToursTitle: "Nos tours",
+      imageFallbackNote: "Si l'image n'est pas disponible dans la langue choisie, la version anglaise sera affichée.",
+      touristInfoTitle: "Informations touristiques",
+      touristInfoIntro: "Consultez les cartes touristiques, les liaisons bus, les horaires de train et le programme Arena Opera Festival 2026.",
+      usefulInfo: "Informations utiles",
+      selectService: "Sélectionnez le service que vous souhaitez consulter.",
+      maps: "Cartes",
+      gardaConnection: "Liaison Lac de Garde",
+      trainTimetable: "Horaires trains",
+      guideTitle: "Guide touristique officiel à Vérone",
+      guideText1: "Souhaitez-vous découvrir Vérone avec un guide touristique officiel dans votre langue ?",
+      guideText2: "Consultez la réception pour organiser votre tour personnalisé et réservez directement au comptoir.",
+      guideNote: "Notre équipe vérifiera avec plaisir la disponibilité, la langue souhaitée, l'horaire et le type de visite le plus adapté.",
+      guideHighlight: "Réservez votre guide directement à la réception",
+      arenaTitle: "Arena Opera Festival 2026",
+      arenaIntro: "Consultez le programme de l'Arena Opera Festival 2026 dans la langue souhaitée.",
+      fairTitle: "Foire de Vérone 2026",
+      fairIntro: "Consultez le calendrier des principales foires et événements de Vérone 2026.",
+      mapVeronaTitle: "Carte touristique de Vérone",
+      mapVeronaText: "Vous pouvez ouvrir ou télécharger ici la carte PDF de Vérone.",
+      mapGardaTitle: "Carte touristique du Lac de Garde",
+      mapGardaText: "Vous pouvez ouvrir ou télécharger ici la carte PDF du Lac de Garde.",
+      openPdf: "Ouvrir le PDF",
+      downloadPdf: "Télécharger le PDF",
+      busTitle: "Liaison Lac de Garde",
+      busVeronaGarda: "Horaires bus Vérone - Lac de Garde",
+      busVeronaGardaText: "Consultez ou téléchargez les horaires des bus de Vérone vers le Lac de Garde.",
+      bus026: "Horaires bus ligne 026 Vérone - Brescia",
+      bus026Text: "Consultez ou téléchargez les horaires de la ligne bus 026 Vérone - Brescia.",
+      trainTitle: "Horaires trains",
+      trainWidgetTitle: "Consulter les horaires des trains",
+      trainWidgetText: "Ouvrez le site officiel Trenitalia pour rechercher départs, arrivées, correspondances et acheter des billets.",
+      trainStation: "Gare conseillée : Verona Porta Nuova",
+      openTrenitalia: "Ouvrir Trenitalia",
+      address: "Adresse",
+      phone: "Tél",
+      website: "Site",
+      weatherUnavailable: "Météo non disponible",
+      forecastUnavailable: "Prévisions non disponibles",
+      clearSky: "Ensoleillé",
+      mostlyClear: "Plutôt ensoleillé",
+      partlyCloudy: "Partiellement nuageux",
+      cloudy: "Nuageux",
+      fog: "Brouillard",
+      rain: "Pluie",
+      showers: "Averses",
+      thunderstorm: "Orage",
+      variableWeather: "Temps variable",
+      selectLaundryAlert: "Sélectionnez au moins un vêtement et un service de lavage ou repassage."
+    };
+
+    translations.es = {
+      languageLabel: "Idioma:",
+      welcomeTitle: "Bienvenidos",
+      welcomeText: "Bienvenidos al Hotel San Luca de Verona. Esta App ha sido creada para permitirle consultar todos los servicios del hotel y conocer las principales atracciones turísticas útiles durante su estancia.",
+      servicesTitle: "Nuestros servicios",
+      receptionTitle: "Recepción",
+      receptionText: "Recepción con personal cualificado y multilingüe a su disposición 24 HORAS. Nuestro equipo está completamente disponible para ayudarle durante su estancia.",
+      garageTitle: "Garaje privado",
+      garageText: "Garaje disponible con reserva desde las 02.00 PM del día de llegada hasta las 12.00 AM. Las llaves deberán entregarse en recepción durante la estancia.",
+      breakfastTitle: "Desayuno (botón A en el ascensor)",
+      breakfastText: "El desayuno se sirve de 07.00 AM a 10.00 AM. Los clientes que no lo tengan incluido podrán añadirlo por €13.00/persona por día. El buffet ofrece productos dulces y salados, también para celíacos e intolerantes a la lactosa.",
+      virtualReceptionistTitle: "Virtual Receptionist",
+      virtualReceptionistText: "Hola, soy el Virtual Receptionist. Desde aquí puede acceder rápidamente a los servicios más solicitados durante su estancia.",
+      weatherTitle: "Tiempo en Verona",
+      weatherLoading: "Cargando tiempo...",
+      weatherNote: "Tiempo actual y previsión para Verona.",
+      today: "Hoy",
+      tomorrow: "Mañana",
+      dayAfterTomorrow: "Pasado mañana",
+      btnNews: "News",
+      btnFair: "Feria de Verona",
+      btnDriver: "Reservar conductor",
+      btnInvoice: "Solicitar factura",
+      btnLaundry: "Lavandería",
+      btnTouristInfo: "Información turística",
+      btnRestaurants: "Restaurantes",
+      btnTours: "Nuestros tours",
+      newsTitle: "News",
+      samoterTitle: "Servicios lanzadera para SAMOTER 2026",
+      samoterIntro: "Con motivo de la feria SAMOTER, del 6/5 al 9/5, estarán operativos los siguientes servicios lanzadera gratuitos:",
+      samoterLineC: "Línea C",
+      samoterLineCText: "Estadio - Estación (andén E2) - Feria via Belgio (Re Teodorico).",
+      samoterLineCFrequency: "Frecuencia: 20' - 30' - de 8:30 a 20:00.",
+      samoterLineG: "Línea G",
+      samoterLineGText: "Park Genovesa - Feria via Belgio (Re Teodorico).",
+      samoterLineGFrequency: "Frecuencia: 20' - 30' - de 6:00 a 20:30.",
+      samoterLastRide: "Última salida desde via Belgio.",
+      minibarTitle: "Lista de precios minibar",
+      product: "Producto",
+      price: "Precio",
+      waterStill: "Agua sin gas",
+      waterSparkling: "Agua con gas",
+      softDrink: "Refresco",
+      fruitJuice: "Zumo de fruta",
+      beer: "Cerveza",
+      proseccoTitle: "Celebra tu momento especial con una botella de Prosecco",
+      proseccoText: "Reserva una botella de Prosecco y un pequeño snack en tu habitación por un coste extra de €15.00.",
+      quantityRequired: "Cantidad *",
+      roomRequired: "Número de habitación *",
+      nameRequired: "Nombre y apellidos *",
+      sendReception: "Enviar solicitud a recepción",
+      laundryTitle: "Lavandería",
+      openLaundryForm: "Abrir formulario lavandería",
+      laundryIntro: "Servicio de lavado y/o planchado disponible a través de recepción.",
+      laundryFormTitle: "Formulario lavandería",
+      laundryServiceInfo: "Información servicio lavandería",
+      laundryInfo1: "Por favor, envíe el formulario de lavandería a recepción antes de las 10:00.",
+      laundryInfo2: "El servicio se realiza en 48 horas.",
+      laundryInfo3: "Para prendas especiales no incluidas en la lista, el servicio se valorará en el momento.",
+      garment: "Prenda",
+      numberItems: "Número de prendas",
+      washingOnly: "Solo lavado",
+      ironingOnly: "Solo planchado",
+      partialCost: "Coste parcial",
+      notAvailable: "No disponible",
+      shirts: "Camisas",
+      socks: "Calcetines",
+      tshirts: "Camisetas",
+      sweaters: "Jerséis - Sudaderas",
+      jackets: "Chaquetas",
+      trousers: "Pantalones",
+      skirts: "Faldas",
+      dresses: "Vestidos",
+      nightgowns: "Camisones",
+      underwear: "Ropa interior",
+      bras: "Sujetadores",
+      totalWashing: "Total lavado",
+      totalIroning: "Total planchado",
+      grandTotal: "Total general",
+      restaurantsTitle: "Restaurantes recomendados en Verona",
+      restaurantsIntro: "Seleccione una categoría para ver los restaurantes recomendados.",
+      traditionalRestaurants: "Restaurantes tradicionales",
+      trattorie: "Trattorias",
+      meatRestaurants: "Restaurantes de carne",
+      innovativeRestaurants: "Restaurantes innovadores",
+      fishRestaurants: "Restaurantes de pescado",
+      vegetarianRestaurants: "Restaurantes vegetarianos",
+      ethnicRestaurants: "Restaurantes étnicos",
+      pizzerias: "Pizzerías",
+      driverTitle: "Reserva tu conductor",
+      driverIntro: "Rellene el formulario para solicitar un servicio de conductor privado NCC. La solicitud se enviará directamente a recepción.",
+      peopleRequired: "Número de personas *",
+      pickupRequired: "Hora de recogida *",
+      destinationRequired: "Destino *",
+      invoiceTitle: "Solicitar factura",
+      invoiceDear: "Estimado Cliente,",
+      invoicePremise: "con la entrada en vigor de la obligación de facturación electrónica entre particulares B2B y B2C para cesiones de bienes y prestaciones de servicios realizadas entre sujetos residentes, establecidos o identificados en Italia,",
+      invoiceAsk: "le pedimos que indique a continuación, de forma legible, los datos completos necesarios para los procedimientos fiscales:",
+      companyNameRequired: "Razón social *",
+      addressRequired: "Dirección *",
+      cityRequired: "Ciudad *",
+      postalCodeRequired: "Código postal *",
+      taxCodeRequired: "Código fiscal *",
+      vatRequired: "Número IVA *",
+      uniqueCodeRequired: "Código destinatario *",
+      invoiceWarning1: "En caso de faltar los datos solicitados, deberemos utilizar el código destinatario alternativo “0000000”; las facturas estarán disponibles en la sección correspondiente del sitio de la Agencia Tributaria italiana.",
+      invoiceWarning2: "La comunicación de datos erróneos supondrá un cargo de €6.00 por la emisión de nuevos documentos.",
+      ourToursTitle: "Nuestros tours",
+      imageFallbackNote: "Si la imagen no está disponible en el idioma elegido, se mostrará la versión en inglés.",
+      touristInfoTitle: "Información turística",
+      touristInfoIntro: "Consulte mapas turísticos, conexiones de autobús, horarios de tren y el programa Arena Opera Festival 2026.",
+      usefulInfo: "Información útil",
+      selectService: "Seleccione el servicio que desea consultar.",
+      maps: "Mapas",
+      gardaConnection: "Conexión Lago de Garda",
+      trainTimetable: "Horario trenes",
+      guideTitle: "Guía turística oficial en Verona",
+      guideText1: "¿Desea explorar Verona con un guía turístico oficial en su idioma?",
+      guideText2: "Consulte recepción para organizar su tour personalizado y reserve directamente en el mostrador.",
+      guideNote: "Nuestro personal estará encantado de comprobar disponibilidad, idioma solicitado, horario deseado y tipo de visita más adecuado.",
+      guideHighlight: "Reserve su guía directamente en recepción",
+      arenaTitle: "Arena Opera Festival 2026",
+      arenaIntro: "Consulte el programa del Arena Opera Festival 2026 en el idioma deseado.",
+      fairTitle: "Feria de Verona 2026",
+      fairIntro: "Consulte el calendario de las principales ferias y eventos de Verona 2026.",
+      mapVeronaTitle: "Mapa turístico de Verona",
+      mapVeronaText: "Aquí puede abrir o descargar el mapa PDF de Verona.",
+      mapGardaTitle: "Mapa turístico del Lago de Garda",
+      mapGardaText: "Aquí puede abrir o descargar el mapa PDF del Lago de Garda.",
+      openPdf: "Abrir PDF",
+      downloadPdf: "Descargar PDF",
+      busTitle: "Conexión Lago de Garda",
+      busVeronaGarda: "Horario autobús Verona - Lago de Garda",
+      busVeronaGardaText: "Consulte o descargue los horarios de autobús de Verona al Lago de Garda.",
+      bus026: "Horario autobús línea 026 Verona - Brescia",
+      bus026Text: "Consulte o descargue el horario de la línea de autobús 026 Verona - Brescia.",
+      trainTitle: "Horario trenes",
+      trainWidgetTitle: "Consultar horarios de tren",
+      trainWidgetText: "Abra el sitio oficial de Trenitalia para buscar salidas, llegadas, conexiones y comprar billetes.",
+      trainStation: "Estación recomendada: Verona Porta Nuova",
+      openTrenitalia: "Abrir Trenitalia",
+      address: "Dirección",
+      phone: "Tel",
+      website: "Sitio",
+      weatherUnavailable: "Tiempo no disponible",
+      forecastUnavailable: "Previsión no disponible",
+      clearSky: "Soleado",
+      mostlyClear: "Mayormente soleado",
+      partlyCloudy: "Parcialmente nublado",
+      cloudy: "Nublado",
+      fog: "Niebla",
+      rain: "Lluvia",
+      showers: "Chubascos",
+      thunderstorm: "Tormenta",
+      variableWeather: "Tiempo variable",
+      selectLaundryAlert: "Seleccione al menos una prenda y un servicio de lavado o planchado."
+    };
+
+    function getText(key) {
+      var langData = translations[currentLanguage];
+
+      if (langData) {
+        if (langData[key]) {
+          return langData[key];
+        }
+      }
+
+      if (translations.en[key]) {
+        return translations.en[key];
+      }
+
+      return key;
+    }
+
+    function applyLanguage(lang) {
+      currentLanguage = lang;
+      document.documentElement.setAttribute("lang", lang);
+
+      var elements = document.querySelectorAll("[data-i18n]");
+
+      elements.forEach(function(element) {
+        var key = element.getAttribute("data-i18n");
+        element.innerHTML = getText(key);
+      });
+
+      updateTranslatedImages(lang);
+      updateMobileLaundryLabels();
+      updateTourismPopupIfOpen();
+      updateRestaurantPopupIfOpen();
+      updateLaundryTotals();
+      loadVeronaWeather();
+    }
+
+    function updateTranslatedImages(lang) {
+      var tourCover = document.getElementById("tourCover");
+      var arenaCover = document.getElementById("arenaOperaCover");
+      var fairCover = document.getElementById("fairCover");
+
+      if (tourCover) {
+        if (lang === "it") {
+          tourCover.setAttribute("src", "GOLFCART TOUR VERONA ITA.png");
+        } else {
+          tourCover.setAttribute("src", "GOLFCART TOUR VERONA ING.png");
+        }
+      }
+
+      if (arenaCover) {
+        if (lang === "it") {
+          arenaCover.setAttribute("src", "Arena San Luca Ita.png");
+        } else {
+          if (lang === "en") {
+            arenaCover.setAttribute("src", "Arena San Luca Ing.png");
+          } else {
+            if (lang === "de") {
+              arenaCover.setAttribute("src", "Arena San Luca Ted.png");
+            } else {
+              if (lang === "fr") {
+                arenaCover.setAttribute("src", "Arena San Luca Fra.png");
+              } else {
+                if (lang === "es") {
+                  arenaCover.setAttribute("src", "Arena San Luca Spa.png");
+                } else {
+                  arenaCover.setAttribute("src", "Arena San Luca Ing.png");
+                }
+              }
+            }
+          }
+        }
+      }
+
+      if (fairCover) {
+        fairCover.setAttribute("src", "SanLuca_fiere.png");
+      }
+    }
+
+    function updateMobileLaundryLabels() {
+      var rows = document.querySelectorAll(".laundry-row");
+
+      rows.forEach(function(row) {
+        var cells = row.querySelectorAll("td");
+
+        if (cells.length >= 5) {
+          cells[0].setAttribute("data-label", getText("garment"));
+          cells[1].setAttribute("data-label", getText("numberItems"));
+          cells[2].setAttribute("data-label", getText("washingOnly"));
+          cells[3].setAttribute("data-label", getText("ironingOnly"));
+          cells[4].setAttribute("data-label", getText("partialCost"));
+        }
+      });
+    }
+
     function formatEuro(value) {
       return "€ " + value.toFixed(2).replace(".", ",");
     }
@@ -2353,7 +2624,7 @@
             var rowWashing = quantity * washPrice;
             rowPartial = rowPartial + rowWashing;
             totalWashing = totalWashing + rowWashing;
-            rowText = rowText + " lavatura";
+            rowText = rowText + " washing";
           }
         }
 
@@ -2368,7 +2639,7 @@
               rowText = rowText + " +";
             }
 
-            rowText = rowText + " stiratura";
+            rowText = rowText + " ironing";
           }
         }
 
@@ -2378,9 +2649,9 @@
         if (quantity > 0) {
           if (rowPartial > 0) {
             details = details +
-              item + " - quantità: " + quantity +
-              " - servizio:" + rowText +
-              " - parziale: " + formatEuro(rowPartial) + "\n";
+              item + " - quantity: " + quantity +
+              " - service:" + rowText +
+              " - partial: " + formatEuro(rowPartial) + "\n";
           }
         }
       });
@@ -2410,108 +2681,67 @@
       document.body.style.overflow = "";
     }
 
-    function changeTourLanguage() {
-      var select = document.getElementById("tourLanguage");
-      var tourCover = document.getElementById("tourCover");
-
-      if (select.value === "it") {
-        tourCover.setAttribute("src", "GOLFCART TOUR VERONA ITA.png");
-        tourCover.setAttribute("alt", "Verona in Golf Cart - Hotel San Luca");
-      } else {
-        tourCover.setAttribute("src", "GOLFCART TOUR VERONA ING.png");
-        tourCover.setAttribute("alt", "Verona by Golf Cart - Hotel San Luca");
-      }
-    }
-
-    function changeArenaLanguage() {
-      var select = document.getElementById("arenaLanguage");
-      var arenaCover = document.getElementById("arenaOperaCover");
-
-      if (select.value === "it") {
-        arenaCover.setAttribute("src", "Arena%20San%20Luca%20Ita.png");
-        arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Italiano");
-      } else {
-        if (select.value === "en") {
-          arenaCover.setAttribute("src", "Arena%20San%20Luca%20Ing.png");
-          arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - English");
-        } else {
-          if (select.value === "de") {
-            arenaCover.setAttribute("src", "Arena%20San%20Luca%20Ted.png");
-            arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Deutsch");
-          } else {
-            if (select.value === "fr") {
-              arenaCover.setAttribute("src", "Arena%20San%20Luca%20Fra.png");
-              arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Français");
-            } else {
-              if (select.value === "es") {
-                arenaCover.setAttribute("src", "Arena%20San%20Luca%20Spa.png");
-                arenaCover.setAttribute("alt", "Arena Opera Festival 2026 - Español");
-              }
-            }
-          }
-        }
-      }
-    }
-
     function openTourismPopup(type) {
       var popup = document.getElementById("tourismPopup");
       var title = document.getElementById("tourismPopupTitle");
       var content = document.getElementById("tourismPopupContent");
 
+      popup.setAttribute("data-current-popup", type);
+
       if (type === "cartine") {
-        title.innerHTML = "Cartine";
+        title.innerHTML = getText("maps");
 
         content.innerHTML =
-          '<div class="tourism-popup-card">' +
-            '<h4>Cartina turistica di Verona</h4>' +
-            '<p>Qui puoi aprire oppure scaricare la mappa PDF di Verona.</p>' +
+          '<div class="popup-card">' +
+            '<h4>' + getText("mapVeronaTitle") + '</h4>' +
+            '<p>' + getText("mapVeronaText") + '</p>' +
             '<div class="pdf-buttons">' +
-              '<a class="pdf-button" href="Cartina%20verona%26info.pdf" target="_blank">Apri la mappa PDF</a>' +
-              '<a class="pdf-button dark" href="Cartina%20verona%26info.pdf" download>Scarica la mappa PDF</a>' +
+              '<a class="pdf-button" href="Cartina%20verona%26info.pdf" target="_blank">' + getText("openPdf") + '</a>' +
+              '<a class="pdf-button" href="Cartina%20verona%26info.pdf" download>' + getText("downloadPdf") + '</a>' +
             '</div>' +
           '</div>' +
 
-          '<div class="tourism-popup-card">' +
-            '<h4>Cartina turistica del Lago di Garda</h4>' +
-            '<p>Qui puoi aprire oppure scaricare la mappa PDF del Lago di Garda.</p>' +
+          '<div class="popup-card">' +
+            '<h4>' + getText("mapGardaTitle") + '</h4>' +
+            '<p>' + getText("mapGardaText") + '</p>' +
             '<div class="pdf-buttons">' +
-              '<a class="pdf-button" href="garda_lake_map.pdf" target="_blank">Apri la mappa PDF</a>' +
-              '<a class="pdf-button dark" href="garda_lake_map.pdf" download>Scarica la mappa PDF</a>' +
+              '<a class="pdf-button" href="garda_lake_map.pdf" target="_blank">' + getText("openPdf") + '</a>' +
+              '<a class="pdf-button" href="garda_lake_map.pdf" download>' + getText("downloadPdf") + '</a>' +
             '</div>' +
           '</div>';
       } else {
         if (type === "bus") {
-          title.innerHTML = "Collegamento Lago di Garda";
+          title.innerHTML = getText("busTitle");
 
           content.innerHTML =
-            '<div class="tourism-popup-card">' +
-              '<h4>Orari autobus Verona - Lago di Garda</h4>' +
-              '<p>Consulta o scarica gli orari degli autobus da Verona verso il Lago di Garda.</p>' +
+            '<div class="popup-card">' +
+              '<h4>' + getText("busVeronaGarda") + '</h4>' +
+              '<p>' + getText("busVeronaGardaText") + '</p>' +
               '<div class="pdf-buttons">' +
-                '<a class="pdf-button" href="Bus_Verona_Garda.pdf" target="_blank">Apri gli orari PDF</a>' +
-                '<a class="pdf-button dark" href="Bus_Verona_Garda.pdf" download>Scarica gli orari PDF</a>' +
+                '<a class="pdf-button" href="Bus_Verona_Garda.pdf" target="_blank">' + getText("openPdf") + '</a>' +
+                '<a class="pdf-button" href="Bus_Verona_Garda.pdf" download>' + getText("downloadPdf") + '</a>' +
               '</div>' +
             '</div>' +
 
-            '<div class="tourism-popup-card">' +
-              '<h4>Orari autobus linea 026 Verona - Brescia</h4>' +
-              '<p>Consulta o scarica gli orari della linea autobus 026 Verona - Brescia.</p>' +
+            '<div class="popup-card">' +
+              '<h4>' + getText("bus026") + '</h4>' +
+              '<p>' + getText("bus026Text") + '</p>' +
               '<div class="pdf-buttons">' +
-                '<a class="pdf-button" href="Bus_linea_026_Verona_Brescia.pdf" target="_blank">Apri gli orari PDF</a>' +
-                '<a class="pdf-button dark" href="Bus_linea_026_Verona_Brescia.pdf" download>Scarica gli orari PDF</a>' +
+                '<a class="pdf-button" href="Bus_linea_026_Verona_Brescia.pdf" target="_blank">' + getText("openPdf") + '</a>' +
+                '<a class="pdf-button" href="Bus_linea_026_Verona_Brescia.pdf" download>' + getText("downloadPdf") + '</a>' +
               '</div>' +
             '</div>';
         } else {
           if (type === "treni") {
-            title.innerHTML = "Orario treni";
+            title.innerHTML = getText("trainTitle");
 
             content.innerHTML =
               '<div class="train-widget">' +
                 '<div class="train-widget-icon">🚆</div>' +
-                '<h4>Consulta gli orari dei treni</h4>' +
-                '<p>Apri il sito ufficiale Trenitalia per cercare partenze, arrivi, coincidenze e acquistare biglietti.</p>' +
-                '<p><strong>Stazione consigliata:</strong> Verona Porta Nuova</p>' +
-                '<a class="train-widget-link" href="https://www.trenitalia.com/" target="_blank">Apri Trenitalia</a>' +
+                '<h4>' + getText("trainWidgetTitle") + '</h4>' +
+                '<p>' + getText("trainWidgetText") + '</p>' +
+                '<p><strong>' + getText("trainStation") + '</strong></p>' +
+                '<a class="main-button" href="https://www.trenitalia.com/" target="_blank">' + getText("openTrenitalia") + '</a>' +
               '</div>';
           }
         }
@@ -2527,178 +2757,85 @@
       document.body.style.overflow = "";
     }
 
+    function updateTourismPopupIfOpen() {
+      var popup = document.getElementById("tourismPopup");
+
+      if (popup.classList.contains("active")) {
+        var type = popup.getAttribute("data-current-popup");
+
+        if (type) {
+          openTourismPopup(type);
+        }
+      }
+    }
+
     var restaurantData = {
       tradizionali: {
-        title: "Ristoranti tradizionali",
+        key: "traditionalRestaurants",
         restaurants: [
-          {
-            name: "Orologio",
-            address: "Corso Porta Nuova 7",
-            phone: "045 8007183",
-            website: "https://www.ristoranteorologio.com"
-          },
-          {
-            name: "La Greppia",
-            address: "Vicolo Samaritana 3",
-            phone: "045 8004577",
-            website: "https://www.ristorantegreppia.it"
-          },
-          {
-            name: "La Taverna di Via Stella",
-            address: "Via Stella 5C",
-            phone: "045 8008008",
-            website: "https://www.tavernadiviastella.com"
-          },
-          {
-            name: "Osteria Da Ugo",
-            address: "Vicolo Dietro Sant'Andrea 1/B",
-            phone: "045 594400",
-            website: "https://www.osteriadaugo.com"
-          }
+          { name: "Orologio", address: "Corso Porta Nuova 7", phone: "045 8007183", website: "https://www.ristoranteorologio.com" },
+          { name: "La Greppia", address: "Vicolo Samaritana 3", phone: "045 8004577", website: "https://www.ristorantegreppia.it" },
+          { name: "La Taverna di Via Stella", address: "Via Stella 5C", phone: "045 8008008", website: "https://www.tavernadiviastella.com" },
+          { name: "Osteria Da Ugo", address: "Vicolo Dietro Sant'Andrea 1/B", phone: "045 594400", website: "https://www.osteriadaugo.com" }
         ]
       },
 
       trattorie: {
-        title: "Trattorie",
+        key: "trattorie",
         restaurants: [
-          {
-            name: "Arco dei Gavi",
-            address: "Corso Cavour 43",
-            phone: "045 8065035",
-            website: "https://www.trattoriaarcodeigavi.it"
-          },
-          {
-            name: "Giulietta & Romeo",
-            address: "Corso Santa Anastasia 27",
-            phone: "045 8009177",
-            website: "https://www.osteriagiuliettaeromeo.it"
-          }
+          { name: "Arco dei Gavi", address: "Corso Cavour 43", phone: "045 8065035", website: "https://www.trattoriaarcodeigavi.it" },
+          { name: "Giulietta & Romeo", address: "Corso Santa Anastasia 27", phone: "045 8009177", website: "https://www.osteriagiuliettaeromeo.it" }
         ]
       },
 
       carne: {
-        title: "Ristoranti di carne",
+        key: "meatRestaurants",
         restaurants: [
-          {
-            name: "Il Cenacolo",
-            address: "Via Teatro Filarmonico 10",
-            phone: "045 592288",
-            website: "https://www.ristoranteilcenacolo.it"
-          },
-          {
-            name: "La Griglia",
-            address: "Via Leoncino 29",
-            phone: "045 8031212",
-            website: "https://www.lagrigliaverona.it"
-          }
+          { name: "Il Cenacolo", address: "Via Teatro Filarmonico 10", phone: "045 592288", website: "https://www.ristoranteilcenacolo.it" },
+          { name: "La Griglia", address: "Via Leoncino 29", phone: "045 8031212", website: "https://www.lagrigliaverona.it" }
         ]
       },
 
       innovativi: {
-        title: "Ristoranti innovativi",
+        key: "innovativeRestaurants",
         restaurants: [
-          {
-            name: "Maffei",
-            address: "Piazza Erbe 38",
-            phone: "045 8010015",
-            website: "https://www.ristorantemaffei.it"
-          },
-          {
-            name: "Locanda Quattro Cuochi",
-            address: "Via Alberto Mario 12",
-            phone: "045 8030311",
-            website: "https://www.locanda4cuochi.it"
-          }
+          { name: "Maffei", address: "Piazza Erbe 38", phone: "045 8010015", website: "https://www.ristorantemaffei.it" },
+          { name: "Locanda Quattro Cuochi", address: "Via Alberto Mario 12", phone: "045 8030311", website: "https://www.locanda4cuochi.it" }
         ]
       },
 
       pesce: {
-        title: "Ristoranti di pesce",
+        key: "fishRestaurants",
         restaurants: [
-          {
-            name: "L'Oste Scuro",
-            address: "Vicolo San Silvestro 10",
-            phone: "045 592650",
-            website: "https://www.ristoranteostescuro.tv"
-          },
-          {
-            name: "Vecio Mulin",
-            address: "Via Sottoriva 42/A",
-            phone: "045 8065146",
-            website: "https://www.veciomulin.com"
-          },
-          {
-            name: "Al Capitan della Cittadella",
-            address: "Piazza Cittadella 7",
-            phone: "045 595157",
-            website: "https://www.alcapitan.it"
-          }
+          { name: "L'Oste Scuro", address: "Vicolo San Silvestro 10", phone: "045 592650", website: "https://www.ristoranteostescuro.tv" },
+          { name: "Vecio Mulin", address: "Via Sottoriva 42/A", phone: "045 8065146", website: "https://www.veciomulin.com" },
+          { name: "Al Capitan della Cittadella", address: "Piazza Cittadella 7", phone: "045 595157", website: "https://www.alcapitan.it" }
         ]
       },
 
       vegetariani: {
-        title: "Ristoranti vegetariani",
+        key: "vegetarianRestaurants",
         restaurants: [
-          {
-            name: "Flora",
-            address: "Stradone Scipione Maffei 8C",
-            phone: "045 8006300",
-            website: "https://www.ristoranteflora.it"
-          },
-          {
-            name: "Flower Burger",
-            address: "Corso Porta Nuova 87",
-            phone: "045 2215958",
-            website: "https://www.flowerburger.it"
-          }
+          { name: "Flora", address: "Stradone Scipione Maffei 8C", phone: "045 8006300", website: "https://www.ristoranteflora.it" },
+          { name: "Flower Burger", address: "Corso Porta Nuova 87", phone: "045 2215958", website: "https://www.flowerburger.it" }
         ]
       },
 
       etnici: {
-        title: "Ristoranti etnici",
+        key: "ethnicRestaurants",
         restaurants: [
-          {
-            name: "Porto Alegre",
-            address: "Corso Porta Nuova 78",
-            phone: "045 8008576",
-            website: ""
-          },
-          {
-            name: "I-Sushi",
-            address: "Piazza Pradaval 14",
-            phone: "045 8011454",
-            website: "https://www.isushi.it"
-          },
-          {
-            name: "Maharajah",
-            address: "Via Locatelli 19",
-            phone: "045 8011038",
-            website: "https://www.ristoranteindianomaharajah.it"
-          }
+          { name: "Porto Alegre", address: "Corso Porta Nuova 78", phone: "045 8008576", website: "" },
+          { name: "I-Sushi", address: "Piazza Pradaval 14", phone: "045 8011454", website: "https://www.isushi.it" },
+          { name: "Maharajah", address: "Via Locatelli 19", phone: "045 8011038", website: "https://www.ristoranteindianomaharajah.it" }
         ]
       },
 
       pizzerie: {
-        title: "Pizzerie",
+        key: "pizzerias",
         restaurants: [
-          {
-            name: "Bella Napoli",
-            address: "Via Marconi 11",
-            phone: "045 8069182",
-            website: "https://www.bellanapoliverona.it"
-          },
-          {
-            name: "Le Cantine dell'Arena",
-            address: "P.tta Scalette Rubiani 1",
-            phone: "045 8032849",
-            website: "https://www.lecantine-arena.com"
-          },
-          {
-            name: "Impero",
-            address: "Piazza dei Signori 8",
-            phone: "045 8030160",
-            website: "https://www.pizzeriaimpero.it"
-          }
+          { name: "Bella Napoli", address: "Via Marconi 11", phone: "045 8069182", website: "https://www.bellanapoliverona.it" },
+          { name: "Le Cantine dell'Arena", address: "P.tta Scalette Rubiani 1", phone: "045 8032849", website: "https://www.lecantine-arena.com" },
+          { name: "Impero", address: "Piazza dei Signori 8", phone: "045 8030160", website: "https://www.pizzeriaimpero.it" }
         ]
       }
     };
@@ -2713,20 +2850,21 @@
         return;
       }
 
-      title.innerHTML = data.title;
+      popup.setAttribute("data-current-popup", category);
+      title.innerHTML = getText(data.key);
 
       var html = "";
 
       data.restaurants.forEach(function(restaurant) {
         html = html +
-          '<div class="restaurant-popup-card">' +
+          '<div class="popup-card">' +
             '<h4>' + restaurant.name + '</h4>' +
-            '<p><strong>Indirizzo:</strong> ' + restaurant.address + '</p>' +
-            '<p><strong>Tel:</strong> ' + restaurant.phone + '</p>';
+            '<p><strong>' + getText("address") + ':</strong> ' + restaurant.address + '</p>' +
+            '<p><strong>' + getText("phone") + ':</strong> ' + restaurant.phone + '</p>';
 
         if (restaurant.website !== "") {
           html = html +
-            '<p><strong>Sito:</strong> <a href="' + restaurant.website + '" target="_blank">' + restaurant.website + '</a></p>';
+            '<p><strong>' + getText("website") + ':</strong> <a href="' + restaurant.website + '" target="_blank">' + restaurant.website + '</a></p>';
         }
 
         html = html + '</div>';
@@ -2743,72 +2881,60 @@
       document.body.style.overflow = "";
     }
 
+    function updateRestaurantPopupIfOpen() {
+      var popup = document.getElementById("restaurantPopup");
+
+      if (popup.classList.contains("active")) {
+        var category = popup.getAttribute("data-current-popup");
+
+        if (category) {
+          openRestaurantPopup(category);
+        }
+      }
+    }
+
     function getWeatherDescription(code) {
       if (code === 0) {
-        return "Sereno";
+        return getText("clearSky");
       }
 
       if (code === 1) {
-        return "Prevalentemente sereno";
+        return getText("mostlyClear");
       }
 
       if (code === 2) {
-        return "Parzialmente nuvoloso";
+        return getText("partlyCloudy");
       }
 
       if (code === 3) {
-        return "Nuvoloso";
+        return getText("cloudy");
       }
 
       if (code === 45) {
-        return "Nebbia";
+        return getText("fog");
       }
 
       if (code === 48) {
-        return "Nebbia con brina";
+        return getText("fog");
       }
 
-      if (code === 51) {
-        return "Pioviggine leggera";
+      if (code >= 51) {
+        if (code <= 65) {
+          return getText("rain");
+        }
       }
 
-      if (code === 53) {
-        return "Pioviggine";
-      }
-
-      if (code === 55) {
-        return "Pioviggine intensa";
-      }
-
-      if (code === 61) {
-        return "Pioggia leggera";
-      }
-
-      if (code === 63) {
-        return "Pioggia";
-      }
-
-      if (code === 65) {
-        return "Pioggia intensa";
-      }
-
-      if (code === 80) {
-        return "Rovesci leggeri";
-      }
-
-      if (code === 81) {
-        return "Rovesci";
-      }
-
-      if (code === 82) {
-        return "Rovesci intensi";
+      if (code >= 80) {
+        if (code <= 82) {
+          return getText("showers");
+        }
       }
 
       if (code === 95) {
-        return "Temporale";
+        return getText("thunderstorm");
       }
 
-      return "Meteo variabile";
+      return getText("variableWeather");
     }
 
     function getWeatherIcon(code) {
@@ -2870,7 +2996,7 @@
           document.getElementById("weatherIcon").innerHTML = getWeatherIcon(current.weather_code);
 
           var forecastBox = document.getElementById("weatherForecast");
-          var labels = ["Oggi", "Domani", "Dopodomani"];
+          var labels = [getText("today"), getText("tomorrow"), getText("dayAfterTomorrow")];
           var forecastHtml = "";
 
           for (var i = 0; i < 3; i++) {
@@ -2891,28 +3017,18 @@
           forecastBox.innerHTML = forecastHtml;
         })
         .catch(function() {
-          document.getElementById("weatherDesc").innerHTML = "Meteo non disponibile";
+          document.getElementById("weatherDesc").innerHTML = getText("weatherUnavailable");
           document.getElementById("weatherForecast").innerHTML =
-            '<div class="hotel-forecast-card"><strong>Previsioni</strong><span>Non disponibili</span></div>';
+            '<div class="hotel-forecast-card"><strong>' + getText("forecastUnavailable") + '</strong><span>--</span></div>';
         });
     }
 
     document.addEventListener("DOMContentLoaded", function() {
-      var select = document.getElementById("tourLanguage");
+      var siteLanguage = document.getElementById("siteLanguage");
 
-      select.addEventListener("change", function() {
-        changeTourLanguage();
+      siteLanguage.addEventListener("change", function() {
+        applyLanguage(siteLanguage.value);
       });
-
-      changeTourLanguage();
-
-      var arenaSelect = document.getElementById("arenaLanguage");
-
-      arenaSelect.addEventListener("change", function() {
-        changeArenaLanguage();
-      });
-
-      changeArenaLanguage();
 
       var laundryInputs = document.querySelectorAll(".laundry-qty, .wash-check, .iron-check");
 
@@ -2933,7 +3049,7 @@
 
         if (total <= 0) {
           event.preventDefault();
-          alert("Seleziona almeno un capo e un servizio di lavatura o stiratura.");
+          alert(getText("selectLaundryAlert"));
         }
       });
 
@@ -2963,6 +3079,7 @@
         }
       });
 
+      applyLanguage("it");
       updateLaundryTotals();
       loadVeronaWeather();
     });
