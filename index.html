@@ -602,6 +602,129 @@
       color: #5b3d2d;
     }
 
+    .restaurant-buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .restaurant-category-button {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #b88b6a;
+      color: #fff;
+      padding: 16px 18px;
+      border-radius: 6px;
+      border: none;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      letter-spacing: 0.4px;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+    }
+
+    .restaurant-category-button:hover {
+      background: #8a5f45;
+    }
+
+    .restaurant-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(45, 32, 25, 0.72);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .restaurant-popup-overlay.active {
+      display: flex;
+    }
+
+    .restaurant-popup-box {
+      width: 100%;
+      max-width: 980px;
+      max-height: 88vh;
+      overflow-y: auto;
+      background: #fff8f0;
+      border: 2px solid #b88b6a;
+      border-radius: 12px;
+      padding: 26px;
+      position: relative;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+    }
+
+    .restaurant-popup-box h3 {
+      color: #5b3d2d;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      padding-right: 42px;
+    }
+
+    .restaurant-popup-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: #3b2a22;
+      color: #fff;
+      font-size: 28px;
+      line-height: 36px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+    }
+
+    .restaurant-popup-close:hover {
+      background: #8a5f45;
+    }
+
+    .restaurant-popup-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .restaurant-popup-card {
+      background: #fff;
+      border-left: 5px solid #b88b6a;
+      border-radius: 6px;
+      padding: 16px;
+      box-shadow: 0 5px 14px rgba(60, 40, 25, 0.10);
+      min-width: 0;
+    }
+
+    .restaurant-popup-card h4 {
+      color: #3b2a22;
+      font-size: 18px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .restaurant-popup-card p {
+      margin-bottom: 6px;
+      font-size: 15px;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .restaurant-popup-card a {
+      color: #8a5f45;
+      text-decoration: underline;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
     .tour-card,
     .arena-card {
       background: #f8f2ec;
@@ -746,60 +869,6 @@
       padding: 24px;
       margin-top: 20px;
       box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
-    }
-
-    .restaurant-category {
-      margin-bottom: 28px;
-    }
-
-    .restaurant-category:last-child {
-      margin-bottom: 0;
-    }
-
-    .restaurant-category h3 {
-      color: #5b3d2d;
-      font-size: 22px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-bottom: 1px solid #d8c0aa;
-      padding-bottom: 8px;
-      margin-bottom: 14px;
-    }
-
-    .restaurant-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
-
-    .restaurant-card {
-      background: #fff;
-      border-left: 5px solid #b88b6a;
-      border-radius: 6px;
-      padding: 16px;
-      box-shadow: 0 5px 14px rgba(60, 40, 25, 0.10);
-      min-width: 0;
-    }
-
-    .restaurant-card h4 {
-      color: #3b2a22;
-      font-size: 18px;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-
-    .restaurant-card p {
-      margin-bottom: 6px;
-      font-size: 15px;
-      overflow-wrap: break-word;
-      word-break: break-word;
-    }
-
-    .restaurant-card a {
-      color: #8a5f45;
-      text-decoration: underline;
-      word-break: break-word;
-      overflow-wrap: break-word;
     }
 
     footer {
@@ -1054,6 +1123,30 @@
         font-size: 18px;
       }
 
+      .restaurant-popup-overlay {
+        padding: 10px;
+        align-items: flex-start;
+      }
+
+      .restaurant-popup-box {
+        max-height: 92vh;
+        padding: 18px;
+        margin-top: 20px;
+      }
+
+      .restaurant-popup-box h3 {
+        font-size: 20px;
+      }
+
+      .restaurant-popup-content {
+        grid-template-columns: 1fr;
+      }
+
+      .restaurant-category-button {
+        font-size: 16px;
+        padding: 14px;
+      }
+
       .language-box,
       .arena-language-box {
         top: 8px;
@@ -1079,14 +1172,6 @@
       .pdf-button {
         font-size: 16px;
         padding: 15px;
-      }
-
-      .restaurant-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .restaurant-card {
-        padding: 14px;
       }
     }
 
@@ -1544,208 +1629,60 @@
         <h2>Ristoranti consigliati a Verona</h2>
 
         <p class="intro">
-          Una selezione di ristoranti, trattorie e pizzerie consigliate per gli ospiti dell'Hotel San Luca.
+          Seleziona una categoria per visualizzare i ristoranti consigliati.
         </p>
 
         <div class="restaurants-box">
 
-          <div class="restaurant-category">
-            <h3>Ristoranti tradizionali</h3>
+          <div class="restaurant-buttons-grid">
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('tradizionali')">
+              Ristoranti tradizionali
+            </button>
 
-            <div class="restaurant-grid">
-              <div class="restaurant-card">
-                <h4>Orologio</h4>
-                <p><strong>Indirizzo:</strong> Corso Porta Nuova 7</p>
-                <p><strong>Tel:</strong> 045 8007183</p>
-                <p><strong>Sito:</strong> <a href="https://www.ristoranteorologio.com" target="_blank">www.ristoranteorologio.com</a></p>
-              </div>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('trattorie')">
+              Trattorie
+            </button>
 
-              <div class="restaurant-card">
-                <h4>La Greppia</h4>
-                <p><strong>Indirizzo:</strong> Vicolo Samaritana 3</p>
-                <p><strong>Tel:</strong> 045 8004577</p>
-                <p><strong>Sito:</strong> <a href="https://www.ristorantegreppia.it" target="_blank">www.ristorantegreppia.it</a></p>
-              </div>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('carne')">
+              Ristoranti di carne
+            </button>
 
-              <div class="restaurant-card">
-                <h4>La Taverna di Via Stella</h4>
-                <p><strong>Indirizzo:</strong> Via Stella 5C</p>
-                <p><strong>Tel:</strong> 045 8008008</p>
-                <p><strong>Sito:</strong> <a href="https://www.tavernadiviastella.com" target="_blank">www.tavernadiviastella.com</a></p>
-              </div>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('innovativi')">
+              Ristoranti innovativi
+            </button>
 
-              <div class="restaurant-card">
-                <h4>Osteria Da Ugo</h4>
-                <p><strong>Indirizzo:</strong> Vicolo Dietro Sant'Andrea 1/B</p>
-                <p><strong>Tel:</strong> 045 594400</p>
-                <p><strong>Sito:</strong> <a href="https://www.osteriadaugo.com" target="_blank">www.osteriadaugo.com</a></p>
-              </div>
-            </div>
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('pesce')">
+              Ristoranti di pesce
+            </button>
+
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('vegetariani')">
+              Ristoranti vegetariani
+            </button>
+
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('etnici')">
+              Ristoranti etnici
+            </button>
+
+            <button class="restaurant-category-button" type="button" onclick="openRestaurantPopup('pizzerie')">
+              Pizzerie
+            </button>
           </div>
 
-          <div class="restaurant-category">
-            <h3>Trattorie</h3>
+        </div>
 
-            <div class="restaurant-grid">
-              <div class="restaurant-card">
-                <h4>Arco dei Gavi</h4>
-                <p><strong>Indirizzo:</strong> Corso Cavour 43</p>
-                <p><strong>Tel:</strong> 045 8065035</p>
-                <p><strong>Sito:</strong> <a href="https://www.trattoriaarcodeigavi.it" target="_blank">www.trattoriaarcodeigavi.it</a></p>
-              </div>
+        <div id="restaurantPopup" class="restaurant-popup-overlay">
+          <div class="restaurant-popup-box">
 
-              <div class="restaurant-card">
-                <h4>Giulietta & Romeo</h4>
-                <p><strong>Indirizzo:</strong> Corso Santa Anastasia 27</p>
-                <p><strong>Tel:</strong> 045 8009177</p>
-                <p><strong>Sito:</strong> <a href="https://www.osteriagiuliettaeromeo.it" target="_blank">www.osteriagiuliettaeromeo.it</a></p>
-              </div>
+            <button class="restaurant-popup-close" type="button" onclick="closeRestaurantPopup()">
+              ×
+            </button>
+
+            <h3 id="restaurantPopupTitle">Ristoranti</h3>
+
+            <div id="restaurantPopupContent" class="restaurant-popup-content">
             </div>
+
           </div>
-
-          <div class="restaurant-category">
-            <h3>Ristoranti di carne</h3>
-
-            <div class="restaurant-grid">
-              <div class="restaurant-card">
-                <h4>Il Cenacolo</h4>
-                <p><strong>Indirizzo:</strong> Via Teatro Filarmonico 10</p>
-                <p><strong>Tel:</strong> 045 592288</p>
-                <p><strong>Sito:</strong> <a href="https://www.ristoranteilcenacolo.it" target="_blank">www.ristoranteilcenacolo.it</a></p>
-              </div>
-
-              <div class="restaurant-card">
-                <h4>La Griglia</h4>
-                <p><strong>Indirizzo:</strong> Via Leoncino 29</p>
-                <p><strong>Tel:</strong> 045 8031212</p>
-                <p><strong>Sito:</strong> <a href="https://www.lagrigliaverona.it" target="_blank">www.lagrigliaverona.it</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="restaurant-category">
-            <h3>Ristoranti innovativi</h3>
-
-            <div class="restaurant-grid">
-              <div class="restaurant-card">
-                <h4>Maffei</h4>
-                <p><strong>Indirizzo:</strong> Piazza Erbe 38</p>
-                <p><strong>Tel:</strong> 045 8010015</p>
-                <p><strong>Sito:</strong> <a href="https://www.ristorantemaffei.it" target="_blank">www.ristorantemaffei.it</a></p>
-              </div>
-
-              <div class="restaurant-card">
-                <h4>Locanda Quattro Cuochi</h4>
-                <p><strong>Indirizzo:</strong> Via Alberto Mario 12</p>
-                <p><strong>Tel:</strong> 045 8030311</p>
-                <p><strong>Sito:</strong> <a href="https://www.locanda4cuochi.it" target="_blank">www.locanda4cuochi.it</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="restaurant-category">
-            <h3>Ristoranti di pesce</h3>
-
-            <div class="restaurant-grid">
-              <div class="restaurant-card">
-                <h4>L'Oste Scuro</h4>
-                <p><strong>Indirizzo:</strong> Vicolo San Silvestro 10</p>
-                <p><strong>Tel:</strong> 045 592650</p>
-                <p><strong>Sito:</strong> <a href="https://www.ristoranteostescuro.tv" target="_blank">www.ristoranteostescuro.tv</a></p>
-              </div>
-
-              <div class="restaurant-card">
-                <h4>Vecio Mulin</h4>
-                <p><strong>Indirizzo:</strong> Via Sottoriva 42/A</p>
-                <p><strong>Tel:</strong> 045 8065146</p>
-                <p><strong>Sito:</strong> <a href="https://www.veciomulin.com" target="_blank">www.veciomulin.com</a></p>
-              </div>
-
-              <div class="restaurant-card">
-                <h4>Al Capitan della Cittadella</h4>
-                <p><strong>Indirizzo:</strong> Piazza Cittadella 7</p>
-                <p><strong>Tel:</strong> 045 595157</p>
-                <p><strong>Sito:</strong> <a href="https://www.alcapitan.it" target="_blank">www.alcapitan.it</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="restaurant-category">
-            <h3>Ristoranti vegetariani</h3>
-
-            <div class="restaurant-grid">
-              <div class="restaurant-card">
-                <h4>Flora</h4>
-                <p><strong>Indirizzo:</strong> Stradone Scipione Maffei 8C</p>
-                <p><strong>Tel:</strong> 045 8006300</p>
-                <p><strong>Sito:</strong> <a href="https://www.ristoranteflora.it" target="_blank">www.ristoranteflora.it</a></p>
-              </div>
-
-              <div class="restaurant-card">
-                <h4>Flower Burger</h4>
-                <p><strong>Indirizzo:</strong> Corso Porta Nuova 87</p>
-                <p><strong>Tel:</strong> 045 2215958</p>
-                <p><strong>Sito:</strong> <a href="https://www.flowerburger.it" target="_blank">www.flowerburger.it</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="restaurant-category">
-            <h3>Ristoranti etnici</h3>
-
-            <div class="restaurant-grid">
-              <div class="restaurant-card">
-                <h4>Porto Alegre</h4>
-                <p><strong>Cucina:</strong> Brasiliano</p>
-                <p><strong>Indirizzo:</strong> Corso Porta Nuova 78</p>
-                <p><strong>Tel:</strong> 045 8008576</p>
-              </div>
-
-              <div class="restaurant-card">
-                <h4>I-Sushi</h4>
-                <p><strong>Cucina:</strong> Giapponese</p>
-                <p><strong>Indirizzo:</strong> Piazza Pradaval 14</p>
-                <p><strong>Tel:</strong> 045 8011454</p>
-                <p><strong>Sito:</strong> <a href="https://www.isushi.it" target="_blank">www.isushi.it</a></p>
-              </div>
-
-              <div class="restaurant-card">
-                <h4>Maharajah</h4>
-                <p><strong>Cucina:</strong> Indiano</p>
-                <p><strong>Indirizzo:</strong> Via Locatelli 19</p>
-                <p><strong>Tel:</strong> 045 8011038</p>
-                <p><strong>Sito:</strong> <a href="https://www.ristoranteindianomaharajah.it" target="_blank">www.ristoranteindianomaharajah.it</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="restaurant-category">
-            <h3>Pizzerie</h3>
-
-            <div class="restaurant-grid">
-              <div class="restaurant-card">
-                <h4>Bella Napoli</h4>
-                <p><strong>Indirizzo:</strong> Via Marconi 11</p>
-                <p><strong>Tel:</strong> 045 8069182</p>
-                <p><strong>Sito:</strong> <a href="https://www.bellanapoliverona.it" target="_blank">www.bellanapoliverona.it</a></p>
-              </div>
-
-              <div class="restaurant-card">
-                <h4>Le Cantine dell'Arena</h4>
-                <p><strong>Indirizzo:</strong> P.tta Scalette Rubiani 1</p>
-                <p><strong>Tel:</strong> 045 8032849</p>
-                <p><strong>Sito:</strong> <a href="https://www.lecantine-arena.com" target="_blank">www.lecantine-arena.com</a></p>
-              </div>
-
-              <div class="restaurant-card">
-                <h4>Impero</h4>
-                <p><strong>Indirizzo:</strong> Piazza dei Signori 8</p>
-                <p><strong>Tel:</strong> 045 8030160</p>
-                <p><strong>Sito:</strong> <a href="https://www.pizzeriaimpero.it" target="_blank">www.pizzeriaimpero.it</a></p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -2140,6 +2077,223 @@
       }
     }
 
+    var restaurantData = {
+      tradizionali: {
+        title: "Ristoranti tradizionali",
+        restaurants: [
+          {
+            name: "Orologio",
+            address: "Corso Porta Nuova 7",
+            phone: "045 8007183",
+            website: "https://www.ristoranteorologio.com"
+          },
+          {
+            name: "La Greppia",
+            address: "Vicolo Samaritana 3",
+            phone: "045 8004577",
+            website: "https://www.ristorantegreppia.it"
+          },
+          {
+            name: "La Taverna di Via Stella",
+            address: "Via Stella 5C",
+            phone: "045 8008008",
+            website: "https://www.tavernadiviastella.com"
+          },
+          {
+            name: "Osteria Da Ugo",
+            address: "Vicolo Dietro Sant'Andrea 1/B",
+            phone: "045 594400",
+            website: "https://www.osteriadaugo.com"
+          }
+        ]
+      },
+
+      trattorie: {
+        title: "Trattorie",
+        restaurants: [
+          {
+            name: "Arco dei Gavi",
+            address: "Corso Cavour 43",
+            phone: "045 8065035",
+            website: "https://www.trattoriaarcodeigavi.it"
+          },
+          {
+            name: "Giulietta & Romeo",
+            address: "Corso Santa Anastasia 27",
+            phone: "045 8009177",
+            website: "https://www.osteriagiuliettaeromeo.it"
+          }
+        ]
+      },
+
+      carne: {
+        title: "Ristoranti di carne",
+        restaurants: [
+          {
+            name: "Il Cenacolo",
+            address: "Via Teatro Filarmonico 10",
+            phone: "045 592288",
+            website: "https://www.ristoranteilcenacolo.it"
+          },
+          {
+            name: "La Griglia",
+            address: "Via Leoncino 29",
+            phone: "045 8031212",
+            website: "https://www.lagrigliaverona.it"
+          }
+        ]
+      },
+
+      innovativi: {
+        title: "Ristoranti innovativi",
+        restaurants: [
+          {
+            name: "Maffei",
+            address: "Piazza Erbe 38",
+            phone: "045 8010015",
+            website: "https://www.ristorantemaffei.it"
+          },
+          {
+            name: "Locanda Quattro Cuochi",
+            address: "Via Alberto Mario 12",
+            phone: "045 8030311",
+            website: "https://www.locanda4cuochi.it"
+          }
+        ]
+      },
+
+      pesce: {
+        title: "Ristoranti di pesce",
+        restaurants: [
+          {
+            name: "L'Oste Scuro",
+            address: "Vicolo San Silvestro 10",
+            phone: "045 592650",
+            website: "https://www.ristoranteostescuro.tv"
+          },
+          {
+            name: "Vecio Mulin",
+            address: "Via Sottoriva 42/A",
+            phone: "045 8065146",
+            website: "https://www.veciomulin.com"
+          },
+          {
+            name: "Al Capitan della Cittadella",
+            address: "Piazza Cittadella 7",
+            phone: "045 595157",
+            website: "https://www.alcapitan.it"
+          }
+        ]
+      },
+
+      vegetariani: {
+        title: "Ristoranti vegetariani",
+        restaurants: [
+          {
+            name: "Flora",
+            address: "Stradone Scipione Maffei 8C",
+            phone: "045 8006300",
+            website: "https://www.ristoranteflora.it"
+          },
+          {
+            name: "Flower Burger",
+            address: "Corso Porta Nuova 87",
+            phone: "045 2215958",
+            website: "https://www.flowerburger.it"
+          }
+        ]
+      },
+
+      etnici: {
+        title: "Ristoranti etnici",
+        restaurants: [
+          {
+            name: "Porto Alegre",
+            address: "Corso Porta Nuova 78",
+            phone: "045 8008576",
+            website: ""
+          },
+          {
+            name: "I-Sushi",
+            address: "Piazza Pradaval 14",
+            phone: "045 8011454",
+            website: "https://www.isushi.it"
+          },
+          {
+            name: "Maharajah",
+            address: "Via Locatelli 19",
+            phone: "045 8011038",
+            website: "https://www.ristoranteindianomaharajah.it"
+          }
+        ]
+      },
+
+      pizzerie: {
+        title: "Pizzerie",
+        restaurants: [
+          {
+            name: "Bella Napoli",
+            address: "Via Marconi 11",
+            phone: "045 8069182",
+            website: "https://www.bellanapoliverona.it"
+          },
+          {
+            name: "Le Cantine dell'Arena",
+            address: "P.tta Scalette Rubiani 1",
+            phone: "045 8032849",
+            website: "https://www.lecantine-arena.com"
+          },
+          {
+            name: "Impero",
+            address: "Piazza dei Signori 8",
+            phone: "045 8030160",
+            website: "https://www.pizzeriaimpero.it"
+          }
+        ]
+      }
+    };
+
+    function openRestaurantPopup(category) {
+      var popup = document.getElementById("restaurantPopup");
+      var title = document.getElementById("restaurantPopupTitle");
+      var content = document.getElementById("restaurantPopupContent");
+      var data = restaurantData[category];
+
+      if (!data) {
+        return;
+      }
+
+      title.innerHTML = data.title;
+
+      var html = "";
+
+      data.restaurants.forEach(function(restaurant) {
+        html = html +
+          '<div class="restaurant-popup-card">' +
+            '<h4>' + restaurant.name + '</h4>' +
+            '<p><strong>Indirizzo:</strong> ' + restaurant.address + '</p>' +
+            '<p><strong>Tel:</strong> ' + restaurant.phone + '</p>';
+
+        if (restaurant.website !== "") {
+          html = html +
+            '<p><strong>Sito:</strong> <a href="' + restaurant.website + '" target="_blank">' + restaurant.website + '</a></p>';
+        }
+
+        html = html + '</div>';
+      });
+
+      content.innerHTML = html;
+      popup.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeRestaurantPopup() {
+      var popup = document.getElementById("restaurantPopup");
+
+      popup.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
     function getWeatherDescription(code) {
       if (code === 0) {
         return "Sereno";
@@ -2332,6 +2486,20 @@
         if (total <= 0) {
           event.preventDefault();
           alert("Seleziona almeno un capo e un servizio di lavatura o stiratura.");
+        }
+      });
+
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+          closeRestaurantPopup();
+        }
+      });
+
+      document.addEventListener("click", function(event) {
+        var popup = document.getElementById("restaurantPopup");
+
+        if (event.target === popup) {
+          closeRestaurantPopup();
         }
       });
 
