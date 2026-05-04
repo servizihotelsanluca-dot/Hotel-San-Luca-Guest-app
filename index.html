@@ -198,6 +198,72 @@
       box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
     }
 
+    .news-box,
+    .fiera-box {
+      background: #fff8f0;
+      border: 2px solid #b88b6a;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 20px;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.15);
+      overflow-x: hidden;
+    }
+
+    .news-banner {
+      width: 100%;
+      aspect-ratio: 3 / 1;
+      object-fit: contain;
+      background: #000;
+      display: block;
+      border-radius: 10px;
+      border: 2px solid #b88b6a;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
+    }
+
+    .fiera-banner {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      border: 2px solid #b88b6a;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
+      margin-top: 18px;
+    }
+
+    .news-info-card {
+      background: #f4eee8;
+      border-left: 5px solid #b88b6a;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 18px;
+      color: #4a362c;
+    }
+
+    .news-info-card h3 {
+      color: #5b3d2d;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .news-line-box {
+      background: #fff;
+      border: 1px solid #d4b89e;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+      box-shadow: 0 4px 12px rgba(60, 40, 25, 0.08);
+    }
+
+    .news-line-box strong {
+      display: block;
+      color: #8a5f45;
+      font-size: 18px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
     .weather-widget-box {
       background: #f4eee8;
       border: 1px solid #d4b89e;
@@ -1119,7 +1185,9 @@
       .invoice-box,
       .restaurants-box,
       .arena-opera-box,
-      .guide-box {
+      .guide-box,
+      .news-box,
+      .fiera-box {
         padding: 14px;
         border-radius: 8px;
       }
@@ -1128,6 +1196,10 @@
       .laundry-hero-image,
       .guide-banner {
         max-height: 260px;
+        border-radius: 8px;
+      }
+
+      .news-banner {
         border-radius: 8px;
       }
 
@@ -1374,7 +1446,9 @@
       .invoice-box,
       .restaurants-box,
       .arena-opera-box,
-      .guide-box {
+      .guide-box,
+      .news-box,
+      .fiera-box {
         padding: 12px;
       }
 
@@ -1532,6 +1606,14 @@
           </div>
 
           <div class="bruno-buttons">
+            <a class="bruno-button" href="#news">
+              News
+            </a>
+
+            <a class="bruno-button" href="#fiera-verona">
+              Fiera di Verona
+            </a>
+
             <a class="bruno-button" href="#autista-ncc">
               Prenota un autista
             </a>
@@ -1555,6 +1637,52 @@
             <a class="bruno-button" href="#tour">
               I nostri tour
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="news">
+        <h2>News</h2>
+
+        <div class="news-box">
+          <img
+            class="news-banner"
+            src="10000026-new_logo-02e7f959d92a7c7e.png"
+            alt="SAMOTER 2026 Verona"
+          >
+
+          <div class="news-info-card">
+            <h3>Servizi navetta per SAMOTER 2026</h3>
+
+            <p>
+              In occasione della manifestazione fieristica <strong>SAMOTER</strong>, dal <strong>6/5 al 9/5</strong>, saranno operativi i seguenti servizi navetta gratuiti:
+            </p>
+
+            <div class="news-line-box">
+              <strong>Linea "C"</strong>
+              <p>
+                Stadio - Stazione (marciapiede E2) - Fiera via Belgio (Re Teodorico).
+              </p>
+              <p>
+                Frequenza: 20' - 30' - dalle 8.30 alle 20.00.
+              </p>
+              <p>
+                Ultima corsa da via Belgio.
+              </p>
+            </div>
+
+            <div class="news-line-box">
+              <strong>Linea "G"</strong>
+              <p>
+                Park Genovesa - Fiera via Belgio (Re Teodorico).
+              </p>
+              <p>
+                Frequenza: 20' - 30' - dalle 6.00 alle 20.30.
+              </p>
+              <p>
+                Ultima corsa da via Belgio.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -2157,6 +2285,20 @@
 
             </div>
           </div>
+        </div>
+
+        <div id="fiera-verona" class="fiera-box">
+          <h3>Fiera di Verona 2026</h3>
+
+          <p>
+            Consulta il calendario delle principali fiere ed eventi di Verona 2026.
+          </p>
+
+          <img
+            class="fiera-banner"
+            src="SanLuca_fiere.png"
+            alt="Calendario Fiere Verona 2026 - Hotel San Luca"
+          >
         </div>
       </section>
 
