@@ -538,7 +538,9 @@
       letter-spacing: 1px;
     }
 
-    .laundry-popup-overlay {
+    .laundry-popup-overlay,
+    .restaurant-popup-overlay,
+    .tourism-popup-overlay {
       position: fixed;
       top: 0;
       left: 0;
@@ -552,11 +554,15 @@
       padding: 20px;
     }
 
-    .laundry-popup-overlay.active {
+    .laundry-popup-overlay.active,
+    .restaurant-popup-overlay.active,
+    .tourism-popup-overlay.active {
       display: flex;
     }
 
-    .laundry-popup-box {
+    .laundry-popup-box,
+    .restaurant-popup-box,
+    .tourism-popup-box {
       width: 100%;
       max-width: 980px;
       max-height: 88vh;
@@ -569,7 +575,9 @@
       box-shadow: 0 18px 45px rgba(0,0,0,0.35);
     }
 
-    .laundry-popup-box h3 {
+    .laundry-popup-box h3,
+    .restaurant-popup-box h3,
+    .tourism-popup-box h3 {
       color: #5b3d2d;
       font-size: 24px;
       text-transform: uppercase;
@@ -578,7 +586,9 @@
       padding-right: 42px;
     }
 
-    .laundry-popup-close {
+    .laundry-popup-close,
+    .restaurant-popup-close,
+    .tourism-popup-close {
       position: absolute;
       top: 12px;
       right: 14px;
@@ -594,7 +604,9 @@
       font-family: Arial, sans-serif;
     }
 
-    .laundry-popup-close:hover {
+    .laundry-popup-close:hover,
+    .restaurant-popup-close:hover,
+    .tourism-popup-close:hover {
       background: #8a5f45;
     }
 
@@ -728,96 +740,46 @@
       background: #8a5f45;
     }
 
-    .restaurant-popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(45, 32, 25, 0.72);
-      z-index: 9999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .restaurant-popup-overlay.active {
-      display: flex;
-    }
-
-    .restaurant-popup-box {
-      width: 100%;
-      max-width: 980px;
-      max-height: 88vh;
-      overflow-y: auto;
-      background: #fff8f0;
-      border: 2px solid #b88b6a;
-      border-radius: 12px;
-      padding: 26px;
-      position: relative;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
-    }
-
-    .restaurant-popup-box h3 {
-      color: #5b3d2d;
-      font-size: 24px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 18px;
-      padding-right: 42px;
-    }
-
-    .restaurant-popup-close {
-      position: absolute;
-      top: 12px;
-      right: 14px;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: none;
-      background: #3b2a22;
-      color: #fff;
-      font-size: 28px;
-      line-height: 36px;
-      cursor: pointer;
-      font-family: Arial, sans-serif;
-    }
-
-    .restaurant-popup-close:hover {
-      background: #8a5f45;
-    }
-
     .restaurant-popup-content {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
     }
 
-    .restaurant-popup-card {
+    .restaurant-popup-card,
+    .tourism-popup-card {
       background: #fff;
       border-left: 5px solid #b88b6a;
       border-radius: 6px;
       padding: 16px;
       box-shadow: 0 5px 14px rgba(60, 40, 25, 0.10);
       min-width: 0;
+      margin-bottom: 16px;
     }
 
-    .restaurant-popup-card h4 {
+    .restaurant-popup-card:last-child,
+    .tourism-popup-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .restaurant-popup-card h4,
+    .tourism-popup-card h4 {
       color: #3b2a22;
       font-size: 18px;
       margin-bottom: 8px;
       text-transform: uppercase;
     }
 
-    .restaurant-popup-card p {
-      margin-bottom: 6px;
+    .restaurant-popup-card p,
+    .tourism-popup-card p {
+      margin-bottom: 10px;
       font-size: 15px;
       overflow-wrap: break-word;
       word-break: break-word;
     }
 
-    .restaurant-popup-card a {
+    .restaurant-popup-card a,
+    .tourism-popup-card a {
       color: #8a5f45;
       text-decoration: underline;
       word-break: break-word;
@@ -940,6 +902,8 @@
       letter-spacing: 0.5px;
       box-shadow: 0 8px 18px rgba(0,0,0,0.22);
       border: 1px solid rgba(255,255,255,0.35);
+      font-family: Georgia, "Times New Roman", serif;
+      cursor: pointer;
     }
 
     .pdf-button:hover {
@@ -1144,18 +1108,24 @@
         padding: 10px;
       }
 
-      .laundry-popup-overlay {
+      .laundry-popup-overlay,
+      .restaurant-popup-overlay,
+      .tourism-popup-overlay {
         padding: 10px;
         align-items: flex-start;
       }
 
-      .laundry-popup-box {
+      .laundry-popup-box,
+      .restaurant-popup-box,
+      .tourism-popup-box {
         max-height: 92vh;
         padding: 18px;
         margin-top: 20px;
       }
 
-      .laundry-popup-box h3 {
+      .laundry-popup-box h3,
+      .restaurant-popup-box h3,
+      .tourism-popup-box h3 {
         font-size: 20px;
       }
 
@@ -1254,21 +1224,6 @@
         font-size: 18px;
       }
 
-      .restaurant-popup-overlay {
-        padding: 10px;
-        align-items: flex-start;
-      }
-
-      .restaurant-popup-box {
-        max-height: 92vh;
-        padding: 18px;
-        margin-top: 20px;
-      }
-
-      .restaurant-popup-box h3 {
-        font-size: 20px;
-      }
-
       .restaurant-popup-content {
         grid-template-columns: 1fr;
       }
@@ -1331,7 +1286,9 @@
       }
 
       .laundry-popup-box,
-      .laundry-box {
+      .laundry-box,
+      .restaurant-popup-box,
+      .tourism-popup-box {
         padding: 12px;
       }
 
@@ -2009,95 +1966,39 @@
         <h2>Informazioni turistiche</h2>
 
         <p class="intro">
-          Consulta o scarica le cartine turistiche e gli orari degli autobus per Verona,
-          Lago di Garda e dintorni.
+          Consulta cartine turistiche, collegamenti autobus e programma Arena Opera Festival 2026.
         </p>
 
         <div class="tourism-box">
-          <h3>Cartina turistica di Verona</h3>
+          <h3>Informazioni utili</h3>
 
           <p>
-            Qui puoi aprire oppure scaricare la mappa PDF di Verona.
+            Seleziona il servizio che vuoi consultare.
           </p>
 
           <div class="pdf-buttons">
-            <a class="pdf-button" href="Cartina%20verona%26info.pdf" target="_blank">
-              Apri la mappa PDF
-            </a>
+            <button class="pdf-button" type="button" onclick="openTourismPopup('cartine')">
+              Cartine
+            </button>
 
-            <a class="pdf-button dark" href="Cartina%20verona%26info.pdf" download>
-              Scarica la mappa PDF
-            </a>
-          </div>
-
-          <div class="small-note">
-            Se il download non parte subito, il PDF si aprirà nel browser e potrai salvarlo da lì.
+            <button class="pdf-button dark" type="button" onclick="openTourismPopup('bus')">
+              Collegamento Lago di Garda
+            </button>
           </div>
         </div>
 
-        <div class="tourism-box">
-          <h3>Cartina turistica del Lago di Garda</h3>
+        <div id="tourismPopup" class="tourism-popup-overlay">
+          <div class="tourism-popup-box">
 
-          <p>
-            Qui puoi aprire oppure scaricare la mappa PDF del Lago di Garda.
-          </p>
+            <button class="tourism-popup-close" type="button" onclick="closeTourismPopup()">
+              ×
+            </button>
 
-          <div class="pdf-buttons">
-            <a class="pdf-button" href="garda_lake_map.pdf" target="_blank">
-              Apri la mappa PDF
-            </a>
+            <h3 id="tourismPopupTitle">Informazioni turistiche</h3>
 
-            <a class="pdf-button dark" href="garda_lake_map.pdf" download>
-              Scarica la mappa PDF
-            </a>
-          </div>
+            <div id="tourismPopupContent">
+            </div>
 
-          <div class="small-note">
-            Se il download non parte subito, il PDF si aprirà nel browser e potrai salvarlo da lì.
-          </div>
-        </div>
-
-        <div class="tourism-box">
-          <h3>Orari autobus Verona - Brescia</h3>
-
-          <p>
-            Consulta o scarica gli orari della linea autobus 026 Verona - Brescia.
-          </p>
-
-          <div class="pdf-buttons">
-            <a class="pdf-button" href="Bus_linea_026_Verona_Brescia.pdf" target="_blank">
-              Apri gli orari PDF
-            </a>
-
-            <a class="pdf-button dark" href="Bus_linea_026_Verona_Brescia.pdf" download>
-              Scarica gli orari PDF
-            </a>
-          </div>
-
-          <div class="small-note">
-            Se il download non parte subito, il PDF si aprirà nel browser e potrai salvarlo da lì.
-          </div>
-        </div>
-
-        <div class="tourism-box">
-          <h3>Orari autobus Verona - Lago di Garda</h3>
-
-          <p>
-            Consulta o scarica gli orari degli autobus da Verona verso il Lago di Garda.
-          </p>
-
-          <div class="pdf-buttons">
-            <a class="pdf-button" href="Bus_Verona_Garda.pdf" target="_blank">
-              Apri gli orari PDF
-            </a>
-
-            <a class="pdf-button dark" href="Bus_Verona_Garda.pdf" download>
-              Scarica gli orari PDF
-            </a>
-          </div>
-
-          <div class="small-note">
-            Se il download non parte subito, il PDF si aprirà nel browser e potrai salvarlo da lì.
           </div>
         </div>
 
@@ -2284,6 +2185,67 @@
           }
         }
       }
+    }
+
+    function openTourismPopup(type) {
+      var popup = document.getElementById("tourismPopup");
+      var title = document.getElementById("tourismPopupTitle");
+      var content = document.getElementById("tourismPopupContent");
+
+      if (type === "cartine") {
+        title.innerHTML = "Cartine";
+
+        content.innerHTML =
+          '<div class="tourism-popup-card">' +
+            '<h4>Cartina turistica di Verona</h4>' +
+            '<p>Qui puoi aprire oppure scaricare la mappa PDF di Verona.</p>' +
+            '<div class="pdf-buttons">' +
+              '<a class="pdf-button" href="Cartina%20verona%26info.pdf" target="_blank">Apri la mappa PDF</a>' +
+              '<a class="pdf-button dark" href="Cartina%20verona%26info.pdf" download>Scarica la mappa PDF</a>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="tourism-popup-card">' +
+            '<h4>Cartina turistica del Lago di Garda</h4>' +
+            '<p>Qui puoi aprire oppure scaricare la mappa PDF del Lago di Garda.</p>' +
+            '<div class="pdf-buttons">' +
+              '<a class="pdf-button" href="garda_lake_map.pdf" target="_blank">Apri la mappa PDF</a>' +
+              '<a class="pdf-button dark" href="garda_lake_map.pdf" download>Scarica la mappa PDF</a>' +
+            '</div>' +
+          '</div>';
+      } else {
+        if (type === "bus") {
+          title.innerHTML = "Collegamento Lago di Garda";
+
+          content.innerHTML =
+            '<div class="tourism-popup-card">' +
+              '<h4>Orari autobus Verona - Lago di Garda</h4>' +
+              '<p>Consulta o scarica gli orari degli autobus da Verona verso il Lago di Garda.</p>' +
+              '<div class="pdf-buttons">' +
+                '<a class="pdf-button" href="Bus_Verona_Garda.pdf" target="_blank">Apri gli orari PDF</a>' +
+                '<a class="pdf-button dark" href="Bus_Verona_Garda.pdf" download>Scarica gli orari PDF</a>' +
+              '</div>' +
+            '</div>' +
+
+            '<div class="tourism-popup-card">' +
+              '<h4>Orari autobus linea 026 Verona - Brescia</h4>' +
+              '<p>Consulta o scarica gli orari della linea autobus 026 Verona - Brescia.</p>' +
+              '<div class="pdf-buttons">' +
+                '<a class="pdf-button" href="Bus_linea_026_Verona_Brescia.pdf" target="_blank">Apri gli orari PDF</a>' +
+                '<a class="pdf-button dark" href="Bus_linea_026_Verona_Brescia.pdf" download>Scarica gli orari PDF</a>' +
+              '</div>' +
+            '</div>';
+        }
+      }
+
+      popup.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeTourismPopup() {
+      var popup = document.getElementById("tourismPopup");
+      popup.classList.remove("active");
+      document.body.style.overflow = "";
     }
 
     var restaurantData = {
@@ -2498,7 +2460,6 @@
 
     function closeRestaurantPopup() {
       var popup = document.getElementById("restaurantPopup");
-
       popup.classList.remove("active");
       document.body.style.overflow = "";
     }
@@ -2702,12 +2663,14 @@
         if (event.key === "Escape") {
           closeRestaurantPopup();
           closeLaundryPopup();
+          closeTourismPopup();
         }
       });
 
       document.addEventListener("click", function(event) {
         var restaurantPopup = document.getElementById("restaurantPopup");
         var laundryPopup = document.getElementById("laundryPopup");
+        var tourismPopup = document.getElementById("tourismPopup");
 
         if (event.target === restaurantPopup) {
           closeRestaurantPopup();
@@ -2715,6 +2678,10 @@
 
         if (event.target === laundryPopup) {
           closeLaundryPopup();
+        }
+
+        if (event.target === tourismPopup) {
+          closeTourismPopup();
         }
       });
 
