@@ -354,8 +354,7 @@
 
     .driver-form,
     .prosecco-form,
-    .invoice-form,
-    .guide-form {
+    .invoice-form {
       display: grid;
       gap: 15px;
       margin-top: 18px;
@@ -393,6 +392,20 @@
       padding: 16px;
       margin-top: 16px;
       color: #4a362c;
+      font-size: 17px;
+    }
+
+    .guide-highlight {
+      background: #3b2a22;
+      color: #fff;
+      text-align: center;
+      padding: 18px;
+      border-radius: 6px;
+      margin-top: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 18px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.22);
     }
 
     .minibar-offer {
@@ -2101,73 +2114,16 @@
           </p>
 
           <p>
-            Compila il modulo qui sotto per inviare la richiesta alla reception. Lo staff verificherà disponibilità, lingua richiesta e orario desiderato.
+            Consulta la reception per organizzare il tuo tour personalizzato e prenota direttamente al banco.
           </p>
 
           <div class="guide-note">
-            Servizio soggetto a disponibilità. La richiesta non costituisce conferma automatica della prenotazione.
+            Il nostro staff sarà lieto di verificare disponibilità, lingua richiesta, orario desiderato e tipologia di visita più adatta alle tue esigenze.
           </div>
 
-          <form class="guide-form" action="https://formspree.io/f/xbdwjdvb" method="POST">
-
-            <input type="hidden" name="_subject" value="Richiesta guida turistica ufficiale - Hotel San Luca">
-            <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
-            <input type="hidden" name="Servizio richiesto" value="Guida turistica ufficiale in lingua per Verona">
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="guideName">Nome e cognome *</label>
-                <input type="text" id="guideName" name="Nome e cognome" required>
-              </div>
-
-              <div class="form-group">
-                <label for="guideRoom">Numero di camera *</label>
-                <input type="text" id="guideRoom" name="Numero di camera" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="guidePeople">Numero di persone *</label>
-                <input type="number" id="guidePeople" name="Numero di persone" min="1" required>
-              </div>
-
-              <div class="form-group">
-                <label for="guideLanguage">Lingua richiesta *</label>
-                <select id="guideLanguage" name="Lingua richiesta" required>
-                  <option value="">Seleziona una lingua</option>
-                  <option value="Italiano">Italiano</option>
-                  <option value="English">English</option>
-                  <option value="Deutsch">Deutsch</option>
-                  <option value="Français">Français</option>
-                  <option value="Español">Español</option>
-                  <option value="Altra lingua">Altra lingua</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="guideDate">Data desiderata *</label>
-                <input type="date" id="guideDate" name="Data desiderata" required>
-              </div>
-
-              <div class="form-group">
-                <label for="guideTime">Orario desiderato *</label>
-                <input type="time" id="guideTime" name="Orario desiderato" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="guideNotes">Note o richieste particolari</label>
-              <textarea id="guideNotes" name="Note o richieste particolari"></textarea>
-            </div>
-
-            <button class="submit-button" type="submit">
-              Invia richiesta alla reception
-            </button>
-
-          </form>
+          <div class="guide-highlight">
+            Prenota la tua guida direttamente alla reception
+          </div>
         </div>
 
         <div class="arena-opera-box">
