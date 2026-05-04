@@ -256,39 +256,6 @@
       margin-top: 6px;
     }
 
-    .hotel-weather-details {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    .hotel-weather-one {
-      grid-template-columns: 1fr;
-      max-width: 260px;
-      margin: 0 auto 16px auto;
-    }
-
-    .hotel-weather-details div {
-      background: #fff;
-      border: 1px solid #e0cbb8;
-      border-radius: 6px;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .hotel-weather-details strong {
-      display: block;
-      color: #8a5f45;
-      font-size: 14px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .hotel-weather-details span {
-      color: #3b2a22;
-      font-size: 15px;
-    }
-
     .hotel-forecast-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -912,11 +879,11 @@
     }
 
     .pdf-button.dark {
-      background: #3b2a22;
+      background: #b88b6a;
     }
 
     .pdf-button.dark:hover {
-      background: #5b3d2d;
+      background: #8a5f45;
     }
 
     .small-note {
@@ -1069,10 +1036,6 @@
 
       .hotel-weather-temp {
         font-size: 34px;
-      }
-
-      .hotel-weather-details {
-        grid-template-columns: 1fr;
       }
 
       .hotel-forecast-grid {
@@ -1411,13 +1374,6 @@
                 <div>
                   <div class="hotel-weather-temp" id="weatherTemp">--°C</div>
                   <div class="hotel-weather-desc" id="weatherDesc">Caricamento meteo...</div>
-                </div>
-              </div>
-
-              <div class="hotel-weather-details hotel-weather-one">
-                <div>
-                  <strong>Vento</strong>
-                  <span id="weatherWind">-- km/h</span>
                 </div>
               </div>
 
@@ -2577,7 +2533,7 @@
     }
 
     function loadVeronaWeather() {
-      var weatherUrl = "https://api.open-meteo.com/v1/forecast?latitude=45.4384&longitude=10.9916&current=temperature_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&forecast_days=3&timezone=Europe%2FRome";
+      var weatherUrl = "https://api.open-meteo.com/v1/forecast?latitude=45.4384&longitude=10.9916&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&forecast_days=3&timezone=Europe%2FRome";
 
       fetch(weatherUrl)
         .then(function(response) {
@@ -2589,7 +2545,6 @@
           document.getElementById("weatherTemp").innerHTML = Math.round(current.temperature_2m) + "°C";
           document.getElementById("weatherDesc").innerHTML = getWeatherDescription(current.weather_code);
           document.getElementById("weatherIcon").innerHTML = getWeatherIcon(current.weather_code);
-          document.getElementById("weatherWind").innerHTML = Math.round(current.wind_speed_10m) + " km/h";
 
           var forecastBox = document.getElementById("weatherForecast");
           var labels = ["Oggi", "Domani", "Dopodomani"];
