@@ -462,6 +462,12 @@
       color: #4a362c;
     }
 
+    .field-note {
+      font-weight: normal;
+      font-size: 13px;
+      color: #6b4b37;
+    }
+
     .form-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -754,16 +760,6 @@
       display: block;
       background: #d9c1aa;
       border-radius: 6px;
-    }
-
-    .image-language-note {
-      background: #f4eee8;
-      border-left: 5px solid #b88b6a;
-      border-radius: 6px;
-      padding: 14px;
-      margin-top: 14px;
-      color: #4a362c;
-      font-size: 15px;
     }
 
     footer {
@@ -1519,18 +1515,22 @@
       </section>
 
       <section id="fattura">
-        <h2 data-i18n="invoiceTitle"></h2>
+        <h2 data-i18n="invoiceTitle">Richiedi la fattura per la tua azienda</h2>
 
         <div class="box-style">
           <div class="invoice-text">
             <p data-i18n="invoiceDear"></p>
             <p data-i18n="invoicePremise"></p>
             <p data-i18n="invoiceAsk"></p>
+
+            <p data-i18n="foreignCompanyNote">
+              Nota per aziende estere: Partita IVA, Codice Fiscale e Codice SDI non sono obbligatori per aziende con sede all’estero.
+            </p>
           </div>
 
           <form class="form-style" action="https://formspree.io/f/mbdwdbzn" method="POST">
 
-            <input type="hidden" name="_subject" value="Richiesta fattura - Hotel San Luca">
+            <input type="hidden" name="_subject" value="Richiesta fattura aziendale - Hotel San Luca">
             <input type="hidden" name="Destinatario" value="info@sanlucahotel.com">
 
             <div class="form-row">
@@ -1564,23 +1564,33 @@
 
             <div class="form-row">
               <div class="form-group">
-                <label for="codiceFiscale" data-i18n="taxCodeRequired"></label>
-                <input type="text" id="codiceFiscale" name="Codice fiscale" required>
+                <label for="codiceFiscale">
+                  <span data-i18n="taxCodeRequired">Codice fiscale</span>
+                  <span class="field-note" data-i18n="italianCompaniesOnly">(solo aziende italiane)</span>
+                </label>
+                <input type="text" id="codiceFiscale" name="Codice fiscale">
               </div>
 
               <div class="form-group">
-                <label for="partitaIva" data-i18n="vatRequired"></label>
-                <input type="text" id="partitaIva" name="Partita IVA" required>
+                <label for="partitaIva">
+                  <span data-i18n="vatRequired">Partita IVA</span>
+                  <span class="field-note" data-i18n="italianCompaniesOnly">(solo aziende italiane)</span>
+                </label>
+                <input type="text" id="partitaIva" name="Partita IVA">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="codiceUnivoco" data-i18n="uniqueCodeRequired"></label>
-              <input type="text" id="codiceUnivoco" name="Codice univoco" required>
+              <label for="codiceUnivoco">
+                <span data-i18n="uniqueCodeRequired">Codice SDI / Codice univoco</span>
+                <span class="field-note" data-i18n="italianCompaniesOnly">(solo aziende italiane)</span>
+              </label>
+              <input type="text" id="codiceUnivoco" name="Codice SDI / Codice univoco">
             </div>
 
             <div class="invoice-warning">
               <p data-i18n="invoiceWarning1"></p>
+              <p data-i18n="invoiceWarningForeign"></p>
               <p data-i18n="invoiceWarning2"></p>
             </div>
 
@@ -1603,8 +1613,6 @@
             >
           </div>
         </div>
-
-        <div class="image-language-note" data-i18n="imageFallbackNote"></div>
       </section>
 
       <section id="info-turistiche">
@@ -1668,8 +1676,6 @@
               >
             </div>
           </div>
-
-          <div class="image-language-note" data-i18n="imageFallbackNote"></div>
         </div>
 
         <div id="fiera-verona" class="box-style">
@@ -1707,7 +1713,7 @@
         receptionTitle: "Reception",
         receptionText: "Reception con personale qualificato e multilingue a vostra disposizione 24 ORE. Lo staff è vostra completa disposizione per supportarvi durante il vostro soggiorno.",
         garageTitle: "Garage privato",
-        garageText: "Garage disponibile su prenotazione dalle ore 02.00 PM del giorno di arrivo alle ore 12.00 AM del giorno della partenza, comodo per chi arriva in auto. Le chiavi dovranno essere consegnate alla reception durante il soggiorno.",
+        garageText: "Garage disponibile su prenotazione dalle ore 02.00 PM del giorno di arrivo alle ore 01.00 PM. Le chiavi dovranno essere consegnate alla reception durante il soggiorno.",
         breakfastTitle: "Colazione (tasto A in ascensore)",
         breakfastText: "La colazione viene servita dalle ore 07.00 AM alle ore 10.00 AM. I clienti che ne sono sprovvisti potranno aggiungerla alla tariffa extra di €13.00/persona per giorno. Il buffet propone prodotti dolci e salati, per celiaci ed intolleranti al lattosio.",
         virtualReceptionistTitle: "Virtual Receptionist",
@@ -1793,21 +1799,23 @@
         peopleRequired: "Numero di persone *",
         pickupRequired: "Orario di pick-up *",
         destinationRequired: "Destinazione *",
-        invoiceTitle: "Richiedi la fattura",
+        invoiceTitle: "Richiedi la fattura per la tua azienda",
         invoiceDear: "Gentile Cliente,",
         invoicePremise: "con l’entrata in vigore dell’obbligo della fatturazione elettronica tra i privati B2B e B2C per le cessioni di beni e le prestazioni di servizi effettuate tra soggetti residenti, stabiliti o identificati in Italia, così come indicato dalla legge di Bilancio 2018 – Provv. 73203/2018 – Provv. 89757/2018 e da ultimo dalla circolare 8E dell’Agenzia delle Entrate,",
         invoiceAsk: "Le chiediamo di indicarci di seguito, in modo ben leggibile, i dati completi per adempiere alle procedure fiscali:",
+        foreignCompanyNote: "Nota per aziende estere: Partita IVA, Codice Fiscale e Codice SDI non sono obbligatori per aziende con sede all’estero.",
         companyNameRequired: "Ragione sociale *",
         addressRequired: "Indirizzo *",
         cityRequired: "Città *",
         postalCodeRequired: "CAP *",
-        taxCodeRequired: "Codice fiscale *",
-        vatRequired: "Partita IVA *",
-        uniqueCodeRequired: "Codice univoco *",
-        invoiceWarning1: "Vi precisiamo che in mancanza di tali dati richiesti, saremo tenuti ad utilizzare il codice univoco alternativo “0000000”; con tale procedura, le fatture risulteranno per Voi disponibili nell’apposita sezione del sito dell’Agenzia delle Entrate.",
+        taxCodeRequired: "Codice fiscale",
+        vatRequired: "Partita IVA",
+        uniqueCodeRequired: "Codice SDI / Codice univoco",
+        italianCompaniesOnly: "(solo aziende italiane)",
+        invoiceWarning1: "Per aziende italiane, in mancanza del Codice SDI / Codice univoco, saremo tenuti ad utilizzare il codice alternativo “0000000”; con tale procedura, le fatture risulteranno disponibili nell’apposita sezione del sito dell’Agenzia delle Entrate.",
+        invoiceWarningForeign: "Per aziende estere, Partita IVA, Codice Fiscale e Codice SDI non sono obbligatori. Si prega comunque di compilare correttamente Ragione Sociale, Indirizzo, Città e CAP.",
         invoiceWarning2: "La comunicazione di dati errati comporterà un addebito pari ad € 6.00 per l’emissione di nuovi documenti.",
         ourToursTitle: "I nostri tour",
-        imageFallbackNote: "Se l'immagine non è disponibile nella lingua scelta, verrà mostrata la versione inglese.",
         touristInfoTitle: "Informazioni turistiche",
         touristInfoIntro: "Consulta cartine turistiche, collegamenti autobus, orari treni e programma Arena Opera Festival 2026.",
         usefulInfo: "Informazioni utili",
@@ -1865,7 +1873,7 @@
         receptionTitle: "Reception",
         receptionText: "Reception with qualified multilingual staff available 24 HOURS. Our team is at your complete disposal to support you during your stay.",
         garageTitle: "Private garage",
-        garageText: "Garage available by reservation from 02.00 PM on the day of arrival until 12.00 AM departure date. Keys must be left at reception during the stay.",
+        garageText: "Garage available by reservation from 02.00 PM on the day of arrival until 01.00 PM. Keys must be left at reception during the stay.",
         breakfastTitle: "Breakfast (button A in the lift)",
         breakfastText: "Breakfast is served from 07.00 AM to 10.00 AM. Guests without breakfast included may add it at an extra cost of €13.00 per person per day. The buffet offers sweet and savory products, also suitable for celiac and lactose-intolerant guests.",
         virtualReceptionistTitle: "Virtual Receptionist",
@@ -1951,21 +1959,23 @@
         peopleRequired: "Number of people *",
         pickupRequired: "Pick-up time *",
         destinationRequired: "Destination *",
-        invoiceTitle: "Request invoice",
+        invoiceTitle: "Request an invoice for your company",
         invoiceDear: "Dear Guest,",
         invoicePremise: "with the introduction of mandatory electronic invoicing between private B2B and B2C parties for supplies of goods and services carried out between subjects resident, established or identified in Italy, as indicated by the 2018 Budget Law and related provisions,",
         invoiceAsk: "we kindly ask you to provide below, clearly and completely, the data required to comply with tax procedures:",
+        foreignCompanyNote: "Note for foreign companies: VAT number, Tax Code and SDI / recipient code are not mandatory for companies based abroad.",
         companyNameRequired: "Company name *",
         addressRequired: "Address *",
         cityRequired: "City *",
         postalCodeRequired: "Postal code *",
-        taxCodeRequired: "Tax code *",
-        vatRequired: "VAT number *",
-        uniqueCodeRequired: "Recipient code *",
-        invoiceWarning1: "Please note that if the requested data is missing, we will be required to use the alternative recipient code “0000000”; with this procedure, invoices will be available to you in the dedicated section of the Italian Revenue Agency website.",
+        taxCodeRequired: "Tax code",
+        vatRequired: "VAT number",
+        uniqueCodeRequired: "SDI / recipient code",
+        italianCompaniesOnly: "(Italian companies only)",
+        invoiceWarning1: "For Italian companies, if the SDI / recipient code is missing, we will be required to use the alternative code “0000000”; with this procedure, invoices will be available in the dedicated section of the Italian Revenue Agency website.",
+        invoiceWarningForeign: "For foreign companies, VAT number, Tax Code and SDI / recipient code are not mandatory. Please complete Company Name, Address, City and Postal Code correctly.",
         invoiceWarning2: "Incorrect data will result in a charge of €6.00 for the issuing of new documents.",
         ourToursTitle: "Our tours",
-        imageFallbackNote: "If the image is not available in the selected language, the English version will be shown.",
         touristInfoTitle: "Tourist information",
         touristInfoIntro: "Consult tourist maps, bus connections, train timetables and the Arena Opera Festival 2026 programme.",
         usefulInfo: "Useful information",
@@ -2024,7 +2034,7 @@
       receptionTitle: "Rezeption",
       receptionText: "Rezeption mit qualifiziertem, mehrsprachigem Personal 24 STUNDEN verfügbar. Unser Team steht Ihnen während Ihres Aufenthalts gerne zur Verfügung.",
       garageTitle: "Private Garage",
-      garageText: "Garage nach Reservierung verfügbar, von 14:00 Uhr am Anreisetag bis 12:00 Uhr am Abreisetag. Die Autoschlüssel müssen während des Aufenthalts an der Rezeption abgegeben werden.",
+      garageText: "Garage nach Reservierung verfügbar, von 14:00 Uhr am Anreisetag bis 13:00 Uhr. Die Autoschlüssel müssen während des Aufenthalts an der Rezeption abgegeben werden.",
       breakfastTitle: "Frühstück (Taste A im Aufzug)",
       breakfastText: "Das Frühstück wird von 07:00 bis 10:00 Uhr serviert. Gäste ohne Frühstück können es für €13,00 pro Person und Tag hinzufügen. Das Buffet bietet süße und herzhafte Produkte, auch für Zöliakie und Laktoseintoleranz.",
       virtualReceptionistTitle: "Virtual Receptionist",
@@ -2110,21 +2120,23 @@
       peopleRequired: "Personenzahl *",
       pickupRequired: "Abholzeit *",
       destinationRequired: "Ziel *",
-      invoiceTitle: "Rechnung anfordern",
+      invoiceTitle: "Rechnung für Ihr Unternehmen anfordern",
       invoiceDear: "Sehr geehrter Gast,",
       invoicePremise: "mit Einführung der Pflicht zur elektronischen Rechnungsstellung für B2B- und B2C-Leistungen zwischen in Italien ansässigen, niedergelassenen oder identifizierten Subjekten,",
       invoiceAsk: "bitten wir Sie, die vollständigen Daten für die steuerlichen Verfahren gut lesbar anzugeben:",
+      foreignCompanyNote: "Hinweis für ausländische Unternehmen: USt-IdNr., Steuernummer und SDI-/Empfängercode sind für Unternehmen mit Sitz im Ausland nicht verpflichtend.",
       companyNameRequired: "Firmenname *",
       addressRequired: "Adresse *",
       cityRequired: "Stadt *",
       postalCodeRequired: "PLZ *",
-      taxCodeRequired: "Steuernummer *",
-      vatRequired: "USt-IdNr. *",
-      uniqueCodeRequired: "Empfängercode *",
-      invoiceWarning1: "Fehlen diese Daten, müssen wir den alternativen Empfängercode “0000000” verwenden; die Rechnungen sind dann im entsprechenden Bereich der Website der italienischen Steuerbehörde verfügbar.",
+      taxCodeRequired: "Steuernummer",
+      vatRequired: "USt-IdNr.",
+      uniqueCodeRequired: "SDI-/Empfängercode",
+      italianCompaniesOnly: "(nur italienische Unternehmen)",
+      invoiceWarning1: "Für italienische Unternehmen gilt: Fehlt der SDI-/Empfängercode, müssen wir den alternativen Code “0000000” verwenden; die Rechnungen sind dann im entsprechenden Bereich der Website der italienischen Steuerbehörde verfügbar.",
+      invoiceWarningForeign: "Für ausländische Unternehmen sind USt-IdNr., Steuernummer und SDI-/Empfängercode nicht verpflichtend. Bitte füllen Sie dennoch Firmenname, Adresse, Stadt und PLZ korrekt aus.",
       invoiceWarning2: "Falsche Angaben führen zu einer Gebühr von €6,00 für die Ausstellung neuer Dokumente.",
       ourToursTitle: "Unsere Touren",
-      imageFallbackNote: "Wenn das Bild in der gewählten Sprache nicht verfügbar ist, wird die englische Version angezeigt.",
       touristInfoTitle: "Touristische Informationen",
       touristInfoIntro: "Konsultieren Sie Stadtpläne, Busverbindungen, Zugfahrpläne und das Programm des Arena Opera Festival 2026.",
       usefulInfo: "Nützliche Informationen",
@@ -2182,7 +2194,7 @@
       receptionTitle: "Réception",
       receptionText: "Réception avec personnel qualifié et multilingue à votre disposition 24H/24. Notre équipe est à votre entière disposition pendant votre séjour.",
       garageTitle: "Garage privé",
-      garageText: "Garage disponible sur réservation de 14h00 le jour de l'arrivée jusqu'à 12h00. Les clés doivent être remises à la réception pendant le séjour.",
+      garageText: "Garage disponible sur réservation de 14h00 le jour de l'arrivée jusqu'à 13h00. Les clés doivent être remises à la réception pendant le séjour.",
       breakfastTitle: "Petit-déjeuner (bouton A dans l'ascenseur)",
       breakfastText: "Le petit-déjeuner est servi de 07h00 à 10h00. Les clients qui ne l'ont pas inclus peuvent l'ajouter au tarif de €13,00 par personne et par jour. Le buffet propose des produits sucrés et salés, également pour cœliaques et intolérants au lactose.",
       virtualReceptionistTitle: "Virtual Receptionist",
@@ -2268,21 +2280,23 @@
       peopleRequired: "Nombre de personnes *",
       pickupRequired: "Heure de prise en charge *",
       destinationRequired: "Destination *",
-      invoiceTitle: "Demander la facture",
+      invoiceTitle: "Demander la facture pour votre entreprise",
       invoiceDear: "Cher Client,",
       invoicePremise: "avec l'entrée en vigueur de l'obligation de facturation électronique entre particuliers B2B et B2C pour les cessions de biens et prestations de services effectuées entre sujets résidents, établis ou identifiés en Italie,",
       invoiceAsk: "nous vous demandons d'indiquer ci-dessous, de manière lisible, les données complètes nécessaires aux procédures fiscales :",
+      foreignCompanyNote: "Note pour les entreprises étrangères : le numéro de TVA, le code fiscal et le code SDI ne sont pas obligatoires pour les entreprises ayant leur siège à l'étranger.",
       companyNameRequired: "Raison sociale *",
       addressRequired: "Adresse *",
       cityRequired: "Ville *",
       postalCodeRequired: "Code postal *",
-      taxCodeRequired: "Code fiscal *",
-      vatRequired: "Numéro TVA *",
-      uniqueCodeRequired: "Code destinataire *",
-      invoiceWarning1: "En l'absence des données demandées, nous serons tenus d'utiliser le code destinataire alternatif “0000000”; les factures seront disponibles dans la section dédiée du site de l'Agence des impôts italienne.",
+      taxCodeRequired: "Code fiscal",
+      vatRequired: "Numéro TVA",
+      uniqueCodeRequired: "Code SDI / code destinataire",
+      italianCompaniesOnly: "(entreprises italiennes uniquement)",
+      invoiceWarning1: "Pour les entreprises italiennes, en l'absence du code SDI / code destinataire, nous serons tenus d'utiliser le code alternatif “0000000”; les factures seront disponibles dans la section dédiée du site de l'Agence des impôts italienne.",
+      invoiceWarningForeign: "Pour les entreprises étrangères, le numéro de TVA, le code fiscal et le code SDI ne sont pas obligatoires. Merci de remplir correctement Raison sociale, Adresse, Ville et Code postal.",
       invoiceWarning2: "La communication de données erronées entraînera un supplément de €6,00 pour l'émission de nouveaux documents.",
       ourToursTitle: "Nos tours",
-      imageFallbackNote: "Si l'image n'est pas disponible dans la langue choisie, la version anglaise sera affichée.",
       touristInfoTitle: "Informations touristiques",
       touristInfoIntro: "Consultez les cartes touristiques, les liaisons bus, les horaires de train et le programme Arena Opera Festival 2026.",
       usefulInfo: "Informations utiles",
@@ -2340,7 +2354,7 @@
       receptionTitle: "Recepción",
       receptionText: "Recepción con personal cualificado y multilingüe a su disposición 24 HORAS. Nuestro equipo está completamente disponible para ayudarle durante su estancia.",
       garageTitle: "Garaje privado",
-      garageText: "Garaje disponible con reserva desde las 02.00 PM del día de llegada hasta las 12.00 AM. Las llaves deberán entregarse en recepción durante la estancia.",
+      garageText: "Garaje disponible con reserva desde las 02.00 PM del día de llegada hasta las 01.00 PM. Las llaves deberán entregarse en recepción durante la estancia.",
       breakfastTitle: "Desayuno (botón A en el ascensor)",
       breakfastText: "El desayuno se sirve de 07.00 AM a 10.00 AM. Los clientes que no lo tengan incluido podrán añadirlo por €13.00/persona por día. El buffet ofrece productos dulces y salados, también para celíacos e intolerantes a la lactosa.",
       virtualReceptionistTitle: "Virtual Receptionist",
@@ -2426,21 +2440,23 @@
       peopleRequired: "Número de personas *",
       pickupRequired: "Hora de recogida *",
       destinationRequired: "Destino *",
-      invoiceTitle: "Solicitar factura",
+      invoiceTitle: "Solicitar factura para tu empresa",
       invoiceDear: "Estimado Cliente,",
       invoicePremise: "con la entrada en vigor de la obligación de facturación electrónica entre particulares B2B y B2C para cesiones de bienes y prestaciones de servicios realizadas entre sujetos residentes, establecidos o identificados en Italia,",
       invoiceAsk: "le pedimos que indique a continuación, de forma legible, los datos completos necesarios para los procedimientos fiscales:",
+      foreignCompanyNote: "Nota para empresas extranjeras: el número IVA, el código fiscal y el código SDI no son obligatorios para empresas con sede en el extranjero.",
       companyNameRequired: "Razón social *",
       addressRequired: "Dirección *",
       cityRequired: "Ciudad *",
       postalCodeRequired: "Código postal *",
-      taxCodeRequired: "Código fiscal *",
-      vatRequired: "Número IVA *",
-      uniqueCodeRequired: "Código destinatario *",
-      invoiceWarning1: "En caso de faltar los datos solicitados, deberemos utilizar el código destinatario alternativo “0000000”; las facturas estarán disponibles en la sección correspondiente del sitio de la Agencia Tributaria italiana.",
+      taxCodeRequired: "Código fiscal",
+      vatRequired: "Número IVA",
+      uniqueCodeRequired: "Código SDI / código destinatario",
+      italianCompaniesOnly: "(solo empresas italianas)",
+      invoiceWarning1: "Para empresas italianas, en ausencia del código SDI / código destinatario, deberemos utilizar el código alternativo “0000000”; las facturas estarán disponibles en la sección correspondiente del sitio de la Agencia Tributaria italiana.",
+      invoiceWarningForeign: "Para empresas extranjeras, el número IVA, el código fiscal y el código SDI no son obligatorios. Por favor, complete correctamente Razón social, Dirección, Ciudad y Código postal.",
       invoiceWarning2: "La comunicación de datos erróneos supondrá un cargo de €6.00 por la emisión de nuevos documentos.",
       ourToursTitle: "Nuestros tours",
-      imageFallbackNote: "Si la imagen no está disponible en el idioma elegido, se mostrará la versión en inglés.",
       touristInfoTitle: "Información turística",
       touristInfoIntro: "Consulte mapas turísticos, conexiones de autobús, horarios de tren y el programa Arena Opera Festival 2026.",
       usefulInfo: "Información útil",
