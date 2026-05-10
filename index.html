@@ -215,6 +215,16 @@
       box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
     }
 
+    .news-event-image {
+      width: 100%;
+      display: block;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 10px;
+      border: 2px solid #b88b6a;
+      box-shadow: 0 8px 22px rgba(60, 40, 25, 0.18);
+    }
+
     .fiera-banner {
       width: 100%;
       display: block;
@@ -1151,30 +1161,10 @@
 
         <div class="box-style">
           <img
-            class="news-banner"
-            src="10000026-new_logo-02e7f959d92a7c7e.png"
-            alt="SAMOTER 2026 Verona"
+            class="news-event-image"
+            src="Maratona_5_30.png"
+            alt="5.30 Verona - The Secret Ingredient"
           >
-
-          <div class="news-info-card">
-            <h3 data-i18n="samoterTitle"></h3>
-
-            <p data-i18n="samoterIntro"></p>
-
-            <div class="news-line-box">
-              <strong data-i18n="samoterLineC"></strong>
-              <p data-i18n="samoterLineCText"></p>
-              <p data-i18n="samoterLineCFrequency"></p>
-              <p data-i18n="samoterLastRide"></p>
-            </div>
-
-            <div class="news-line-box">
-              <strong data-i18n="samoterLineG"></strong>
-              <p data-i18n="samoterLineGText"></p>
-              <p data-i18n="samoterLineGFrequency"></p>
-              <p data-i18n="samoterLastRide"></p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -1843,6 +1833,8 @@
         busVeronaGardaText: "Consulta o scarica gli orari degli autobus da Verona verso il Lago di Garda.",
         bus026: "Orari autobus linea 026 Verona - Brescia",
         bus026Text: "Consulta o scarica gli orari della linea autobus 026 Verona - Brescia.",
+        gardaBoatsTitle: "Orari battelli Lago di Garda",
+        gardaBoatsText: "Consulta o scarica gli orari dei battelli del Lago di Garda.",
         trainTitle: "Orario treni",
         trainWidgetTitle: "Consulta gli orari dei treni",
         trainWidgetText: "Apri il sito ufficiale Trenitalia per cercare partenze, arrivi, coincidenze e acquistare biglietti.",
@@ -2003,6 +1995,8 @@
         busVeronaGardaText: "Consult or download the bus timetable from Verona to Lake Garda.",
         bus026: "Bus timetable line 026 Verona - Brescia",
         bus026Text: "Consult or download the timetable for bus line 026 Verona - Brescia.",
+        gardaBoatsTitle: "Lake Garda boat timetables",
+        gardaBoatsText: "Consult or download the Lake Garda boat timetables.",
         trainTitle: "Train timetable",
         trainWidgetTitle: "Check train timetables",
         trainWidgetText: "Open the official Trenitalia website to search for departures, arrivals, connections and buy tickets.",
@@ -2164,6 +2158,8 @@
       busVeronaGardaText: "Konsultieren oder laden Sie den Busfahrplan von Verona zum Gardasee herunter.",
       bus026: "Busfahrplan Linie 026 Verona - Brescia",
       bus026Text: "Konsultieren oder laden Sie den Fahrplan der Buslinie 026 Verona - Brescia herunter.",
+      gardaBoatsTitle: "Fahrplan der Schiffe auf dem Gardasee",
+      gardaBoatsText: "Konsultieren oder laden Sie den Fahrplan der Schiffe auf dem Gardasee herunter.",
       trainTitle: "Zugfahrplan",
       trainWidgetTitle: "Zugfahrpläne prüfen",
       trainWidgetText: "Öffnen Sie die offizielle Trenitalia-Website, um Abfahrten, Ankünfte, Verbindungen zu suchen und Tickets zu kaufen.",
@@ -2324,6 +2320,8 @@
       busVeronaGardaText: "Consultez ou téléchargez les horaires des bus de Vérone vers le Lac de Garde.",
       bus026: "Horaires bus ligne 026 Vérone - Brescia",
       bus026Text: "Consultez ou téléchargez les horaires de la ligne bus 026 Vérone - Brescia.",
+      gardaBoatsTitle: "Horaires des bateaux du Lac de Garde",
+      gardaBoatsText: "Consultez ou téléchargez les horaires des bateaux du Lac de Garde.",
       trainTitle: "Horaires trains",
       trainWidgetTitle: "Consulter les horaires des trains",
       trainWidgetText: "Ouvrez le site officiel Trenitalia pour rechercher départs, arrivées, correspondances et acheter des billets.",
@@ -2484,6 +2482,8 @@
       busVeronaGardaText: "Consulte o descargue los horarios de autobús de Verona al Lago de Garda.",
       bus026: "Horario autobús línea 026 Verona - Brescia",
       bus026Text: "Consulte o descargue el horario de la línea de autobús 026 Verona - Brescia.",
+      gardaBoatsTitle: "Horarios de barcos del Lago de Garda",
+      gardaBoatsText: "Consulte o descargue los horarios de los barcos del Lago de Garda.",
       trainTitle: "Horario trenes",
       trainWidgetTitle: "Consultar horarios de tren",
       trainWidgetText: "Abra el sitio oficial de Trenitalia para buscar salidas, llegadas, conexiones y comprar billetes.",
@@ -2745,6 +2745,15 @@
               '<div class="pdf-buttons">' +
                 '<a class="pdf-button" href="Bus_linea_026_Verona_Brescia.pdf" target="_blank">' + getText("openPdf") + '</a>' +
                 '<a class="pdf-button" href="Bus_linea_026_Verona_Brescia.pdf" download>' + getText("downloadPdf") + '</a>' +
+              '</div>' +
+            '</div>' +
+
+            '<div class="popup-card">' +
+              '<h4>' + getText("gardaBoatsTitle") + '</h4>' +
+              '<p>' + getText("gardaBoatsText") + '</p>' +
+              '<div class="pdf-buttons">' +
+                '<a class="pdf-button" href="Orari_Battelli_Lago_di_Garda_Estate_2026.pdf" target="_blank">' + getText("openPdf") + '</a>' +
+                '<a class="pdf-button" href="Orari_Battelli_Lago_di_Garda_Estate_2026.pdf" download>' + getText("downloadPdf") + '</a>' +
               '</div>' +
             '</div>';
         } else {
